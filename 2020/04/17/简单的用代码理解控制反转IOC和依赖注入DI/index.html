@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">773</span>
+            <span class="post-count">774</span>
         </span>
     </span>
 
@@ -130,12 +130,13 @@
 </ul>
 <h2 id="依赖注入的方式DI（Dependency-Injection）"><a href="#依赖注入的方式DI（Dependency-Injection）" class="headerlink" title="依赖注入的方式DI（Dependency Injection）"></a>依赖注入的方式DI（Dependency Injection）</h2><ul>
 <li>依赖注入是实现控制反转的方式之一。</li>
-<li>看一下修改后的person类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>看一下修改后的person类  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>现在的Person类已经不自己实例化车的对象了，而是通过构造函数来获得车的对象，所以，这个类就可以开各种车了，只要这个车实现了Car接口就可以。看一下如何使用Person类</p>
 </blockquote>
-</li>
-</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Person person=<span class="keyword">new</span> Person(<span class="keyword">new</span> Benz());</span><br><span class="line">  person.driveCar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>现在的Person类可以开不止一种车，只要你通过构造函数传递进来。在这个例子中，Car对象就是Person类的依赖，当我们实例化Person类时，将一个Car的实例传递给Person类，就是依赖注入，我们的Person类从而实现了控制反转。<br>控制反转到底反转了什么？有种说法是这样的：所谓控制反转，反转的是获取对象依赖的过程。控制权反转后，获取依赖对象的过程由自身管理变为由IOC容器注入。</p>
