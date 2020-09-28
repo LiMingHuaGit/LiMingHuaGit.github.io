@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+
+<html lang="ch">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="life" />
+   
+  <meta name="description" content="blog for LiMingHua" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    jdk1.8_时间类 |  岛
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-jdk1-8-时间类" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  jdk1.8_时间类
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/09/26/jdk1-8-%E6%97%B6%E9%97%B4%E7%B1%BB/" class="article-date">
+  <time datetime="2020-09-26T07:59:29.000Z" itemprop="datePublished">2020-09-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="java-time"><a href="#java-time" class="headerlink" title="java.time"></a>java.time</h1><h2 id="LocalDate-年月日"><a href="#LocalDate-年月日" class="headerlink" title="LocalDate(年月日)"></a>LocalDate(年月日)</h2><blockquote>
+<p>本地日期和时间</p>
+</blockquote>
+<h3 id="1-最值"><a href="#1-最值" class="headerlink" title="1. 最值"></a>1. 最值</h3><blockquote>
+<p>最大支持 +999999999-12-31 最小支持-999999999-01-01</p>
+</blockquote>
+<h3 id="2-比较方法"><a href="#2-比较方法" class="headerlink" title="2. 比较方法"></a>2. 比较方法</h3><p><img src="1.jpg" alt=""></p>
+<blockquote>
+<p>equals </p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line">LocalDate tomorrow = today.plus(<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line">LocalDate yesterday = tomorrow.minusDays(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">if</span>(today.equals(tomorrow.minusDays(<span class="number">1</span>))) &#123;</span><br><span class="line">    System.out.println(<span class="string">"true"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"false"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-now-方法"><a href="#3-now-方法" class="headerlink" title="3. now()方法"></a>3. now()方法</h3><blockquote>
+<p>获取当前时间，无参时为当前系统默认时区，参数为时区id </p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Obtains the current date from the system clock in the specified time-zone.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * This will query the &#123;<span class="doctag">@link</span> Clock#system(ZoneId) system clock&#125; to obtain the current date.</span></span><br><span class="line"><span class="comment"> * Specifying the time-zone avoids dependence on the default time-zone.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * Using this method will prevent the ability to use an alternate clock for testing</span></span><br><span class="line"><span class="comment"> * because the clock is hard-coded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> zone  the zone ID to use, not null</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the current date using the system clock, not null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LocalDate <span class="title">now</span><span class="params">(ZoneId zone)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> now(Clock.system(zone));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Obtains the current date from the system clock in the default time-zone.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * This will query the &#123;<span class="doctag">@link</span> Clock#systemDefaultZone() system clock&#125; in the default</span></span><br><span class="line"><span class="comment"> * time-zone to obtain the current date.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * Using this method will prevent the ability to use an alternate clock for testing</span></span><br><span class="line"><span class="comment"> * because the clock is hard-coded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the current date using the system clock and default time-zone, not null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LocalDate <span class="title">now</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> now(Clock.systemDefaultZone()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-plus-方法"><a href="#4-plus-方法" class="headerlink" title="4. plus()方法"></a>4. plus()方法</h3><blockquote>
+<p>public LocalDate plus(long amountToAdd, TemporalUnit unit)  amountToAdd 要增加的总数 ；unit 时间单位 详见 ChronoUnit(TemporalUnit的实现类)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line">LocalDate tomorrow = today.plus(<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line"></span><br><span class="line"><span class="comment">//plusYears(long yearsToAdd)\plusMonths(long monthsToAdd)\plusWeeks(long weeksToAdd)\plusDays(long daysToAdd)</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-minus-方法"><a href="#5-minus-方法" class="headerlink" title="5. minus()方法"></a>5. minus()方法</h3><blockquote>
+<p>public LocalDate minus(long amountToSubtract, TemporalUnit unit)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line">LocalDate tomorrow = today.minus(<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line"></span><br><span class="line"><span class="comment">//minusYears(long yearsToSubtract)\minusMonths(long monthsToSubtract)\minusWeeks(long weeksToSubtract)\minusDays(long daysToSubtract)</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-of-方法、getDayOfWeek-方法"><a href="#6-of-方法、getDayOfWeek-方法" class="headerlink" title="6. of()方法、getDayOfWeek()方法"></a>6. of()方法、getDayOfWeek()方法</h3><blockquote>
+<p>LocalDate of(int year, Month month, int dayOfMonth)/LocalDate of(int year, int month, int dayOfMonth)<br>LocalDate.getDayOfWeek() 判断传入日期是一周中的第几天  return DayOfWeek对象</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDate independenceDay = LocalDate.of(<span class="number">2014</span>, Month.JULY, <span class="number">4</span>);</span><br><span class="line">DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();</span><br><span class="line">System.out.println(dayOfWeek);<span class="comment">//FRIDAY</span></span><br><span class="line">System.out.println(dayOfWeek.getValue());<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-DateTimeFormatter"><a href="#7-DateTimeFormatter" class="headerlink" title="7. DateTimeFormatter"></a>7. DateTimeFormatter</h3><blockquote>
+<p>格式化时间，线程安全，类内创建一次可复用</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实例化 不指定时区</span></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd HH:mm"</span>);</span><br><span class="line"><span class="comment">//实例化 指定时区</span></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"E, yyyy-MMMM-dd HH:mm"</span>, Locale.US);</span><br><span class="line"></span><br><span class="line">ZonedDateTime zdt = ZonedDateTime.now();</span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd'T'HH:mm ZZZZ"</span>);</span><br><span class="line">System.out.println(formatter.format(zdt));<span class="comment">//2020-09-28T11:55 GMT+08:00</span></span><br><span class="line"></span><br><span class="line">DateTimeFormatter zhFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy MMM dd EE HH:mm"</span>, Locale.CHINA);</span><br><span class="line">System.out.println(zhFormatter.format(zdt));<span class="comment">//2020 九月 28 星期一 11:55</span></span><br><span class="line"></span><br><span class="line">DateTimeFormatter usFormatter = DateTimeFormatter.ofPattern(<span class="string">"E, MMMM/dd/yyyy HH:mm"</span>, Locale.US);</span><br><span class="line">System.out.println(usFormatter.format(zdt));<span class="comment">//Mon, September/28/2020 11:55</span></span><br><span class="line"></span><br><span class="line">System.out.println(DateTimeFormatter.ISO_DATE_TIME.format(zdt));<span class="comment">//2020-09-28T11:55:39.209+08:00[Asia/Shanghai]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>保留字母定义</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">* All letters <span class="string">'A'</span> to <span class="string">'Z'</span> and <span class="string">'a'</span> to <span class="string">'z'</span> are reserved as pattern letters. The</span><br><span class="line">* following pattern letters are defined:</span><br><span class="line">* &lt;pre&gt;</span><br><span class="line">*  Symbol  Meaning                     Presentation      Examples</span><br><span class="line">*  ------  -------                     ------------      -------</span><br><span class="line">*   G       era                         text              AD; Anno Domini; A</span><br><span class="line">*   u       year                        year              <span class="number">2004</span>; <span class="number">04</span></span><br><span class="line">*   y       year-of-era                 year              <span class="number">2004</span>; <span class="number">04</span></span><br><span class="line">*   D       day-of-year                 number            <span class="number">189</span></span><br><span class="line">*   M/L     month-of-year               number/text       <span class="number">7</span>; <span class="number">07</span>; Jul; July; J</span><br><span class="line">*   d       day-of-month                number            <span class="number">10</span></span><br><span class="line">*</span><br><span class="line">*   Q/q     quarter-of-year             number/text       <span class="number">3</span>; <span class="number">03</span>; Q3; <span class="number">3</span>rd quarter</span><br><span class="line">*   Y       week-based-year             year              <span class="number">1996</span>; <span class="number">96</span></span><br><span class="line">*   w       week-of-week-based-year     number            <span class="number">27</span></span><br><span class="line">*   W       week-of-month               number            <span class="number">4</span></span><br><span class="line">*   E       day-of-week                 text              Tue; Tuesday; T</span><br><span class="line">*   e/c     localized day-of-week       number/text       <span class="number">2</span>; <span class="number">02</span>; Tue; Tuesday; T</span><br><span class="line">*   F       week-of-month               number            <span class="number">3</span></span><br><span class="line">*</span><br><span class="line">*   a       am-pm-of-day                text              PM</span><br><span class="line">*   h       clock-hour-of-am-pm (<span class="number">1</span>-<span class="number">12</span>)  number            <span class="number">12</span></span><br><span class="line">*   K       hour-of-am-pm (<span class="number">0</span>-<span class="number">11</span>)        number            <span class="number">0</span></span><br><span class="line">*   k       clock-hour-of-am-pm (<span class="number">1</span>-<span class="number">24</span>)  number            <span class="number">0</span></span><br><span class="line">*</span><br><span class="line">*   H       hour-of-day (<span class="number">0</span>-<span class="number">23</span>)          number            <span class="number">0</span></span><br><span class="line">*   m       minute-of-hour              number            <span class="number">30</span></span><br><span class="line">*   s       second-of-minute            number            <span class="number">55</span></span><br><span class="line">*   S       fraction-of-second          fraction          <span class="number">978</span></span><br><span class="line">*   A       milli-of-day                number            <span class="number">1234</span></span><br><span class="line">*   n       nano-of-second              number            <span class="number">987654321</span></span><br><span class="line">*   N       nano-of-day                 number            <span class="number">1234000000</span></span><br><span class="line">*</span><br><span class="line">*   V       time-zone ID                zone-id           America/Los_Angeles; Z; -<span class="number">08</span>:<span class="number">30</span></span><br><span class="line">*   z       time-zone name              zone-name         Pacific Standard Time; PST</span><br><span class="line">*   O       localized zone-offset       offset-O          GMT+<span class="number">8</span>; GMT+<span class="number">08</span>:<span class="number">00</span>; UTC-<span class="number">08</span>:<span class="number">00</span>;</span><br><span class="line">*   X       zone-offset <span class="string">'Z'</span> <span class="keyword">for</span> zero    offset-X          Z; -<span class="number">08</span>; -<span class="number">0830</span>; -<span class="number">08</span>:<span class="number">30</span>; -<span class="number">083015</span>; -<span class="number">08</span>:<span class="number">30</span>:<span class="number">15</span>;</span><br><span class="line">*   x       zone-offset                 offset-x          +<span class="number">0000</span>; -<span class="number">08</span>; -<span class="number">0830</span>; -<span class="number">08</span>:<span class="number">30</span>; -<span class="number">083015</span>; -<span class="number">08</span>:<span class="number">30</span>:<span class="number">15</span>;</span><br><span class="line">*   Z       zone-offset                 offset-Z          +<span class="number">0000</span>; -<span class="number">0800</span>; -<span class="number">08</span>:<span class="number">00</span>;</span><br><span class="line">*</span><br><span class="line">*   p       pad next                    pad modifier      <span class="number">1</span></span><br><span class="line">*</span><br><span class="line">*   <span class="string">'       escape for text             delimiter</span></span><br><span class="line"><span class="string">*   '</span><span class="string">'      single quote                literal           '</span></span><br><span class="line">*   [       optional section start</span><br><span class="line">*   ]       optional section end</span><br><span class="line">*   #       reserved for future use</span><br><span class="line">*   &#123;       reserved <span class="keyword">for</span> future use</span><br><span class="line">*   &#125;       reserved <span class="keyword">for</span> future use</span><br></pre></td></tr></table></figure>
+<h2 id="LocalDateTime-年月日时分秒"><a href="#LocalDateTime-年月日时分秒" class="headerlink" title="LocalDateTime(年月日时分秒)"></a>LocalDateTime(年月日时分秒)</h2><blockquote>
+<p>本地日期和时间</p>
+</blockquote>
+<h3 id="1-常用方法案例"><a href="#1-常用方法案例" class="headerlink" title="1. 常用方法案例"></a>1. 常用方法案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.of(<span class="number">2014</span>, Month.DECEMBER, <span class="number">31</span>, <span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>);</span><br><span class="line"></span><br><span class="line">DayOfWeek dayOfWeek = ldt.getDayOfWeek();</span><br><span class="line">System.out.println(dayOfWeek);      <span class="comment">// WEDNESDAY</span></span><br><span class="line"></span><br><span class="line">Month month = ldt.getMonth();</span><br><span class="line">System.out.println(month);          <span class="comment">// DECEMBER</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> minuteOfDay = ldt.getLong(ChronoField.MINUTE_OF_DAY);</span><br><span class="line">System.out.println(minuteOfDay);    <span class="comment">// 23*60+59=1439</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> dayOfWeekLong = ldt.getLong(ChronoField.DAY_OF_WEEK);</span><br><span class="line">System.out.println(dayOfWeekLong);    <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">LocalDateTime parsed = LocalDateTime.parse(<span class="string">"2016-12-01 23:59:59"</span>, formatter);</span><br><span class="line">String string = parsed.format(formatter);</span><br><span class="line">System.out.println(string);     <span class="comment">// 2016-12-01 23:59:59</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-Instant时间戳"><a href="#2-Instant时间戳" class="headerlink" title="2. Instant时间戳"></a>2. Instant时间戳</h3><blockquote>
+<p>在java.util.Date类与LocalDate、LocalDateTime类之间转换中 均可以通过Instant作为中间类完成转换</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.of(<span class="number">2014</span>, Month.DECEMBER, <span class="number">31</span>, <span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>);</span><br><span class="line"><span class="comment">//获取当前默认时区下ldt转换成的时间戳</span></span><br><span class="line">      Instant instant = ldt.atZone(ZoneId.systemDefault()).toInstant();</span><br><span class="line"></span><br><span class="line">      Date legacyDate = Date.from(instant);</span><br><span class="line">      System.out.println(legacyDate);     <span class="comment">// Wed Dec 31 23:59:59 CET 2014</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="LocalTime-时分秒"><a href="#LocalTime-时分秒" class="headerlink" title="LocalTime(时分秒)"></a>LocalTime(时分秒)</h2><blockquote>
+<p>本地日期和时间</p>
+</blockquote>
+<h3 id="1-Clock"><a href="#1-Clock" class="headerlink" title="1. Clock"></a>1. Clock</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Clock clock = Clock.systemDefaultZone();</span><br><span class="line"><span class="comment">//返回1970-01-01T00:00Z (UTC)至今的毫秒数，即按毫秒单位的unix时间戳</span></span><br><span class="line"><span class="keyword">long</span> t0 = clock.millis();</span><br><span class="line">System.out.println(t0);</span><br><span class="line"></span><br><span class="line">Instant instant = clock.instant();</span><br><span class="line">Date legacyDate = Date.from(instant);</span><br><span class="line">System.out.println(legacyDate);</span><br></pre></td></tr></table></figure>
+<h3 id="2-ZoneId-getRules-isBefore"><a href="#2-ZoneId-getRules-isBefore" class="headerlink" title="2. ZoneId.getRules(),isBefore()"></a>2. ZoneId.getRules(),isBefore()</h3><blockquote>
+<p>getRules 当前默认时区与指定时区间的转换公式<br>isBefore 当前时间是否在指定时间之前<br>ChronoUnit.between 按指定时间单位计算俩时间的差</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">ZoneId zone1 = ZoneId.of(<span class="string">"Europe/Berlin"</span>);</span><br><span class="line">ZoneId zone2 = ZoneId.of(<span class="string">"Brazil/East"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(zone1.getRules());<span class="comment">//ZoneRules[currentStandardOffset=+01:00]</span></span><br><span class="line">System.out.println(zone2.getRules());<span class="comment">//ZoneRules[currentStandardOffset=-03:00]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// time</span></span><br><span class="line">LocalTime now1 = LocalTime.now(zone1);<span class="comment">//10:17:39.043</span></span><br><span class="line">LocalTime now2 = LocalTime.now(zone2);<span class="comment">//05:17:39.050</span></span><br><span class="line"></span><br><span class="line">System.out.println(now1);</span><br><span class="line">System.out.println(now2);</span><br><span class="line"></span><br><span class="line">System.out.println(now1.isBefore(now2));  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> hoursBetween = ChronoUnit.HOURS.between(now1, now2);</span><br><span class="line"><span class="keyword">long</span> minutesBetween = ChronoUnit.MINUTES.between(now1, now2);</span><br><span class="line">System.out.println(hoursBetween);<span class="comment">//-4</span></span><br><span class="line">System.out.println(minutesBetween);<span class="comment">//-299</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// create time</span></span><br><span class="line"></span><br><span class="line">LocalTime now = LocalTime.now();</span><br><span class="line">System.out.println(now);<span class="comment">//16:17:39.052</span></span><br><span class="line"></span><br><span class="line">LocalTime late = LocalTime.of(<span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>);</span><br><span class="line">System.out.println(late);<span class="comment">//23:59:59</span></span><br><span class="line">DateTimeFormatter germanFormatter =</span><br><span class="line">                DateTimeFormatter</span><br><span class="line">                        .ofLocalizedTime(FormatStyle.SHORT)</span><br><span class="line">                        .withLocale(Locale.GERMAN);</span><br><span class="line"></span><br><span class="line">LocalTime formateTime = LocalTime.parse(<span class="string">"13:37"</span>, germanFormatter);</span><br><span class="line">System.out.println(formateTime);<span class="comment">//13:37</span></span><br></pre></td></tr></table></figure>
+<h2 id="ZonedDateTime"><a href="#ZonedDateTime" class="headerlink" title="ZonedDateTime"></a>ZonedDateTime</h2><blockquote>
+<p>带时区的日期和时间(ISO-8601)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime  zonedDateTime = ZonedDateTime.now();</span><br><span class="line">System.out.println(zonedDateTime);<span class="comment">//2020-09-28T17:19:44.836+08:00[Asia/Shanghai]</span></span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/09/26/jdk1-8-%E6%97%B6%E9%97%B4%E7%B1%BB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jkd1-8/" rel="tag">jkd1.8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E7%B1%BB/" rel="tag">时间类</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/09/24/jdk1-8-lambda/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">jdk1.8_lambda</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '3ca37UwilGw72aqkh37fe6U5-gzGzoHsz',
+        app_key: 'owV6K1tLvndEdJMFJ3prXXDV',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> 李明华
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/04/17/aboutMe/">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wepay.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=480654&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>
