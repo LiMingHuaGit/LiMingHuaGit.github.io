@@ -17,24 +17,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>jdk1.8_Optional</title>
     <url>/2020/09/29/jdk1-8-Optional/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
@@ -67,49 +49,6 @@
       <tags>
         <tag>jkd1.8</tag>
         <tag>Optional</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jdk1.8_lambda</title>
-    <url>/2020/09/24/jdk1-8-lambda/</url>
-    <content><![CDATA[<blockquote>
-<p>参考Haskell-函数式编程</p>
-</blockquote>
-<h1 id="核心功能性函数接口（有且只有一个抽象方法的接口）"><a href="#核心功能性函数接口（有且只有一个抽象方法的接口）" class="headerlink" title="核心功能性函数接口（有且只有一个抽象方法的接口）"></a>核心功能性函数接口（有且只有一个抽象方法的接口）</h1><ul>
-<li>Consumer<T> :消费型接口    void acept(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//消费型接口Consumer，输入一个参数，对其进行打印输出</span></span><br><span class="line"> Consumer&lt;String&gt; consumer = (x) -&gt; System.out.println(x);</span><br><span class="line"> <span class="comment">//打印字符串</span></span><br><span class="line"> consumer.accept(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>Supplier<T> :供给型接口    T get();<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//供给型接口Supplier，返回指定字符串</span></span><br><span class="line">Supplier&lt;String&gt; supplier = () -&gt; <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="comment">//获取字符串</span></span><br><span class="line">supplier.get();</span><br></pre></td></tr></table></figure></li>
-<li>Function&lt;T,R&gt; :函数型接口 R apply(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Function&lt;String, Integer&gt; function = (x) -&gt; x.length();</span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line">function.apply(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>Predicate<T> :断言型接口 boolean test(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//断言型接口Predicate，输入数字，判断是否大于0</span></span><br><span class="line">Predicate&lt;Integer&gt; predicate = (x) -&gt; x &gt; <span class="number">0</span>;</span><br><span class="line"><span class="comment">//获取判断结果</span></span><br><span class="line">predicate.test(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1-Iterable-forEach-Consumer-lt-super-T-gt-action"><a href="#1-Iterable-forEach-Consumer-lt-super-T-gt-action" class="headerlink" title="1.Iterable.forEach(Consumer&lt;? super T&gt; action)"></a>1.Iterable.forEach(Consumer&lt;? super T&gt; action)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; soutList = Arrays.asList(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">soutList.forEach(out-&gt; System.out.println(out));</span><br><span class="line">soutList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Page p = <span class="keyword">new</span> Page(<span class="string">"content"</span>);</span><br><span class="line">Page p = Page.<span class="keyword">new</span>(<span class="string">"content"</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Page&gt; <span class="title">createPagesFrom</span><span class="params">(Stream&lt;String&gt;; contents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> contents.map(Page::<span class="keyword">new</span>).</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <img src="1.jpg" alt="Iterable接口"><br> <img src="2.jpg" alt="forEach方法"></p>
-<h3 id="1-Iterable接口允许一个对象成为forEach的目标"><a href="#1-Iterable接口允许一个对象成为forEach的目标" class="headerlink" title="1). Iterable接口允许一个对象成为forEach的目标"></a>1). Iterable接口允许一个对象成为forEach的目标</h3><h3 id="2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"><a href="#2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作" class="headerlink" title="2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"></a>2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作</h3><h3 id="3-接口中的默认方法可以不被实现类实现"><a href="#3-接口中的默认方法可以不被实现类实现" class="headerlink" title="3). 接口中的默认方法可以不被实现类实现"></a>3). 接口中的默认方法可以不被实现类实现</h3><h3 id="4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"><a href="#4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用" class="headerlink" title="4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"></a>4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用</h3><h3 id="5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法"><a href="#5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法" class="headerlink" title="5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法"></a>5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法</h3><h2 id="2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList"><a href="#2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList" class="headerlink" title="2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()"></a>2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Complete this for Exercise_2_Test#getAllPersonsEligibleToVote</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">* 根据给定年龄返回给定选民集合中合法年龄的选民集合</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> potentialVoters - voters to filter</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> legalAgeOfVoting - age where it's legal to vote</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> a list of eligible voters</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Person&gt; <span class="title">eligibleVoters</span><span class="params">(List&lt;Person&gt; potentialVoters, <span class="keyword">int</span> legalAgeOfVoting)</span> </span>&#123;</span><br><span class="line">      Stream&lt;Person&gt; personStream = potentialVoters.stream().filter(</span><br><span class="line">              person -&gt; person.getAge()&gt;=legalAgeOfVoting</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> personStream.collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-Collection-stream-返回一个Stream序列"><a href="#1-Collection-stream-返回一个Stream序列" class="headerlink" title="1). Collection#stream() 返回一个Stream序列"></a>1). Collection#stream() 返回一个Stream序列</h3><h3 id="2-Stream-流"><a href="#2-Stream-流" class="headerlink" title="2). Stream 流"></a>2). Stream 流</h3><pre><code>- A sequence of elements supporting sequential and parallel aggregate operations
-- 支撑顺序和并行聚合操作元素的序列
-- lazy： computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed.
-- 惰式执行：即仅在终端操作启动时才执行对源数据的计算，并且仅在需要时使用源元素。
-- 在对流进行“操作”（类似查询和过滤）时，这些行为应该是无干扰（不修改流的数据源）且无状态（其结果不依赖于流管道执行过程中可能改变的任何状态）的
-- 消费性质，只使用一次，不可以被重用</code></pre><h3 id="3-Stream-filter-Predicate-对流进行过滤-中间操作"><a href="#3-Stream-filter-Predicate-对流进行过滤-中间操作" class="headerlink" title="3). Stream#filter(Predicate)  对流进行过滤 中间操作"></a>3). Stream#filter(Predicate)  对流进行过滤 中间操作</h3><h3 id="4-Predicate-断言功能性函数接口，返回Boolean值-见上文"><a href="#4-Predicate-断言功能性函数接口，返回Boolean值-见上文" class="headerlink" title="4). Predicate 断言功能性函数接口，返回Boolean值 见上文"></a>4). Predicate 断言功能性函数接口，返回Boolean值 见上文</h3><h3 id="5-Stream-collect"><a href="#5-Stream-collect" class="headerlink" title="5). Stream.collect()"></a>5). Stream.collect()</h3><pre><code>- 返回一个结果容器 
-- &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)
-- &lt;R&gt; 结果的类型
-- &lt;A&gt; Collector的积累类型</code></pre><h3 id="6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作"><a href="#6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作" class="headerlink" title="6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作"></a>6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作</h3><pre><code>- public interface Collector&lt;T, A, R&gt;
-- &lt;T&gt;  输入元素的类型
-- &lt;A&gt;  还原运算的可变累积型（通常隐藏作为一个实现细节）
-- &lt;R&gt;  还原运算的结果类</code></pre><h3 id="7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中"><a href="#7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中" class="headerlink" title="7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中"></a>7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中</h3><pre><code>- public static &lt;T&gt; Collector&lt;T, ?, List&lt;T&gt;&gt; toList()
-- &lt;T&gt;  输入元素的类型</code></pre><h2 id="3-Stream-map-Function"><a href="#3-Stream-map-Function" class="headerlink" title="3.Stream#map(Function)"></a>3.Stream#map(Function)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Apply a mapping of Books to titles (Strings)</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 将书籍的标题映射到一个新的List&lt;String&gt;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> books - books to transform</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> list of book titles</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">titlesOf</span><span class="params">(List&lt;Book&gt; books)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> books.stream().map(Book::getTitle).collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-Stream-map-Function"><a href="#1-Stream-map-Function" class="headerlink" title="1). Stream#map(Function)"></a>1). Stream#map(Function)</h3><pre><code>- 返回指定类型的流 中间操作
-- Function 函数型功能接口 见上文
-- java.util.stream.Stream&lt;T&gt; &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
-- &lt;? super T&gt;/&lt;? extends T&gt; &lt;? super T&gt;表示包括T在内的任何T的父类，&lt;? extends T&gt;表示包括T在内的任何T的子类</code></pre>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>jkd1.8</tag>
-        <tag>lambda</tag>
       </tags>
   </entry>
   <entry>
@@ -158,6 +97,67 @@
         <tag>Java</tag>
         <tag>Spring</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>jdk1.8_lambda</title>
+    <url>/2020/09/24/jdk1-8-lambda/</url>
+    <content><![CDATA[<blockquote>
+<p>参考Haskell-函数式编程</p>
+</blockquote>
+<h1 id="核心功能性函数接口（有且只有一个抽象方法的接口）"><a href="#核心功能性函数接口（有且只有一个抽象方法的接口）" class="headerlink" title="核心功能性函数接口（有且只有一个抽象方法的接口）"></a>核心功能性函数接口（有且只有一个抽象方法的接口）</h1><ul>
+<li>Consumer<T> :消费型接口    void acept(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//消费型接口Consumer，输入一个参数，对其进行打印输出</span></span><br><span class="line"> Consumer&lt;String&gt; consumer = (x) -&gt; System.out.println(x);</span><br><span class="line"> <span class="comment">//打印字符串</span></span><br><span class="line"> consumer.accept(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>Supplier<T> :供给型接口    T get();<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//供给型接口Supplier，返回指定字符串</span></span><br><span class="line">Supplier&lt;String&gt; supplier = () -&gt; <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="comment">//获取字符串</span></span><br><span class="line">supplier.get();</span><br></pre></td></tr></table></figure></li>
+<li>Function&lt;T,R&gt; :函数型接口 R apply(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Function&lt;String, Integer&gt; function = (x) -&gt; x.length();</span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line">function.apply(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>Predicate<T> :断言型接口 boolean test(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//断言型接口Predicate，输入数字，判断是否大于0</span></span><br><span class="line">Predicate&lt;Integer&gt; predicate = (x) -&gt; x &gt; <span class="number">0</span>;</span><br><span class="line"><span class="comment">//获取判断结果</span></span><br><span class="line">predicate.test(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1-Iterable-forEach-Consumer-lt-super-T-gt-action"><a href="#1-Iterable-forEach-Consumer-lt-super-T-gt-action" class="headerlink" title="1.Iterable.forEach(Consumer&lt;? super T&gt; action)"></a>1.Iterable.forEach(Consumer&lt;? super T&gt; action)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; soutList = Arrays.asList(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">soutList.forEach(out-&gt; System.out.println(out));</span><br><span class="line">soutList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Page p = <span class="keyword">new</span> Page(<span class="string">"content"</span>);</span><br><span class="line">Page p = Page.<span class="keyword">new</span>(<span class="string">"content"</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Page&gt; <span class="title">createPagesFrom</span><span class="params">(Stream&lt;String&gt;; contents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> contents.map(Page::<span class="keyword">new</span>).</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <img src="1.jpg" alt="Iterable接口"><br> <img src="2.jpg" alt="forEach方法"></p>
+<h3 id="1-Iterable接口允许一个对象成为forEach的目标"><a href="#1-Iterable接口允许一个对象成为forEach的目标" class="headerlink" title="1). Iterable接口允许一个对象成为forEach的目标"></a>1). Iterable接口允许一个对象成为forEach的目标</h3><h3 id="2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"><a href="#2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作" class="headerlink" title="2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"></a>2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作</h3><h3 id="3-接口中的默认方法可以不被实现类实现"><a href="#3-接口中的默认方法可以不被实现类实现" class="headerlink" title="3). 接口中的默认方法可以不被实现类实现"></a>3). 接口中的默认方法可以不被实现类实现</h3><h3 id="4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"><a href="#4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用" class="headerlink" title="4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"></a>4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用</h3><h3 id="5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法"><a href="#5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法" class="headerlink" title="5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法"></a>5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法</h3><h2 id="2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList"><a href="#2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList" class="headerlink" title="2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()"></a>2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Complete this for Exercise_2_Test#getAllPersonsEligibleToVote</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">* 根据给定年龄返回给定选民集合中合法年龄的选民集合</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> potentialVoters - voters to filter</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> legalAgeOfVoting - age where it's legal to vote</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> a list of eligible voters</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Person&gt; <span class="title">eligibleVoters</span><span class="params">(List&lt;Person&gt; potentialVoters, <span class="keyword">int</span> legalAgeOfVoting)</span> </span>&#123;</span><br><span class="line">      Stream&lt;Person&gt; personStream = potentialVoters.stream().filter(</span><br><span class="line">              person -&gt; person.getAge()&gt;=legalAgeOfVoting</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> personStream.collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-Collection-stream-返回一个Stream序列"><a href="#1-Collection-stream-返回一个Stream序列" class="headerlink" title="1). Collection#stream() 返回一个Stream序列"></a>1). Collection#stream() 返回一个Stream序列</h3><h3 id="2-Stream-流"><a href="#2-Stream-流" class="headerlink" title="2). Stream 流"></a>2). Stream 流</h3><pre><code>- A sequence of elements supporting sequential and parallel aggregate operations
+- 支撑顺序和并行聚合操作元素的序列
+- lazy： computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed.
+- 惰式执行：即仅在终端操作启动时才执行对源数据的计算，并且仅在需要时使用源元素。
+- 在对流进行“操作”（类似查询和过滤）时，这些行为应该是无干扰（不修改流的数据源）且无状态（其结果不依赖于流管道执行过程中可能改变的任何状态）的
+- 消费性质，只使用一次，不可以被重用</code></pre><h3 id="3-Stream-filter-Predicate-对流进行过滤-中间操作"><a href="#3-Stream-filter-Predicate-对流进行过滤-中间操作" class="headerlink" title="3). Stream#filter(Predicate)  对流进行过滤 中间操作"></a>3). Stream#filter(Predicate)  对流进行过滤 中间操作</h3><h3 id="4-Predicate-断言功能性函数接口，返回Boolean值-见上文"><a href="#4-Predicate-断言功能性函数接口，返回Boolean值-见上文" class="headerlink" title="4). Predicate 断言功能性函数接口，返回Boolean值 见上文"></a>4). Predicate 断言功能性函数接口，返回Boolean值 见上文</h3><h3 id="5-Stream-collect"><a href="#5-Stream-collect" class="headerlink" title="5). Stream.collect()"></a>5). Stream.collect()</h3><pre><code>- 返回一个结果容器 
+- &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)
+- &lt;R&gt; 结果的类型
+- &lt;A&gt; Collector的积累类型</code></pre><h3 id="6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作"><a href="#6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作" class="headerlink" title="6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作"></a>6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作</h3><pre><code>- public interface Collector&lt;T, A, R&gt;
+- &lt;T&gt;  输入元素的类型
+- &lt;A&gt;  还原运算的可变累积型（通常隐藏作为一个实现细节）
+- &lt;R&gt;  还原运算的结果类</code></pre><h3 id="7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中"><a href="#7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中" class="headerlink" title="7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中"></a>7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中</h3><pre><code>- public static &lt;T&gt; Collector&lt;T, ?, List&lt;T&gt;&gt; toList()
+- &lt;T&gt;  输入元素的类型</code></pre><h2 id="3-Stream-map-Function"><a href="#3-Stream-map-Function" class="headerlink" title="3.Stream#map(Function)"></a>3.Stream#map(Function)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Apply a mapping of Books to titles (Strings)</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 将书籍的标题映射到一个新的List&lt;String&gt;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> books - books to transform</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> list of book titles</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">titlesOf</span><span class="params">(List&lt;Book&gt; books)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> books.stream().map(Book::getTitle).collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-Stream-map-Function"><a href="#1-Stream-map-Function" class="headerlink" title="1). Stream#map(Function)"></a>1). Stream#map(Function)</h3><pre><code>- 返回指定类型的流 中间操作
+- Function 函数型功能接口 见上文
+- java.util.stream.Stream&lt;T&gt; &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
+- &lt;? super T&gt;/&lt;? extends T&gt; &lt;? super T&gt;表示包括T在内的任何T的父类，&lt;? extends T&gt;表示包括T在内的任何T的子类</code></pre>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>jkd1.8</tag>
+        <tag>lambda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>jdk1.8_时间类</title>
@@ -226,6 +226,158 @@
       <tags>
         <tag>jkd1.8</tag>
         <tag>时间类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>钉钉数据对接说明</title>
+    <url>/2020/09/30/%E9%92%89%E9%92%89%E6%95%B0%E6%8D%AE%E5%AF%B9%E6%8E%A5%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<h1 id="API调用说明"><a href="#API调用说明" class="headerlink" title="API调用说明"></a>API调用说明</h1><blockquote>
+<p>钉钉服务端api文档 <a href="https://ding-doc.dingtalk.com/doc#/serverapi2/gh60vz" target="_blank" rel="noopener">https://ding-doc.dingtalk.com/doc#/serverapi2/gh60vz</a><br>钉钉api调试工具 <a href="https://open-dev.dingtalk.com/apiExplorer#/?devType=org&amp;api=/get_jsapi_ticket" target="_blank" rel="noopener">https://open-dev.dingtalk.com/apiExplorer#/?devType=org&amp;api=/get_jsapi_ticket</a></p>
+</blockquote>
+<h2 id="部门"><a href="#部门" class="headerlink" title="部门"></a>部门</h2><h3 id="获取部门信息"><a href="#获取部门信息" class="headerlink" title="获取部门信息"></a>获取部门信息</h3><ol>
+<li>获取部门ID列表<blockquote>
+<p><a href="https://oapi.dingtalk.com/department/list?access_token=ACCESS_TOKEN" target="_blank" rel="noopener">https://oapi.dingtalk.com/department/list?access_token=ACCESS_TOKEN</a></p>
+</blockquote>
+</li>
+<li>根据部门ID获取部门详情<blockquote>
+<p><a href="https://oapi.dingtalk.com/department/get?access_token=ACCESS_TOKEN&amp;id=123" target="_blank" rel="noopener">https://oapi.dingtalk.com/department/get?access_token=ACCESS_TOKEN&amp;id=123</a></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="关键字段说明"><a href="#关键字段说明" class="headerlink" title="关键字段说明"></a>关键字段说明</h4><ol>
+<li>department_id <blockquote>
+<p>部门id</p>
+</blockquote>
+</li>
+<li>department_name <blockquote>
+<p>部门名称</p>
+</blockquote>
+</li>
+<li>department_parent_id <blockquote>
+<p>父部门id，根部门为1</p>
+</blockquote>
+</li>
+<li>department_status <blockquote>
+<p>部门状态：(空值表示正常) 、CHANGED(改动过)、DELETED(部门取消)</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="部门表"><a href="#部门表" class="headerlink" title="部门表"></a>部门表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ding_department (</span><br><span class="line">  department_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  department_name <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  department_parent_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  department_status <span class="built_in">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (department_id)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_department.department_id <span class="keyword">IS</span> <span class="string">'部门id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_department.department_name <span class="keyword">IS</span> <span class="string">'部门名称'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_department.department_parent_id <span class="keyword">IS</span> <span class="string">'上级部门id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_department.department_status <span class="keyword">IS</span> <span class="string">'可用状态'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="员工"><a href="#员工" class="headerlink" title="员工"></a>员工</h2><h3 id="员工信息"><a href="#员工信息" class="headerlink" title="员工信息"></a>员工信息</h3><ol>
+<li>获取员工ID列表<blockquote>
+<p><a href="https://oapi.dingtalk.com/topapi/smartwork/hrm/employee/queryonjob?access_token=ACCESS_TOKEN" target="_blank" rel="noopener">https://oapi.dingtalk.com/topapi/smartwork/hrm/employee/queryonjob?access_token=ACCESS_TOKEN</a><br>参数说明:<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/rafx8t" target="_blank" rel="noopener">https://ding-doc.dingtalk.com/doc#/serverapi2/rafx8t</a></p>
+</blockquote>
+</li>
+<li>根据ID获得员工信息<blockquote>
+<p><a href="https://oapi.dingtalk.com/user/get?access_token=ACCESS_TOKEN&amp;userid=zhangsan" target="_blank" rel="noopener">https://oapi.dingtalk.com/user/get?access_token=ACCESS_TOKEN&amp;userid=zhangsan</a></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="关键字段说明-1"><a href="#关键字段说明-1" class="headerlink" title="关键字段说明"></a>关键字段说明</h4><ol>
+<li>employee_department_ids<blockquote>
+<p>用户所在部门id列表，注意，是列表。</p>
+</blockquote>
+</li>
+<li>employee_identity_card<blockquote>
+<p>身份证号</p>
+</blockquote>
+</li>
+<li>employee_status<blockquote>
+<p>员工状态：可用，禁用</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="员工表"><a href="#员工表" class="headerlink" title="员工表"></a>员工表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ding_employee (</span><br><span class="line">  employee_union_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  employee_name <span class="built_in">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  employee_department_ids <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  employee_identity_card <span class="built_in">VARCHAR2</span>(<span class="number">64</span>),</span><br><span class="line">  employee_status <span class="built_in">VARCHAR2</span>(<span class="number">64</span>),</span><br><span class="line">  employee_user_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (employee_union_id)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_union_id <span class="keyword">IS</span> <span class="string">'员工unionid'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_name <span class="keyword">IS</span> <span class="string">'员工姓名'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_department_ids <span class="keyword">IS</span> <span class="string">'员工部门名称'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_identity_card <span class="keyword">IS</span> <span class="string">'员工身份证号码'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_status <span class="keyword">IS</span> <span class="string">'员工状态：可用，禁用'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_employee.employee_user_id <span class="keyword">IS</span> <span class="string">'员工id'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><h3 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h3><ol>
+<li>获取流程模板process_code<blockquote>
+<p>process_code流程模板唯一标识，可在OA管理后台编辑审批表单部分的url中获取<br><img src="1.jpg" alt=""><br><img src="2.jpg" alt=""><br><img src="3.jpg" alt=""></p>
+</blockquote>
+</li>
+<li>根据process_code批量获取据当前时间120天之内的任意时间段审批实例ID列表<blockquote>
+<p><a href="https://ding-doc.dingtalk.com/doc#/serverapi2/hh8lx5" target="_blank" rel="noopener">https://ding-doc.dingtalk.com/doc#/serverapi2/hh8lx5</a></p>
+</blockquote>
+</li>
+<li>根据审批实例id获取审批实例详情<blockquote>
+<p><a href="https://ding-doc.dingtalk.com/doc#/serverapi2/xgqkvx" target="_blank" rel="noopener">https://ding-doc.dingtalk.com/doc#/serverapi2/xgqkvx</a> </p>
+</blockquote>
+</li>
+</ol>
+<h3 id="关键字段说明-2"><a href="#关键字段说明-2" class="headerlink" title="关键字段说明"></a>关键字段说明</h3><ol>
+<li>business_id<blockquote>
+<p>审批实例业务编号 一条审批流虽然会因为更新或撤销等操作新建审批流实例，但business_id仍保留一致</p>
+</blockquote>
+</li>
+<li>Attached_process_instance_ids<blockquote>
+<p>审批附属实例列表，当已经通过的审批实例被修改或重置，会生成一个新的实例，作为继承审批实例的附属。如果想知道当前已经通过的审批实例的状态，可以依次遍历它的附属列表，查询里面每个实例的biz_action</p>
+</blockquote>
+</li>
+<li>biz biz_action<blockquote>
+<p>审批实例业务动作，MODIFY表示该审批实例是基于原来的实例修改而来的，REVOKE表示该审批实例对原来的实例进行撤销，NONE表示正常发起</p>
+</blockquote>
+</li>
+<li>form_component_values<blockquote>
+<p>表单详情列表,流程中表单数据的集合</p>
+</blockquote>
+</li>
+<li>status<blockquote>
+<p>审批状态，分为NEW（新创造）RUNNING（运行中）终止（被终止）完成（完成）</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="重型员工请假流程表"><a href="#重型员工请假流程表" class="headerlink" title="重型员工请假流程表"></a>重型员工请假流程表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ding_leave_approval (</span><br><span class="line">  leave_id <span class="built_in">NUMBER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  leave_employee_user_id <span class="built_in">NUMBER</span>,</span><br><span class="line">  leave_start <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_end <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_duration <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_type <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_reason <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_title <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_result <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_status <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_business_id <span class="built_in">NUMBER</span>,</span><br><span class="line">  leave_attached_ids <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  leave_biz_action <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (leave_id)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_id <span class="keyword">IS</span> <span class="string">'请假id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_employee_user_id <span class="keyword">IS</span> <span class="string">'请假职员id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_start <span class="keyword">IS</span> <span class="string">'请假开始时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_end <span class="keyword">IS</span> <span class="string">'请假结束时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_duration <span class="keyword">IS</span> <span class="string">'请假时长'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_type <span class="keyword">IS</span> <span class="string">'请假类型'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_reason <span class="keyword">IS</span> <span class="string">'请假原因'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_title <span class="keyword">IS</span> <span class="string">'标题'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_result <span class="keyword">IS</span> <span class="string">'结果'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_status <span class="keyword">IS</span> <span class="string">'状态'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_business_id <span class="keyword">IS</span> <span class="string">'业务流程id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_attached_ids <span class="keyword">IS</span> <span class="string">'附属流程id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_leave_approval.leave_biz_action <span class="keyword">IS</span> <span class="string">'审批实例业务动作'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="考勤"><a href="#考勤" class="headerlink" title="考勤"></a>考勤</h2><ol>
+<li>根据用户ID列表获取180天内的考勤结果，一次最多50条<blockquote>
+<p><a href="https://oapi.dingtalk.com/attendance/list?access_token=ACCESS_TOKEN" target="_blank" rel="noopener">https://oapi.dingtalk.com/attendance/list?access_token=ACCESS_TOKEN</a></p>
+</blockquote>
+</li>
+<li>参数说明:<blockquote>
+<p><a href="https://ding-doc.dingtalk.com/doc#/serverapi2/ul33mm" target="_blank" rel="noopener">https://ding-doc.dingtalk.com/doc#/serverapi2/ul33mm</a></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="关键字段说明-3"><a href="#关键字段说明-3" class="headerlink" title="关键字段说明"></a>关键字段说明</h3><ol>
+<li>base_check_time<blockquote>
+<p>打卡基准时间</p>
+</blockquote>
+</li>
+<li>user_check_time<blockquote>
+<p>员工实际打卡时间</p>
+</blockquote>
+</li>
+<li>check_type<blockquote>
+<p>打卡类型-上下班</p>
+</blockquote>
+</li>
+<li>time_result<blockquote>
+<p>打卡的时间结果</p>
+</blockquote>
+</li>
+<li>locationResult<blockquote>
+<p>位置结果(范围外/范围内)</p>
+</blockquote>
+<h3 id="考勤表"><a href="#考勤表" class="headerlink" title="考勤表"></a>考勤表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ding_attendance (</span><br><span class="line">  attendance_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  attendance_employee_user_id <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  attendance_base_check_time <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  attendance_user_check_time <span class="built_in">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">  attendance_group_id <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  attendance_check_type <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  attendance_time_result <span class="built_in">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  attendance_location_result <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  attendance_work_date <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (attendance_id)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_id <span class="keyword">IS</span> <span class="string">'考勤id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_employee_user_id <span class="keyword">IS</span> <span class="string">'考勤员工id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_base_check_time <span class="keyword">IS</span> <span class="string">'打卡基准时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_user_check_time <span class="keyword">IS</span> <span class="string">'员工实际打卡时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_group_id <span class="keyword">IS</span> <span class="string">'考勤组id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_check_type <span class="keyword">IS</span> <span class="string">'打卡类型-上下班'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_time_result <span class="keyword">IS</span> <span class="string">'时间结果'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_location_result <span class="keyword">IS</span> <span class="string">'打卡范围结果'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> ding_attendance.attendance_work_date <span class="keyword">IS</span> <span class="string">'工作日'</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>钉钉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>首次收到打赏</title>
+    <url>/2020/09/30/%E9%A6%96%E6%AC%A1%E6%94%B6%E5%88%B0%E6%89%93%E8%B5%8F/</url>
+    <content><![CDATA[<h1 id="收到了来自师傅的打赏"><a href="#收到了来自师傅的打赏" class="headerlink" title="收到了来自师傅的打赏"></a>收到了来自师傅的打赏</h1><h2 id="有师傅真是太好了！-●’◡’●"><a href="#有师傅真是太好了！-●’◡’●" class="headerlink" title="有师傅真是太好了！(●’◡’●)"></a>有师傅真是太好了！(●’◡’●)</h2><p><img src="1.jpg" alt=""><br><img src="2.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>心情</tag>
       </tags>
   </entry>
 </search>
