@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    数据库JOIN |  岛
+    SQL连接符、表达式及函数 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-数据库JOIN" class="article article-type-post" itemscope
+  <article id="post-SQL连接符、表达式及函数" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据库JOIN
+  SQL连接符、表达式及函数
 </h1>
  
 
@@ -62,8 +62,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93JOIN/" class="article-date">
-  <time datetime="2020-10-21T07:04:55.000Z" itemprop="datePublished">2020-10-21</time>
+      <a href="/2020/10/29/SQL%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8A%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2020-10-29T02:34:16.000Z" itemprop="datePublished">2020-10-29</time>
 </a>
       
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">386</span>
+            <span class="post-count">720</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -111,348 +111,27 @@
       
 
       
-      <h1 id="JOIN关键字"><a href="#JOIN关键字" class="headerlink" title="JOIN关键字"></a>JOIN关键字</h1><pre><code class="sql"><span class="keyword">SELECT</span> <span class="keyword">column</span>
-<span class="keyword">FROM</span> join_table
-JOIN_TYPE join_table
-<span class="keyword">ON</span> (join_condition)</code></pre>
-<ol>
-<li>join_table指参与连接操作的表名</li>
-<li>column指查询的列</li>
-<li>JOIN_TYPE 指连接类型 </li>
-</ol>
-<h1 id="INNER-JOIN，内连接（等同连接）"><a href="#INNER-JOIN，内连接（等同连接）" class="headerlink" title="INNER JOIN，内连接（等同连接）"></a>INNER JOIN，内连接（等同连接）</h1><blockquote>
-<p><strong>返回结果集只返回满足ON字句中的搜索条件的数据，不满足则不显示。默认情况下，DBMS会将JOIN也认定为INNER JOIN</strong></p>
+      <h1 id="连接符"><a href="#连接符" class="headerlink" title="连接符"></a>连接符</h1><h2 id="连接符-1"><a href="#连接符-1" class="headerlink" title="+ 连接符"></a>+ 连接符</h2><blockquote>
+<p>连接表中数据类型相同或近似的列，若数据类型完全不同，则需通过CAST表达式进行类型转换，若其中一列为NULL则结果为NULL</p>
 </blockquote>
-<p><strong>表R</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-</tr>
-</tbody></table>
-<p><strong>表S</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><strong>执行R INNER JOIN S ON R.C = S.C</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-</tbody></table>
-<p> <img src="1.jpg" alt="交集。"></p>
-<h1 id="OUTER-JOIN，外连接"><a href="#OUTER-JOIN，外连接" class="headerlink" title="OUTER JOIN，外连接"></a>OUTER JOIN，外连接</h1><h2 id="LEFT-OUTER-JOIN-LEFT-JOIN-，左外连接"><a href="#LEFT-OUTER-JOIN-LEFT-JOIN-，左外连接" class="headerlink" title="LEFT OUTER JOIN(LEFT JOIN)，左外连接"></a>LEFT OUTER JOIN(LEFT JOIN)，左外连接</h2><blockquote>
-<p><strong>结果集返回匹配行加上左表的不匹配行</strong> </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	TOP <span class="number">3</span></span><br><span class="line">	new_country_idName + <span class="string">'--'</span> +new_city_idName <span class="keyword">AS</span> Adress,</span><br><span class="line">	<span class="keyword">Name</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	<span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
+<p><img src="1.jpg" alt=""></p>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="CAST表达式"><a href="#CAST表达式" class="headerlink" title="CAST表达式"></a>CAST表达式</h2><blockquote>
+<p>转换数据类型，若数据为空则转换结果为NULL</p>
 </blockquote>
-<p><strong>表R</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-</tr>
-</tbody></table>
-<p><strong>表S</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><strong>执行R LEFT JOIN S ON R.C = S.C</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-<td align="left">null</td>
-<td align="left">null</td>
-</tr>
-</tbody></table>
-<p><img src="4.jpg" alt="LEFT JOIN产生表1的完全集，而2表中匹配的则有值，没有匹配的则以null值取代。"></p>
-<h2 id="RIGHT-OUTER-JOIN-RIGHT-JOIN-，右外连接"><a href="#RIGHT-OUTER-JOIN-RIGHT-JOIN-，右外连接" class="headerlink" title="RIGHT OUTER JOIN(RIGHT JOIN)，右外连接"></a>RIGHT OUTER JOIN(RIGHT JOIN)，右外连接</h2><blockquote>
-<p><strong>结果集返回匹配行加上右表的不匹配行</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	TOP <span class="number">3</span></span><br><span class="line">	new_country_idName + <span class="string">'--'</span> +new_city_idName <span class="keyword">AS</span> Adress,</span><br><span class="line">	<span class="keyword">Name</span> + new_age <span class="keyword">AS</span> Mesg</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	<span class="keyword">Account</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&gt; [<span class="number">42000</span>] [Microsoft][ODBC Driver <span class="number">17</span> <span class="keyword">for</span> <span class="keyword">SQL</span> <span class="keyword">Server</span>][<span class="keyword">SQL</span> <span class="keyword">Server</span>]从数据类型 <span class="keyword">nvarchar</span> 转换为 <span class="built_in">numeric</span> 时出错。 (<span class="number">8114</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	TOP <span class="number">3</span></span><br><span class="line">	new_country_idName + <span class="string">'--'</span> +new_city_idName <span class="keyword">AS</span> Adress,</span><br><span class="line">	<span class="keyword">Name</span> + <span class="keyword">CAST</span>(new_age <span class="keyword">AS</span> <span class="built_in">VARCHAR</span>(<span class="number">256</span>)) <span class="keyword">AS</span> Mesg</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	<span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
+<p><img src="2.jpg" alt=""></p>
+<h2 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	TOP <span class="number">3</span></span><br><span class="line">	new_country_idName + <span class="string">'--'</span> +new_city_idName <span class="keyword">AS</span> Adress,</span><br><span class="line">	<span class="keyword">Name</span>,</span><br><span class="line">	<span class="keyword">CASE</span> </span><br><span class="line">	<span class="keyword">WHEN</span> <span class="keyword">Name</span> = <span class="string">'李老板'</span> <span class="keyword">THEN</span> <span class="string">'李老板好'</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="keyword">Name</span> = <span class="string">'高永平'</span> <span class="keyword">THEN</span> <span class="string">'高老板好'</span></span><br><span class="line">	<span class="keyword">ELSE</span> <span class="string">'您好'</span></span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> Say</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	<span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
+<p><img src="3.jpg" alt=""></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><blockquote>
+<p>对列中某个数据进行处理并返回值</p>
 </blockquote>
-<p><strong>表R</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-</tr>
-</tbody></table>
-<p><strong>表S</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><strong>执行R RIGHT JOIN S ON R.C = S.C</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">null</td>
-<td align="left">null</td>
-<td align="left">null</td>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><img src="2.jpg" alt="RIGHT JOIN产生表2的完全集，而1表中匹配的则有值，没有匹配的则以null值取代。"></p>
-<h2 id="FULL-OUTER-JOIN，全外连接"><a href="#FULL-OUTER-JOIN，全外连接" class="headerlink" title="FULL OUTER JOIN，全外连接"></a>FULL OUTER JOIN，全外连接</h2><blockquote>
-<p><strong>结果集返回匹配行和左右表的不匹配行</strong> </p>
-</blockquote>
-<p><strong>表R</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-</tr>
-</tbody></table>
-<p><strong>表S</strong> </p>
-<table>
-<thead>
-<tr>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><strong>执行R FULL JOIN S ON R.C = S.C</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">A</th>
-<th align="left">B</th>
-<th align="left">C</th>
-<th align="left">C</th>
-<th align="left">D</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">a1</td>
-<td align="left">b1</td>
-<td align="left">c1</td>
-<td align="left">c1</td>
-<td align="left">d1</td>
-</tr>
-<tr>
-<td align="left">a2</td>
-<td align="left">b2</td>
-<td align="left">c2</td>
-<td align="left">c2</td>
-<td align="left">d2</td>
-</tr>
-<tr>
-<td align="left">a3</td>
-<td align="left">b3</td>
-<td align="left">c3</td>
-<td align="left">null</td>
-<td align="left">null</td>
-</tr>
-<tr>
-<td align="left">null</td>
-<td align="left">null</td>
-<td align="left">null</td>
-<td align="left">c4</td>
-<td align="left">d3</td>
-</tr>
-</tbody></table>
-<p><img src="3.jpg" alt="FULL OUTER JOIN产生1和2的并集。但是需要注意的是，对于没有匹配的记录，则会以null做为值。"></p>
+<h2 id="字符串操作函数"><a href="#字符串操作函数" class="headerlink" title="字符串操作函数"></a>字符串操作函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---字符中操作函数</span></span><br><span class="line">UPPER(S) 将字符串统一为大写字母</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UPPER</span>(<span class="string">'asasA'</span>)   <span class="comment">--ASASA</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">LOWER</span>(S) 将字符串统一为小写字母</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LOWER</span>(<span class="string">'asasA'</span>)   <span class="comment">---asasa</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">LEN</span>(S)   返回字符串的长度</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEN</span>(<span class="string">'中国1号'</span>) <span class="comment">--4</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">CHARINDEX</span>(S1,S2) 返回S1在字符串S2中的位置  </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHARINDEX</span>(<span class="string">'aa1号'</span>,<span class="string">'1111aa1号中国1号'</span>) <span class="comment">--5</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">SUBSTRING</span>(S,I,N) 在S字符串中的第I个字符起取N个字符</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUBSTRING</span>(<span class="string">'TECHNOLO'</span>,<span class="number">3</span>,<span class="number">3</span>) <span class="comment">--CHN</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONVERT</span>(<span class="built_in">INT</span>,<span class="string">'111'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">LEFT</span>(S,N) 从字符串S左边取N个字符</span><br><span class="line"><span class="keyword">RIGHT</span>(S,N) 从字符串S右边取N个字符</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">'00000000'</span>+<span class="string">'11'</span>,<span class="number">8</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">'00000000'</span>+<span class="string">'2222'</span>,<span class="number">8</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">'11'</span>+<span class="string">'00000000'</span>+<span class="string">'11'</span>,<span class="number">8</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">'2222'</span>+<span class="string">'00000000'</span>+<span class="string">'2222'</span>,<span class="number">8</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">SPACE</span>(N) 生成N个空格</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">'合计'</span>+<span class="keyword">SPACE</span>(<span class="number">2</span>)+<span class="string">'123'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">RTRIM</span>(S) <span class="comment">--消除字符串左边开始或者右边开始的空格</span></span><br><span class="line"><span class="keyword">LTRIM</span>(S) <span class="comment">--消除字符串左边开始或者右边开始的空格</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RTRIM</span>(<span class="string">'      SAMPLE   '</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LTRIM</span>(<span class="string">'      SAMPLE   '</span>)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LTRIM</span>(<span class="keyword">RTRIM</span>(<span class="string">'     SAMPLE   '</span>));</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">REPLACE</span>(<span class="keyword">STRING</span>,ATOREPLACE,NEWSTRING) <span class="comment">--替换函数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(<span class="string">'HHAAAH'</span>,<span class="string">'A'</span>,<span class="string">'S'</span>)</span><br></pre></td></tr></table></figure>
 
+<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">abs(numeric_expr) <span class="comment">--求绝对值</span></span><br><span class="line">ceiling(numeric_expr) <span class="comment">--取大于等于指定值的最小整数</span></span><br><span class="line">exp(float_expr) <span class="comment">--取指数</span></span><br><span class="line">floor(numeric_expr) <span class="comment">--小于等于指定值得最大整数</span></span><br><span class="line">power(numeric_expr,power) <span class="comment">--返回power次方</span></span><br><span class="line">rand([int_expr]) <span class="comment">--随机数产生器</span></span><br><span class="line">round(numeric_expr,int_expr) <span class="comment">--安int_expr规定的精度四舍五入</span></span><br><span class="line">sign(int_expr) <span class="comment">--根据正数,0,负数,,返回+1,0,-1</span></span><br><span class="line">sqrt(float_expr) <span class="comment">--平方根</span></span><br><span class="line">exp(float x) <span class="comment">--求e的x次幂</span></span><br><span class="line">tan(float x) <span class="comment">--计算x（弧度表示）的正切值。</span></span><br><span class="line">atan(float x) <span class="comment">--求x（弧度表示）的反正切值</span></span><br><span class="line">cos(float x) <span class="comment">--求x（弧度表示）的余弦值</span></span><br><span class="line">acos(float x) <span class="comment">--求x（弧度表示）的反余弦值</span></span><br><span class="line">sin(float x) <span class="comment">--计算x（弧度表示）的正弦值。</span></span><br><span class="line">asin(float x) <span class="comment">--求x（弧度表示）的反正弦值</span></span><br><span class="line">fabs(float x) <span class="comment">--求浮点数x的绝对值</span></span><br><span class="line">fmod(float x, float y) <span class="comment">--计算x/y的余数</span></span><br><span class="line">pow(float x, float y) <span class="comment">--计算x的y次幂。</span></span><br><span class="line">sqrt(float x) <span class="comment">--计算x的平方根。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getdate() <span class="comment">--返回日期</span></span><br><span class="line">datename(datepart,date_expr) <span class="comment">--返回名称</span></span><br><span class="line">datepart(datepart,date_expr) <span class="comment">--取日期一部份</span></span><br><span class="line">datediff(datepart,date_expr1.dateexpr2) <span class="comment">--日期差</span></span><br><span class="line">dateadd(datepart,number,date_expr) <span class="comment">--返回日期加上 number</span></span><br><span class="line">day(date_expr), month(date_expr),year(date_expr) <span class="comment">--提取date_expr中的日月年</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -520,7 +199,7 @@ JOIN_TYPE join_table
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93JOIN/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/10/29/SQL%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8A%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -538,19 +217,19 @@ JOIN_TYPE join_table
   
   <nav class="article-nav">
     
-      <a href="/2020/10/21/%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/" class="article-nav-link">
+      <a href="/2020/10/29/SQL%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            开窗函数
+            SQL执行顺序
           
         </div>
       </a>
     
     
-      <a href="/2020/10/08/jdk%E6%BA%90%E7%A0%81-List/" class="article-nav-link">
+      <a href="/2020/10/29/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">jdk源码_List</div>
+        <div class="article-nav-title">聚合函数</div>
       </a>
     
   </nav>
