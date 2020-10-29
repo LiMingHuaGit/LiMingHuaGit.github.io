@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQLServer查询跟踪</title>
+    <url>/2020/10/29/SQLServer%E6%9F%A5%E8%AF%A2%E8%B7%9F%E8%B8%AA/</url>
+    <content><![CDATA[<h1 id="SQL-Server-Profiler"><a href="#SQL-Server-Profiler" class="headerlink" title="SQL Server Profiler"></a>SQL Server Profiler</h1><blockquote>
+<p>数据库性能工具</p>
+</blockquote>
+<h2 id="1-新建跟踪"><a href="#1-新建跟踪" class="headerlink" title="1.新建跟踪"></a>1.新建跟踪</h2><blockquote>
+<p>文件-新建跟踪 </p>
+</blockquote>
+<h2 id="2-事件选择"><a href="#2-事件选择" class="headerlink" title="2.事件选择"></a>2.事件选择</h2><p><img src="1.jpg" alt=""></p>
+<blockquote>
+<p>Stored Procedures：TextData 根据sql中的文本值进行过滤 </p>
+</blockquote>
+<p><img src="2.jpg" alt=""></p>
+<blockquote>
+<p>列筛选器中键入TextData的类似于值 ：要跟踪的sql中特定的参数或关键字</p>
+</blockquote>
+<h2 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h2><p><img src="3.jpg" alt=""><br><img src="4.jpg" alt=""><br><img src="5.jpg" alt=""><br><img src="6.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>sql跟踪</tag>
+        <tag>sqlserver</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL调优</title>
     <url>/2020/10/21/SQL%E8%B0%83%E4%BC%98/</url>
     <content><![CDATA[<h1 id="SET-STATISTICS-XX-ON"><a href="#SET-STATISTICS-XX-ON" class="headerlink" title="SET STATISTICS XX ON"></a>SET STATISTICS XX ON</h1><blockquote>
@@ -104,22 +132,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/04/17/aboutMe/</url>
-    <content><![CDATA[<blockquote>
-<p>A Coder, live in XuZhou, China .  </p>
-</blockquote>
-<ul>
-<li>姓名：李明华</li>
-<li>现居：江苏徐州</li>
-<li>GitHub：<a href="https://github.com/LiMingHuaGit" target="_blank" rel="noopener">LiMingHuaGit</a></li>
-<li>QQ：<a href="qq.com/">2290320152</a></li>
-<li>微信：<a href="wechat.com/">someonelover0</a></li>
-</ul>
-<img src="/2020/04/17/aboutMe/self.jpg" class="">
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/04/17/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -138,6 +150,22 @@
 ]]></content>
   </entry>
   <entry>
+    <title>About Me</title>
+    <url>/2020/04/17/aboutMe/</url>
+    <content><![CDATA[<blockquote>
+<p>A Coder, live in XuZhou, China .  </p>
+</blockquote>
+<ul>
+<li>姓名：李明华</li>
+<li>现居：江苏徐州</li>
+<li>GitHub：<a href="https://github.com/LiMingHuaGit" target="_blank" rel="noopener">LiMingHuaGit</a></li>
+<li>QQ：<a href="qq.com/">2290320152</a></li>
+<li>微信：<a href="wechat.com/">someonelover0</a></li>
+</ul>
+<img src="/2020/04/17/aboutMe/self.jpg" class="">
+]]></content>
+  </entry>
+  <entry>
     <title>jdk1.8_Base64</title>
     <url>/2020/06/07/jdk1-8-Base64/</url>
     <content><![CDATA[<h1 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h1><h2 id="static-class-Base64-Encoder"><a href="#static-class-Base64-Encoder" class="headerlink" title="static class Base64.Encoder"></a>static class Base64.Encoder</h2><blockquote>
@@ -153,49 +181,6 @@
       <tags>
         <tag>jkd1.8</tag>
         <tag>Base64</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jdk1.8_lambda</title>
-    <url>/2020/06/24/jdk1-8-lambda/</url>
-    <content><![CDATA[<blockquote>
-<p>参考Haskell-函数式编程</p>
-</blockquote>
-<h1 id="核心功能性函数接口（有且只有一个抽象方法的接口）"><a href="#核心功能性函数接口（有且只有一个抽象方法的接口）" class="headerlink" title="核心功能性函数接口（有且只有一个抽象方法的接口）"></a>核心功能性函数接口（有且只有一个抽象方法的接口）</h1><ul>
-<li>Consumer<T> :消费型接口    void acept(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//消费型接口Consumer，输入一个参数，对其进行打印输出</span></span><br><span class="line"> Consumer&lt;String&gt; consumer = (x) -&gt; System.out.println(x);</span><br><span class="line"> <span class="comment">//打印字符串</span></span><br><span class="line"> consumer.accept(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>Supplier<T> :供给型接口    T get();<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//供给型接口Supplier，返回指定字符串</span></span><br><span class="line">Supplier&lt;String&gt; supplier = () -&gt; <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="comment">//获取字符串</span></span><br><span class="line">supplier.get();</span><br></pre></td></tr></table></figure></li>
-<li>Function&lt;T,R&gt; :函数型接口 R apply(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Function&lt;String, Integer&gt; function = (x) -&gt; x.length();</span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line">function.apply(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>Predicate<T> :断言型接口 boolean test(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//断言型接口Predicate，输入数字，判断是否大于0</span></span><br><span class="line">Predicate&lt;Integer&gt; predicate = (x) -&gt; x &gt; <span class="number">0</span>;</span><br><span class="line"><span class="comment">//获取判断结果</span></span><br><span class="line">predicate.test(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1-Iterable-forEach-Consumer-lt-super-T-gt-action"><a href="#1-Iterable-forEach-Consumer-lt-super-T-gt-action" class="headerlink" title="1.Iterable.forEach(Consumer&lt;? super T&gt; action)"></a>1.Iterable.forEach(Consumer&lt;? super T&gt; action)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; soutList = Arrays.asList(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">soutList.forEach(out-&gt; System.out.println(out));</span><br><span class="line">soutList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Page p = <span class="keyword">new</span> Page(<span class="string">"content"</span>);</span><br><span class="line">Page p = Page.<span class="keyword">new</span>(<span class="string">"content"</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Page&gt; <span class="title">createPagesFrom</span><span class="params">(Stream&lt;String&gt;; contents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> contents.map(Page::<span class="keyword">new</span>).</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <img src="1.jpg" alt="Iterable接口"><br> <img src="2.jpg" alt="forEach方法"></p>
-<h3 id="1-Iterable接口允许一个对象成为forEach的目标"><a href="#1-Iterable接口允许一个对象成为forEach的目标" class="headerlink" title="1). Iterable接口允许一个对象成为forEach的目标"></a>1). Iterable接口允许一个对象成为forEach的目标</h3><h3 id="2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"><a href="#2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作" class="headerlink" title="2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"></a>2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作</h3><h3 id="3-接口中的默认方法可以不被实现类实现"><a href="#3-接口中的默认方法可以不被实现类实现" class="headerlink" title="3). 接口中的默认方法可以不被实现类实现"></a>3). 接口中的默认方法可以不被实现类实现</h3><h3 id="4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"><a href="#4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用" class="headerlink" title="4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"></a>4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用</h3><h3 id="5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法"><a href="#5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法" class="headerlink" title="5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法"></a>5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法</h3><h2 id="2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList"><a href="#2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList" class="headerlink" title="2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()"></a>2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Complete this for Exercise_2_Test#getAllPersonsEligibleToVote</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">* 根据给定年龄返回给定选民集合中合法年龄的选民集合</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> potentialVoters - voters to filter</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> legalAgeOfVoting - age where it's legal to vote</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> a list of eligible voters</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Person&gt; <span class="title">eligibleVoters</span><span class="params">(List&lt;Person&gt; potentialVoters, <span class="keyword">int</span> legalAgeOfVoting)</span> </span>&#123;</span><br><span class="line">      Stream&lt;Person&gt; personStream = potentialVoters.stream().filter(</span><br><span class="line">              person -&gt; person.getAge()&gt;=legalAgeOfVoting</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> personStream.collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-Collection-stream-返回一个Stream序列"><a href="#1-Collection-stream-返回一个Stream序列" class="headerlink" title="1). Collection#stream() 返回一个Stream序列"></a>1). Collection#stream() 返回一个Stream序列</h3><h3 id="2-Stream-流"><a href="#2-Stream-流" class="headerlink" title="2). Stream 流"></a>2). Stream 流</h3><pre><code>- A sequence of elements supporting sequential and parallel aggregate operations
-- 支撑顺序和并行聚合操作元素的序列
-- lazy： computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed.
-- 惰式执行：即仅在终端操作启动时才执行对源数据的计算，并且仅在需要时使用源元素。
-- 在对流进行“操作”（类似查询和过滤）时，这些行为应该是无干扰（不修改流的数据源）且无状态（其结果不依赖于流管道执行过程中可能改变的任何状态）的
-- 消费性质，只使用一次，不可以被重用</code></pre><h3 id="3-Stream-filter-Predicate-对流进行过滤-中间操作"><a href="#3-Stream-filter-Predicate-对流进行过滤-中间操作" class="headerlink" title="3). Stream#filter(Predicate)  对流进行过滤 中间操作"></a>3). Stream#filter(Predicate)  对流进行过滤 中间操作</h3><h3 id="4-Predicate-断言功能性函数接口，返回Boolean值-见上文"><a href="#4-Predicate-断言功能性函数接口，返回Boolean值-见上文" class="headerlink" title="4). Predicate 断言功能性函数接口，返回Boolean值 见上文"></a>4). Predicate 断言功能性函数接口，返回Boolean值 见上文</h3><h3 id="5-Stream-collect"><a href="#5-Stream-collect" class="headerlink" title="5). Stream.collect()"></a>5). Stream.collect()</h3><pre><code>- 返回一个结果容器 
-- &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)
-- &lt;R&gt; 结果的类型
-- &lt;A&gt; Collector的积累类型</code></pre><h3 id="6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作"><a href="#6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作" class="headerlink" title="6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作"></a>6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作</h3><pre><code>- public interface Collector&lt;T, A, R&gt;
-- &lt;T&gt;  输入元素的类型
-- &lt;A&gt;  还原运算的可变累积型（通常隐藏作为一个实现细节）
-- &lt;R&gt;  还原运算的结果类</code></pre><h3 id="7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中"><a href="#7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中" class="headerlink" title="7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中"></a>7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中</h3><pre><code>- public static &lt;T&gt; Collector&lt;T, ?, List&lt;T&gt;&gt; toList()
-- &lt;T&gt;  输入元素的类型</code></pre><h2 id="3-Stream-map-Function"><a href="#3-Stream-map-Function" class="headerlink" title="3.Stream#map(Function)"></a>3.Stream#map(Function)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Apply a mapping of Books to titles (Strings)</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 将书籍的标题映射到一个新的List&lt;String&gt;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> books - books to transform</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> list of book titles</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">titlesOf</span><span class="params">(List&lt;Book&gt; books)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> books.stream().map(Book::getTitle).collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-Stream-map-Function"><a href="#1-Stream-map-Function" class="headerlink" title="1). Stream#map(Function)"></a>1). Stream#map(Function)</h3><pre><code>- 返回指定类型的流 中间操作
-- Function 函数型功能接口 见上文
-- java.util.stream.Stream&lt;T&gt; &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
-- &lt;? super T&gt;/&lt;? extends T&gt; &lt;? super T&gt;表示包括T在内的任何T的父类，&lt;? extends T&gt;表示包括T在内的任何T的子类</code></pre>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>jkd1.8</tag>
-        <tag>lambda</tag>
       </tags>
   </entry>
   <entry>
@@ -231,71 +216,6 @@
       <tags>
         <tag>jkd1.8</tag>
         <tag>Optional</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jdk1.8_默认方法</title>
-    <url>/2020/07/14/jdk1-8-%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">replaceAll</span><span class="params">(UnaryOperator&lt;E&gt; operator)</span> </span>&#123;</span><br><span class="line">        Objects.requireNonNull(operator);</span><br><span class="line">        <span class="keyword">final</span> ListIterator&lt;E&gt; li = <span class="keyword">this</span>.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (li.hasNext()) &#123;</span><br><span class="line">            li.set(operator.apply(li.next()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; c)</span> </span>&#123;</span><br><span class="line">        Object[] a = <span class="keyword">this</span>.toArray();</span><br><span class="line">        Arrays.sort(a, (Comparator) c);</span><br><span class="line">        ListIterator&lt;E&gt; i = <span class="keyword">this</span>.listIterator();</span><br><span class="line">        <span class="keyword">for</span> (Object e : a) &#123;</span><br><span class="line">            i.next();</span><br><span class="line">            i.set((E) e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>接口类中支持申明带有实现的方法，可以由接口实现类的实例调用</p>
-</blockquote>
-<h1 id="和抽象类的区别"><a href="#和抽象类的区别" class="headerlink" title="和抽象类的区别"></a>和抽象类的区别</h1><ul>
-<li>一个类只能继承一个抽象类；但是一个类可以实现多个接口。</li>
-<li>抽象类有实例变量，而接口只能有类变量</li>
-</ul>
-<h1 id="多继承多实现中的优先级"><a href="#多继承多实现中的优先级" class="headerlink" title="多继承多实现中的优先级"></a>多继承多实现中的优先级</h1><blockquote>
-<p>由于一个类可以实现多个接口，所以当一个类继承了多个签名相同的方法，类在选择方法时的优先级规则：</p>
-</blockquote>
-<ul>
-<li>类中的方法优先级最高，类或父类中声明的方法的优先级高于任何声明为默认方法的优先级。</li>
-<li>如果第一条无法判断，那么子接口的优先级更高：方法签名相同时，优先选择拥有最具体实现的默认方法的接口， 即如果B继承了A，那么B就比A更加具体。</li>
-<li>最后，如果还是无法判断，继承了多个接口的类必须通过显式覆盖和调用期望的方法， 显式地选择使用哪一个默认方法的实现。</li>
-</ul>
-<h2 id="场景1："><a href="#场景1：" class="headerlink" title="场景1："></a>场景1：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="1.png" alt=""></p>
-<blockquote>
-<p>类中无方法，B继承了A，故认为B中的hello()更具体，输出“hello from B”</p>
-</blockquote>
-<h2 id="场景2："><a href="#场景2：" class="headerlink" title="场景2："></a>场景2：</h2><blockquote>
-<p>若C继承了A的实现类D</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="2.png" alt=""></p>
-<blockquote>
-<p>C继承了D，但D没有对A的默认方法进行重写，故比较AB，还是输出“hello from B”</p>
-</blockquote>
-<h2 id="场景3："><a href="#场景3：" class="headerlink" title="场景3："></a>场景3：</h2><blockquote>
-<p>若D中覆盖了A的默认方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from D"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>父类中方法具有更高优先级，打印“hello from D”</p>
-</blockquote>
-<h2 id="场景4："><a href="#场景4：" class="headerlink" title="场景4："></a>场景4：</h2><blockquote>
-<p>若B不再继承A</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="3.png" alt=""></p>
-<blockquote>
-<p>由于编译器无法识别A还是B的实现更加具体，所以会抛出编译错误：“C inherits unrelated defaults for hello() from types A and B”。<br>解决冲突，可以在C中覆盖hello()方法并在方法内显示的选择调用A还是B的方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 显式地选择调用接口B中的方法</span></span><br><span class="line">        <span class="comment">// 同理，要调用接口A中的方法，可以这样：A.super.hello()</span></span><br><span class="line">        B.<span class="keyword">super</span>.hello();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>jkd1.8</tag>
-        <tag>默认方法</tag>
       </tags>
   </entry>
   <entry>
@@ -368,6 +288,114 @@
       </tags>
   </entry>
   <entry>
+    <title>jdk1.8_lambda</title>
+    <url>/2020/06/24/jdk1-8-lambda/</url>
+    <content><![CDATA[<blockquote>
+<p>参考Haskell-函数式编程</p>
+</blockquote>
+<h1 id="核心功能性函数接口（有且只有一个抽象方法的接口）"><a href="#核心功能性函数接口（有且只有一个抽象方法的接口）" class="headerlink" title="核心功能性函数接口（有且只有一个抽象方法的接口）"></a>核心功能性函数接口（有且只有一个抽象方法的接口）</h1><ul>
+<li>Consumer<T> :消费型接口    void acept(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//消费型接口Consumer，输入一个参数，对其进行打印输出</span></span><br><span class="line"> Consumer&lt;String&gt; consumer = (x) -&gt; System.out.println(x);</span><br><span class="line"> <span class="comment">//打印字符串</span></span><br><span class="line"> consumer.accept(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>Supplier<T> :供给型接口    T get();<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//供给型接口Supplier，返回指定字符串</span></span><br><span class="line">Supplier&lt;String&gt; supplier = () -&gt; <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="comment">//获取字符串</span></span><br><span class="line">supplier.get();</span><br></pre></td></tr></table></figure></li>
+<li>Function&lt;T,R&gt; :函数型接口 R apply(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Function&lt;String, Integer&gt; function = (x) -&gt; x.length();</span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line">function.apply(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>Predicate<T> :断言型接口 boolean test(T t);<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//断言型接口Predicate，输入数字，判断是否大于0</span></span><br><span class="line">Predicate&lt;Integer&gt; predicate = (x) -&gt; x &gt; <span class="number">0</span>;</span><br><span class="line"><span class="comment">//获取判断结果</span></span><br><span class="line">predicate.test(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="1-Iterable-forEach-Consumer-lt-super-T-gt-action"><a href="#1-Iterable-forEach-Consumer-lt-super-T-gt-action" class="headerlink" title="1.Iterable.forEach(Consumer&lt;? super T&gt; action)"></a>1.Iterable.forEach(Consumer&lt;? super T&gt; action)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; soutList = Arrays.asList(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">soutList.forEach(out-&gt; System.out.println(out));</span><br><span class="line">soutList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Page p = <span class="keyword">new</span> Page(<span class="string">"content"</span>);</span><br><span class="line">Page p = Page.<span class="keyword">new</span>(<span class="string">"content"</span>);</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Page&gt; <span class="title">createPagesFrom</span><span class="params">(Stream&lt;String&gt;; contents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> contents.map(Page::<span class="keyword">new</span>).</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <img src="1.jpg" alt="Iterable接口"><br> <img src="2.jpg" alt="forEach方法"></p>
+<h3 id="1-Iterable接口允许一个对象成为forEach的目标"><a href="#1-Iterable接口允许一个对象成为forEach的目标" class="headerlink" title="1). Iterable接口允许一个对象成为forEach的目标"></a>1). Iterable接口允许一个对象成为forEach的目标</h3><h3 id="2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"><a href="#2-这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作" class="headerlink" title="2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作"></a>2). 这里的forEach被声明为一个默认方法，并接收了一个消费者类型的函数接口，先查找匹配对应的操作，若不为空则执行操作</h3><h3 id="3-接口中的默认方法可以不被实现类实现"><a href="#3-接口中的默认方法可以不被实现类实现" class="headerlink" title="3). 接口中的默认方法可以不被实现类实现"></a>3). 接口中的默认方法可以不被实现类实现</h3><h3 id="4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"><a href="#4-如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用" class="headerlink" title="4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用"></a>4). 如上代码中，输出集合soutList调用了foreach方法，箭头左边是参数，右边是抽象方法的实现内容或已有方法的引用</h3><h3 id="5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法"><a href="#5-当参数列表中的参数和方法签名匹配时，可以通过-直接引用方法，包括构造方法" class="headerlink" title="5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法"></a>5). 当参数列表中的参数和方法签名匹配时，可以通过 :: 直接引用方法，包括构造方法</h3><h2 id="2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList"><a href="#2-Collection-stream-、Stream、Stream-filter-Predicate-、Collector、Collectors、Collectors-toList" class="headerlink" title="2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()"></a>2.Collection.stream()、Stream、Stream#filter(Predicate)、Collector、Collectors、Collectors#toList()</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Complete this for Exercise_2_Test#getAllPersonsEligibleToVote</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">* 根据给定年龄返回给定选民集合中合法年龄的选民集合</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> potentialVoters - voters to filter</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> legalAgeOfVoting - age where it's legal to vote</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> a list of eligible voters</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Person&gt; <span class="title">eligibleVoters</span><span class="params">(List&lt;Person&gt; potentialVoters, <span class="keyword">int</span> legalAgeOfVoting)</span> </span>&#123;</span><br><span class="line">      Stream&lt;Person&gt; personStream = potentialVoters.stream().filter(</span><br><span class="line">              person -&gt; person.getAge()&gt;=legalAgeOfVoting</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> personStream.collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-Collection-stream-返回一个Stream序列"><a href="#1-Collection-stream-返回一个Stream序列" class="headerlink" title="1). Collection#stream() 返回一个Stream序列"></a>1). Collection#stream() 返回一个Stream序列</h3><h3 id="2-Stream-流"><a href="#2-Stream-流" class="headerlink" title="2). Stream 流"></a>2). Stream 流</h3><pre><code>- A sequence of elements supporting sequential and parallel aggregate operations
+- 支撑顺序和并行聚合操作元素的序列
+- lazy： computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed.
+- 惰式执行：即仅在终端操作启动时才执行对源数据的计算，并且仅在需要时使用源元素。
+- 在对流进行“操作”（类似查询和过滤）时，这些行为应该是无干扰（不修改流的数据源）且无状态（其结果不依赖于流管道执行过程中可能改变的任何状态）的
+- 消费性质，只使用一次，不可以被重用</code></pre><h3 id="3-Stream-filter-Predicate-对流进行过滤-中间操作"><a href="#3-Stream-filter-Predicate-对流进行过滤-中间操作" class="headerlink" title="3). Stream#filter(Predicate)  对流进行过滤 中间操作"></a>3). Stream#filter(Predicate)  对流进行过滤 中间操作</h3><h3 id="4-Predicate-断言功能性函数接口，返回Boolean值-见上文"><a href="#4-Predicate-断言功能性函数接口，返回Boolean值-见上文" class="headerlink" title="4). Predicate 断言功能性函数接口，返回Boolean值 见上文"></a>4). Predicate 断言功能性函数接口，返回Boolean值 见上文</h3><h3 id="5-Stream-collect"><a href="#5-Stream-collect" class="headerlink" title="5). Stream.collect()"></a>5). Stream.collect()</h3><pre><code>- 返回一个结果容器 
+- &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector)
+- &lt;R&gt; 结果的类型
+- &lt;A&gt; Collector的积累类型</code></pre><h3 id="6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作"><a href="#6-Collector-执行结果转换-Collectors-实现Collector的各种还原操作" class="headerlink" title="6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作"></a>6). Collector 执行结果转换 Collectors 实现Collector的各种还原操作</h3><pre><code>- public interface Collector&lt;T, A, R&gt;
+- &lt;T&gt;  输入元素的类型
+- &lt;A&gt;  还原运算的可变累积型（通常隐藏作为一个实现细节）
+- &lt;R&gt;  还原运算的结果类</code></pre><h3 id="7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中"><a href="#7-Collectors-toList-返回一个Collector-，其累积的输入元素融入到一个新的List中" class="headerlink" title="7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中"></a>7). Collectors#toList() 返回一个Collector ，其累积的输入元素融入到一个新的List中</h3><pre><code>- public static &lt;T&gt; Collector&lt;T, ?, List&lt;T&gt;&gt; toList()
+- &lt;T&gt;  输入元素的类型</code></pre><h2 id="3-Stream-map-Function"><a href="#3-Stream-map-Function" class="headerlink" title="3.Stream#map(Function)"></a>3.Stream#map(Function)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Apply a mapping of Books to titles (Strings)</span></span><br><span class="line"><span class="comment">   * </span></span><br><span class="line"><span class="comment">   * 将书籍的标题映射到一个新的List&lt;String&gt;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> books - books to transform</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> list of book titles</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">titlesOf</span><span class="params">(List&lt;Book&gt; books)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> books.stream().map(Book::getTitle).collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-Stream-map-Function"><a href="#1-Stream-map-Function" class="headerlink" title="1). Stream#map(Function)"></a>1). Stream#map(Function)</h3><pre><code>- 返回指定类型的流 中间操作
+- Function 函数型功能接口 见上文
+- java.util.stream.Stream&lt;T&gt; &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
+- &lt;? super T&gt;/&lt;? extends T&gt; &lt;? super T&gt;表示包括T在内的任何T的父类，&lt;? extends T&gt;表示包括T在内的任何T的子类</code></pre>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>jkd1.8</tag>
+        <tag>lambda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jdk1.8_默认方法</title>
+    <url>/2020/07/14/jdk1-8-%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">replaceAll</span><span class="params">(UnaryOperator&lt;E&gt; operator)</span> </span>&#123;</span><br><span class="line">        Objects.requireNonNull(operator);</span><br><span class="line">        <span class="keyword">final</span> ListIterator&lt;E&gt; li = <span class="keyword">this</span>.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (li.hasNext()) &#123;</span><br><span class="line">            li.set(operator.apply(li.next()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; c)</span> </span>&#123;</span><br><span class="line">        Object[] a = <span class="keyword">this</span>.toArray();</span><br><span class="line">        Arrays.sort(a, (Comparator) c);</span><br><span class="line">        ListIterator&lt;E&gt; i = <span class="keyword">this</span>.listIterator();</span><br><span class="line">        <span class="keyword">for</span> (Object e : a) &#123;</span><br><span class="line">            i.next();</span><br><span class="line">            i.set((E) e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接口类中支持申明带有实现的方法，可以由接口实现类的实例调用</p>
+</blockquote>
+<h1 id="和抽象类的区别"><a href="#和抽象类的区别" class="headerlink" title="和抽象类的区别"></a>和抽象类的区别</h1><ul>
+<li>一个类只能继承一个抽象类；但是一个类可以实现多个接口。</li>
+<li>抽象类有实例变量，而接口只能有类变量</li>
+</ul>
+<h1 id="多继承多实现中的优先级"><a href="#多继承多实现中的优先级" class="headerlink" title="多继承多实现中的优先级"></a>多继承多实现中的优先级</h1><blockquote>
+<p>由于一个类可以实现多个接口，所以当一个类继承了多个签名相同的方法，类在选择方法时的优先级规则：</p>
+</blockquote>
+<ul>
+<li>类中的方法优先级最高，类或父类中声明的方法的优先级高于任何声明为默认方法的优先级。</li>
+<li>如果第一条无法判断，那么子接口的优先级更高：方法签名相同时，优先选择拥有最具体实现的默认方法的接口， 即如果B继承了A，那么B就比A更加具体。</li>
+<li>最后，如果还是无法判断，继承了多个接口的类必须通过显式覆盖和调用期望的方法， 显式地选择使用哪一个默认方法的实现。</li>
+</ul>
+<h2 id="场景1："><a href="#场景1：" class="headerlink" title="场景1："></a>场景1：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="1.png" alt=""></p>
+<blockquote>
+<p>类中无方法，B继承了A，故认为B中的hello()更具体，输出“hello from B”</p>
+</blockquote>
+<h2 id="场景2："><a href="#场景2：" class="headerlink" title="场景2："></a>场景2：</h2><blockquote>
+<p>若C继承了A的实现类D</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="2.png" alt=""></p>
+<blockquote>
+<p>C继承了D，但D没有对A的默认方法进行重写，故比较AB，还是输出“hello from B”</p>
+</blockquote>
+<h2 id="场景3："><a href="#场景3：" class="headerlink" title="场景3："></a>场景3：</h2><blockquote>
+<p>若D中覆盖了A的默认方法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from D"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>父类中方法具有更高优先级，打印“hello from D”</p>
+</blockquote>
+<h2 id="场景4："><a href="#场景4：" class="headerlink" title="场景4："></a>场景4：</h2><blockquote>
+<p>若B不再继承A</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello from B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="3.png" alt=""></p>
+<blockquote>
+<p>由于编译器无法识别A还是B的实现更加具体，所以会抛出编译错误：“C inherits unrelated defaults for hello() from types A and B”。<br>解决冲突，可以在C中覆盖hello()方法并在方法内显示的选择调用A还是B的方法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 显式地选择调用接口B中的方法</span></span><br><span class="line">        <span class="comment">// 同理，要调用接口A中的方法，可以这样：A.super.hello()</span></span><br><span class="line">        B.<span class="keyword">super</span>.hello();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> C().hello();<span class="comment">//hello from B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>jkd1.8</tag>
+        <tag>默认方法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jdk源码_List</title>
     <url>/2020/10/08/jdk%E6%BA%90%E7%A0%81-List/</url>
     <content><![CDATA[<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><blockquote>
@@ -432,18 +460,6 @@
       <tags>
         <tag>源码</tag>
         <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开窗函数</title>
-    <url>/2020/10/21/%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>join</tag>
       </tags>
   </entry>
   <entry>
@@ -899,62 +915,15 @@ JOIN_TYPE join_table
       </tags>
   </entry>
   <entry>
-    <title>简单代码演示控制反转IOC和依赖注入DI</title>
-    <url>/2020/04/26/%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%ACIOC%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5DI/</url>
-    <content><![CDATA[<h1 id="ioc（Inversion-of-Control）"><a href="#ioc（Inversion-of-Control）" class="headerlink" title="ioc（Inversion of Control）"></a>ioc（Inversion of Control）</h1><blockquote>
-<p>控制反转，也可以称为依赖倒置，即当A要调用B时，A无需主动获取，会有人主动把B送过来供A使用，以减少在A的代码中存在B，导致模块间的高度耦合。</p>
-</blockquote>
-<h2 id="正常的代码控制流程"><a href="#正常的代码控制流程" class="headerlink" title="正常的代码控制流程"></a>正常的代码控制流程</h2><p>1.创建一个接口Car</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.定义两种车实现接口car</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Benz</span> <span class="keyword">implements</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"benz go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BMW</span> <span class="keyword">implements</span> <span class="title">Car</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"bmw go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.人要开车</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">new</span> Benz();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">DriveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这种方式是我们常见的代码控制流程，人想要开车，需要自己实例化，且这个人只能开一种车。</li>
-<li>如何让他可以想开什么车就开什么车呢？<blockquote>
-<p>通过依赖注入</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="依赖注入的方式DI（Dependency-Injection）"><a href="#依赖注入的方式DI（Dependency-Injection）" class="headerlink" title="依赖注入的方式DI（Dependency Injection）"></a>依赖注入的方式DI（Dependency Injection）</h2><ul>
-<li>依赖注入是实现控制反转的方式之一。</li>
-<li>看一下修改后的person类  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>现在的Person类已经不自己实例化车的对象了，而是通过构造函数来获得车的对象，所以，这个类就可以开各种车了，只要这个车实现了Car接口就可以。看一下如何使用Person类</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Person person=<span class="keyword">new</span> Person(<span class="keyword">new</span> Benz());</span><br><span class="line">  person.driveCar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>现在的Person类可以开不止一种车，只要你通过构造函数传递进来。在这个例子中，Car对象就是Person类的依赖，当我们实例化Person类时，将一个Car的实例传递给Person类，就是依赖注入，我们的Person类从而实现了控制反转。<br>控制反转到底反转了什么？有种说法是这样的：所谓控制反转，反转的是获取对象依赖的过程。控制权反转后，获取依赖对象的过程由自身管理变为由IOC容器注入。</p>
-</blockquote>
-<h2 id="Spring实现依赖注入的方式"><a href="#Spring实现依赖注入的方式" class="headerlink" title="Spring实现依赖注入的方式"></a>Spring实现依赖注入的方式</h2><blockquote>
-<p>在上面的这行代码中Person p=new Person(new Benz());，我们通过手动的方式new了一个Benz()的对象，然后将其注入到Person类中。而Spring不这么干，因为Spring觉得，你这行代码实例化了一个具体的Benz类，如果你以后想要在这里实例化一个BMW类的话，岂不是要修改代码？那我干脆写到配置文件里好了，即便你将来要该注意，至少不需要修改代码，于是就有了下面的配置</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Benz"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Person"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"car"</span> <span class="attr">ref</span>=<span class="string">"car"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>从配置文件中获取Person类的对象时，car对象会被自动装配进来，而person对象不需要关心到底是哪个具体的类被传递进来了。所以，Spring作为一个IOC框架主要做了两步：创建对象和组装对象之间的关系。</p>
-]]></content>
+    <title>开窗函数</title>
+    <url>/2020/10/21/%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>首次收到打赏</title>
-    <url>/2020/09/30/%E9%A6%96%E6%AC%A1%E6%94%B6%E5%88%B0%E6%89%93%E8%B5%8F/</url>
-    <content><![CDATA[<h1 id="收到了来自师傅的打赏"><a href="#收到了来自师傅的打赏" class="headerlink" title="收到了来自师傅的打赏"></a>收到了来自师傅的打赏</h1><h2 id="有师傅真是太好了！-●’◡’●"><a href="#有师傅真是太好了！-●’◡’●" class="headerlink" title="有师傅真是太好了！(●’◡’●)"></a>有师傅真是太好了！(●’◡’●)</h2><p><img src="1.jpg" alt=""><br><img src="2.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>心情</tag>
+        <tag>数据库</tag>
+        <tag>join</tag>
       </tags>
   </entry>
   <entry>
@@ -1095,6 +1064,65 @@ JOIN_TYPE join_table
       </categories>
       <tags>
         <tag>钉钉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单代码演示控制反转IOC和依赖注入DI</title>
+    <url>/2020/04/26/%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%ACIOC%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5DI/</url>
+    <content><![CDATA[<h1 id="ioc（Inversion-of-Control）"><a href="#ioc（Inversion-of-Control）" class="headerlink" title="ioc（Inversion of Control）"></a>ioc（Inversion of Control）</h1><blockquote>
+<p>控制反转，也可以称为依赖倒置，即当A要调用B时，A无需主动获取，会有人主动把B送过来供A使用，以减少在A的代码中存在B，导致模块间的高度耦合。</p>
+</blockquote>
+<h2 id="正常的代码控制流程"><a href="#正常的代码控制流程" class="headerlink" title="正常的代码控制流程"></a>正常的代码控制流程</h2><p>1.创建一个接口Car</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.定义两种车实现接口car</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Benz</span> <span class="keyword">implements</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"benz go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BMW</span> <span class="keyword">implements</span> <span class="title">Car</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"bmw go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.人要开车</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">new</span> Benz();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">DriveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种方式是我们常见的代码控制流程，人想要开车，需要自己实例化，且这个人只能开一种车。</li>
+<li>如何让他可以想开什么车就开什么车呢？<blockquote>
+<p>通过依赖注入</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="依赖注入的方式DI（Dependency-Injection）"><a href="#依赖注入的方式DI（Dependency-Injection）" class="headerlink" title="依赖注入的方式DI（Dependency Injection）"></a>依赖注入的方式DI（Dependency Injection）</h2><ul>
+<li>依赖注入是实现控制反转的方式之一。</li>
+<li>看一下修改后的person类  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在的Person类已经不自己实例化车的对象了，而是通过构造函数来获得车的对象，所以，这个类就可以开各种车了，只要这个车实现了Car接口就可以。看一下如何使用Person类</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Person person=<span class="keyword">new</span> Person(<span class="keyword">new</span> Benz());</span><br><span class="line">  person.driveCar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>现在的Person类可以开不止一种车，只要你通过构造函数传递进来。在这个例子中，Car对象就是Person类的依赖，当我们实例化Person类时，将一个Car的实例传递给Person类，就是依赖注入，我们的Person类从而实现了控制反转。<br>控制反转到底反转了什么？有种说法是这样的：所谓控制反转，反转的是获取对象依赖的过程。控制权反转后，获取依赖对象的过程由自身管理变为由IOC容器注入。</p>
+</blockquote>
+<h2 id="Spring实现依赖注入的方式"><a href="#Spring实现依赖注入的方式" class="headerlink" title="Spring实现依赖注入的方式"></a>Spring实现依赖注入的方式</h2><blockquote>
+<p>在上面的这行代码中Person p=new Person(new Benz());，我们通过手动的方式new了一个Benz()的对象，然后将其注入到Person类中。而Spring不这么干，因为Spring觉得，你这行代码实例化了一个具体的Benz类，如果你以后想要在这里实例化一个BMW类的话，岂不是要修改代码？那我干脆写到配置文件里好了，即便你将来要该注意，至少不需要修改代码，于是就有了下面的配置</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Benz"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Person"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"car"</span> <span class="attr">ref</span>=<span class="string">"car"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从配置文件中获取Person类的对象时，car对象会被自动装配进来，而person对象不需要关心到底是哪个具体的类被传递进来了。所以，Spring作为一个IOC框架主要做了两步：创建对象和组装对象之间的关系。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>首次收到打赏</title>
+    <url>/2020/09/30/%E9%A6%96%E6%AC%A1%E6%94%B6%E5%88%B0%E6%89%93%E8%B5%8F/</url>
+    <content><![CDATA[<h1 id="收到了来自师傅的打赏"><a href="#收到了来自师傅的打赏" class="headerlink" title="收到了来自师傅的打赏"></a>收到了来自师傅的打赏</h1><h2 id="有师傅真是太好了！-●’◡’●"><a href="#有师傅真是太好了！-●’◡’●" class="headerlink" title="有师傅真是太好了！(●’◡’●)"></a>有师傅真是太好了！(●’◡’●)</h2><p><img src="1.jpg" alt=""><br><img src="2.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>心情</tag>
       </tags>
   </entry>
 </search>
