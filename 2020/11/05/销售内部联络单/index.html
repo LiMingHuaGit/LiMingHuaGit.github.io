@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    PowerBI_DAX函数 |  岛
+    销售内部联络单 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-PowerBI_DAX函数" class="article article-type-post" itemscope
+  <article id="post-销售内部联络单" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  PowerBI_DAX函数
+  销售内部联络单
 </h1>
  
 
@@ -62,12 +62,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/11/04/PowerBI_DAX%E5%87%BD%E6%95%B0/" class="article-date">
-  <time datetime="2020-11-04T01:18:01.000Z" itemprop="datePublished">2020-11-04</time>
+      <a href="/2020/11/05/%E9%94%80%E5%94%AE%E5%86%85%E9%83%A8%E8%81%94%E7%BB%9C%E5%8D%95/" class="article-date">
+  <time datetime="2020-11-05T08:28:08.000Z" itemprop="datePublished">2020-11-05</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
   </div>
 
       
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">964</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -97,8 +97,6 @@
 
     
     
-    <div class="tocbot"></div>
-
 
 
 
@@ -111,95 +109,115 @@
       
 
       
-      <h1 id="DAX函数"><a href="#DAX函数" class="headerlink" title="DAX函数"></a>DAX函数</h1><blockquote>
-<p>数据分析表达式 (DAX) 是在 Analysis Services、Power BI 以及 Excel 中的 Power Pivot 使用的公式表达式语言。 DAX 公式包括函数、运算符和值，用于对表格数据模型中相关表和列中的数据执行高级计算和查询<br><a href="https://docs.microsoft.com/zh-cn/dax/dax-overview" target="_blank" rel="noopener">微软文档</a></p>
-</blockquote>
-<h2 id="CALCULATE"><a href="#CALCULATE" class="headerlink" title="CALCULATE"></a>CALCULATE</h2><blockquote>
-<p>DAX中最重要的函数</p>
-</blockquote>
-<h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALCULATE(聚合函数,筛选条件,筛选条件...)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>所有筛选条件的交集形成最终的筛选数据集合,根据筛选出的数据集合执行第一个参数的聚合运算并返回运算结果</p>
-</blockquote>
-<h3 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h3><blockquote>
-<p>导入下面这个产品明细表： </p>
-</blockquote>
+      <ol>
+<li>内部联络单号 <ul>
+<li>设置 &gt; 自动编号 &gt; new_sal_contactform</li>
+</ul>
+</li>
+<li>根据销售信息单自动带出 √<ul>
+<li>销售信息    new_opportunity_id（内联单)</li>
+<li>客户名称    new_account_id（内联单)        new_account_id(销售信息)</li>
+<li>主要联系人    new_pkcontact（内联单)          new_contactname(销售信息-联系人姓名)</li>
+<li>联系电话     new_telephone（内联单)        new_contacttel（销售信息-联系人电话）</li>
+<li>联系地址     new_address（内联单)            new_address（销售信息-详细地址）</li>
+<li>提报单位     new_dept_id（内联单)         new_dept_id（销售信息-提报单位）</li>
+<li>跟踪人     new_sales_id（内联单)        new_trackor（销售信息-跟踪人）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">opportunityOnchange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">///&lt;summary&gt;销售信息Onchange事件&lt;/summary&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//销售信息id</span></span><br><span class="line">    <span class="keyword">var</span> new_opportunity_id = rtcrm.getLookupId(<span class="string">"new_opportunity_id"</span>);</span><br><span class="line">    <span class="comment">//查询销售信息字段（客户名称、主要联系人、联系电话、联系地址、提报单位、跟踪人）</span></span><br><span class="line">    <span class="keyword">var</span> opportunity = rtcrm.getFieldValue(new_opportunity_id, <span class="string">"opportunities"</span>,</span><br><span class="line">        <span class="string">"_new_account_id_value,new_contactname,new_contacttel,new_address,_new_dept_id_value,_new_trackor_value"</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//客户名称赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"_new_account_id_value"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_account_id = opportunity[<span class="string">"_new_account_id_value"</span>];</span><br><span class="line">        <span class="keyword">var</span> new_account_id_name = opportunity[<span class="string">"_new_account_id_value@OData.Community.Display.V1.FormattedValue"</span>];</span><br><span class="line">        <span class="keyword">var</span> lookupValue = rtcrm.buildLookup(new_account_id,</span><br><span class="line">            new_account_id_name, <span class="string">"account"</span>);</span><br><span class="line">        rtcrm(<span class="string">'#new_account_id'</span>).val(lookupValue);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"客户名称为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//主要联系人赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"new_contactname"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_contactname = opportunity[<span class="string">"new_contactname"</span>];</span><br><span class="line">        rtcrm(<span class="string">"#new_pkcontact"</span>).val(new_contactname);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"主要联系人为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//联系电话赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"new_contacttel"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_contacttel = opportunity[<span class="string">"new_contacttel"</span>];</span><br><span class="line">        rtcrm(<span class="string">"#new_telephone"</span>).val(new_contacttel);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"联系电话为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//联系地址赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"new_address"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_address = opportunity[<span class="string">"new_address"</span>];</span><br><span class="line">        rtcrm(<span class="string">"#new_address"</span>).val(new_address);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"联系地址为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//提报单位赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"_new_dept_id_value"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_dept_id = opportunity[<span class="string">"_new_dept_id_value"</span>];</span><br><span class="line">        <span class="keyword">var</span> new_dept_id_name = opportunity[<span class="string">"_new_dept_id_value@OData.Community.Display.V1.FormattedValue"</span>];</span><br><span class="line">        <span class="keyword">var</span> lookupValue = rtcrm.buildLookup(new_dept_id,</span><br><span class="line">            new_dept_id_name, <span class="string">"businessunit"</span>);</span><br><span class="line">        rtcrm(<span class="string">'#new_dept_id'</span>).val(lookupValue);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"提报单位为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//跟踪人赋值</span></span><br><span class="line">    <span class="keyword">if</span> (opportunity[<span class="string">"_new_trackor_value"</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> new_trackor_id = opportunity[<span class="string">"_new_trackor_value"</span>];</span><br><span class="line">        <span class="keyword">var</span> new_trackor_id_name = opportunity[<span class="string">"_new_trackor_value@OData.Community.Display.V1.FormattedValue"</span>];</span><br><span class="line">        <span class="keyword">var</span> lookupValue = rtcrm.buildLookup(new_trackor_id,</span><br><span class="line">            new_trackor_id_name, <span class="string">"new_ord_sales"</span>);</span><br><span class="line">        rtcrm(<span class="string">'#new_sales_id'</span>).val(lookupValue);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"跟踪人为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>处理状态 <ul>
+<li>picklist字段；分为：制单、处理中、已处理、已完成；</li>
+<li>1.处理状态初始值默认为’制单‘；</li>
+<li>2.点击处理后，更新处理状态为’已处理‘；</li>
+<li>new_dealstatus</li>
+</ul>
+</li>
+<li>审核状态<ul>
+<li>picklist字段：分为：制单、审核中、已审核、已驳回、已否决</li>
+<li>1.审核状态初始值为制单；</li>
+<li>2.点击提交后，更新审核状态为审核中；</li>
+<li>3.审核后，更新审核状态为已审核或者已驳回；</li>
+<li>new_approvalstatus</li>
+</ul>
+</li>
+<li>处理按钮<ul>
+<li>点击处理后，更新处理状态为’已处理‘</li>
+<li>责任人和当前账户一致时显示</li>
+<li>注册按钮<ul>
+<li>显示隐藏控制 enable rules<ul>
+<li>customRule</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 <p><img src="1.jpg" alt=""></p>
-<blockquote>
-<p>新建一个度量值求每种产品的数量：<br>产品数量 = COUNTROWS(‘产品明细’)<br>因为每种产品的只有1行，所以求产品明细表的行数就相当于求各种产品的数量，把产品名称和该度量值拖拽入矩阵表，</p>
-</blockquote>
+<ol start="6">
+<li><p>完成按钮</p>
+<ul>
+<li>点击完成按钮，更新处理状态为‘已完成’</li>
+<li>单据负责人和当前账户一致时显示</li>
+</ul>
+</li>
+<li><p>场景动作</p>
+<ul>
+<li>1.点击提交 <ul>
+<li>1.1 更新处理状态为‘处理中’</li>
+<li>1.2 更新审核状态为‘审核中’</li>
+<li>电商运营部负责人审核</li>
+</ul>
+</li>
+<li>2.同意<ul>
+<li>2.1更新审核状态为‘已审核’</li>
+</ul>
+</li>
+<li>3.驳回<ul>
+<li>3.1更新处理状态为‘制单’</li>
+<li>3.2更新审核状态为‘已驳回’</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>签核流程自动化</p>
+<ul>
+<li>新建解决方案</li>
+<li>添加现有实体</li>
+<li>添加必须组件 &gt; 否</li>
+<li>设置 &gt; 签核流程自动化</li>
+<li>输入解决方案名称 &gt; 无审核驳回等字段点添加字段（标准签核流不建议自己建） &gt; 无提交撤回等按钮选择添加按钮</li>
+</ul>
+</li>
+<li><p>销售内联单产品明细</p>
+<ul>
+<li>new_contactformproduct 销售内联单产品明细   </li>
+<li>test 销售信息 4CBB33BE-B2A7-4873-8246-E855F762D60B</li>
+<li>new_name 名称</li>
+<li>new_productgroup_id 产品组</li>
+<li>new_tonlevel_id 吨级</li>
+<li>new_productmodel_id 产品型号</li>
+<li>new_number 需求数量</li>
+<li>new_plandealmoney 预计成交单价</li>
+<li>new_actualdealmoney 实际成交单价</li>
+<li>new_plandealtime 预计成交年月</li>
+<li>new_actualamount 实际成交金额 </li>
+<li>配置窗体时选择子网格属性即可将明细与主档根据字段关联</li>
+</ul>
+</li>
+</ol>
 <p><img src="2.jpg" alt=""></p>
-<blockquote>
-<p>这里外部上下文就是表格每行的行标签。</p>
-</blockquote>
-<h4 id="用例01-筛选条件为空，不影响外部上下文"><a href="#用例01-筛选条件为空，不影响外部上下文" class="headerlink" title="用例01 | 筛选条件为空，不影响外部上下文"></a>用例01 | 筛选条件为空，不影响外部上下文</h4><blockquote>
-<p>现在开始用CALCULATE函数创建一个度量值：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产品数量1 &#x3D; CALCULATE([产品数量])</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>小细节<ul>
+<li>pickList赋值用OptionSetValue（int）</li>
+<li>js文件无法上传至正式环境web资源时，先在测试环境上传，并新建解决方案，将web资源添加至解决方案后导出再导入正式环境</li>
+</ul>
+</li>
+</ol>
 
-<blockquote>
-<p>只是用了第一个参数，筛选条件为空，因为没有内部筛选所以完全依赖外部上下文，出来的结果也和原度量值一致。</p>
-</blockquote>
-<p><img src="3.jpg" alt=""></p>
-<blockquote>
-<p>另外，介绍CALCULATE语法的时候说，第一个参数为聚合运算表达式，为什么这里没有用聚合函数而只用了一个度量值呢？<br>这是因为度量值[产品数量]本身就是一个聚合函数运算，实际上度量值[产品数量1]等同于这个：<br>产品数量1 = CALCULATE(COUNTROWS(‘产品明细’))<br>DAX函数可以直接引用已经创建好的度量值，可以使DAX函数看起来更简洁、更具可读性，这也是建议从最简单的度量值开始建的原因。</p>
-</blockquote>
-<h4 id="用例02-添加限制条件，缩小上下文"><a href="#用例02-添加限制条件，缩小上下文" class="headerlink" title="用例02 | 添加限制条件，缩小上下文"></a>用例02 | 添加限制条件，缩小上下文</h4><blockquote>
-<p>建一个度量值[产品数量2]，</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产品数量2 &#x3D; CALCULATE([产品数量],&#39;产品明细&#39;[品牌]&#x3D;&quot;苹果&quot;)</span><br></pre></td></tr></table></figure>
-
-<p><img src="4.jpg" alt=""></p>
-<blockquote>
-<p>发现只有苹果的产品计数显示出来，而其他品牌的数据没有了，这是因为CALCULATE的第二个参数的限制，只筛选品牌为“苹果”的，限制了外部的上下文，非苹果的产品都不再运算。</p>
-</blockquote>
-<h4 id="用例03-结合ALL函数，扩大上下文"><a href="#用例03-结合ALL函数，扩大上下文" class="headerlink" title="用例03 | 结合ALL函数，扩大上下文"></a>用例03 | 结合ALL函数，扩大上下文</h4><blockquote>
-<p>新建度量值[产品数量3]，</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产品数量3 &#x3D; CALCULATE([产品数量],ALL(&#39;产品明细&#39;))</span><br></pre></td></tr></table></figure>
-
-<p><img src="5.jpg" alt=""></p>
-<blockquote>
-<p>这次的数据居然是所有产品的数量，这是因为筛选条件使用了ALL函数，ALL(‘产品明细’)的意思是清除产品明细表里的所有筛选，外部筛选器不起作用了，每行统计的都是该表中的所有产品。<br>每行的数据都是9，你可能觉得这个ALL函数没什么用，运算的数据没有什么意义，实际上当然不是这样，这个数据使用的地方非常多，比如我们想计算每个产品数量占总产品数量的比重，直接写个度量值：<br>产品占比=[产品数量]/[产品数量3]</p>
-</blockquote>
-<p><img src="6.jpg" alt=""></p>
-<blockquote>
-<p>产品占比就计算出来了，这就是统计总数的一个功能。</p>
-</blockquote>
-<h4 id="用例04-重置上下文"><a href="#用例04-重置上下文" class="headerlink" title="用例04 | 重置上下文"></a>用例04 | 重置上下文</h4><blockquote>
-<p>新建度量值[产品数量4]，</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产品数量4 &#x3D; CALCULATE([产品数量], all(&#39;产品明细&#39;[产品名称]),&#39;产品明细&#39;[类别]&#x3D;&quot;手机&quot;)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>先用ALL函数清除外部上下文，然后又新增了一个筛选条件，类别为”手机”的产品数量，那么结果会是什么样的呢，</p>
-</blockquote>
-<p><img src="7.jpg" alt=""></p>
-<blockquote>
-<p>每一行产品的数量都是3，正好符合建立这个度量值的逻辑，被ALL清除行标签的外部筛选后，从全部产品中统计品类为”手机”的产品的数量，所以每行都返回3.</p>
-</blockquote>
-<h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h2><blockquote>
-<p>对某个列中的所有数值求和</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUM(&lt;column&gt;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="SUMX"><a href="#SUMX" class="headerlink" title="SUMX"></a>SUMX</h2><blockquote>
-<p>返回为表中的每一行计算的表达式的和</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUMX(&lt;table&gt;, &lt;expression&gt;)</span><br><span class="line">eg:商机金额预估_基础 &#x3D; CALCULATE(SUMX(&#39;Opportunityproduct&#39;,&#39;Opportunityproduct&#39;[需求数量]*&#39;Opportunityproduct&#39;[预计成交单价(万元)]))*10000</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>SUMX 函数将表或返回表的表达式作为其第一个参数。 第二个参数是包含要计算总和的数字的列，或计算结果为列的表达式。<br>仅对列中的数字进行计数。 空白、逻辑值和文本会被忽略。</p>
-</blockquote>
-<h2 id="SUM-amp-SUMX"><a href="#SUM-amp-SUMX" class="headerlink" title="SUM &amp; SUMX"></a>SUM &amp; SUMX</h2><blockquote>
-<p>SUM是列级别聚合函数（不逐行计算），SUMX是行级别聚合函数（逐行计算）</p>
-</blockquote>
-<h2 id="USERELATIONSHIP"><a href="#USERELATIONSHIP" class="headerlink" title="USERELATIONSHIP"></a>USERELATIONSHIP</h2><blockquote>
-<p>如下图，虚线关系为当前不可用关系，但以使用USERELATIONSHIP函数为度量值指定相关关系</p>
-</blockquote>
-<p><img src="8.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最终客户销售金额 &#x3D; CALCULATE([销售金额],USERELATIONSHIP(Account[客户识别码],OrderShipment[最终客户识别码]))</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -267,14 +285,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/11/04/PowerBI_DAX%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/11/05/%E9%94%80%E5%94%AE%E5%86%85%E9%83%A8%E8%81%94%E7%BB%9C%E5%8D%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAX%E5%87%BD%E6%95%B0/" rel="tag">DAX函数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powerBI/" rel="tag">powerBI</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRM/" rel="tag">CRM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%80%E5%94%AE/" rel="tag">销售</a></li></ul>
 
 
     </footer>
@@ -285,19 +303,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/11/05/%E9%94%80%E5%94%AE%E5%86%85%E9%83%A8%E8%81%94%E7%BB%9C%E5%8D%95/" class="article-nav-link">
+      <a href="/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            销售内部联络单
+            销售信息自定义页面
           
         </div>
       </a>
     
     
-      <a href="/2020/10/29/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-nav-link">
+      <a href="/2020/11/04/PowerBI_DAX%E5%87%BD%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">IDEA快捷键</div>
+        <div class="article-nav-title">PowerBI_DAX函数</div>
       </a>
     
   </nav>
