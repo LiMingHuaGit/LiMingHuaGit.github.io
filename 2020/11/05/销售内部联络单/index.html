@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">964</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -122,6 +122,7 @@
 <li>联系地址     new_address（内联单)            new_address（销售信息-详细地址）</li>
 <li>提报单位     new_dept_id（内联单)         new_dept_id（销售信息-提报单位）</li>
 <li>跟踪人     new_sales_id（内联单)        new_trackor（销售信息-跟踪人）</li>
+<li>所属组织   new_organisation_id         new_organisation_id(销售信息)</li>
 </ul>
 </li>
 </ol>
@@ -145,7 +146,7 @@
 </li>
 <li>处理按钮<ul>
 <li>点击处理后，更新处理状态为’已处理‘</li>
-<li>责任人和当前账户一致时显示</li>
+<li>处理中已审核时,责任人和当前账户一致时显示</li>
 <li>注册按钮<ul>
 <li>显示隐藏控制 enable rules<ul>
 <li>customRule</li>
@@ -161,7 +162,7 @@
 <li><p>完成按钮</p>
 <ul>
 <li>点击完成按钮，更新处理状态为‘已完成’</li>
-<li>单据负责人和当前账户一致时显示</li>
+<li>已处理已审核时，单据负责人和当前账户一致时显示</li>
 </ul>
 </li>
 <li><p>场景动作</p>
@@ -211,6 +212,12 @@
 </ol>
 <p><img src="2.jpg" alt=""></p>
 <ol start="10">
+<li>js打开视图表单</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openEntityForm: <span class="function"><span class="keyword">function</span> (<span class="params">name, id, parameters, windowOptions</span>) </span>&#123;</span><br><span class="line">    <span class="comment">///	&lt;summary&gt;对openEntityForm函数的封装，打开CRM页面&lt;/summary&gt;</span></span><br><span class="line">    <span class="comment">///	&lt;param name="name" type="String"&gt;实体名称&lt;/param&gt;</span></span><br><span class="line">    <span class="comment">///	&lt;param name="id" type="String"&gt;实体ID，若为空，则打开新建页面&lt;/param&gt;</span></span><br><span class="line">    <span class="comment">///	&lt;param name="parameters" type="Object"&gt;将参数带入窗体中&lt;/param&gt;</span></span><br><span class="line">    <span class="comment">///	&lt;param name="windowOptions" type="Object"&gt;若 openInNewWindow 属性设置为 true，则将在新窗体中打开一个窗口。此参数在 Dynamics 365 移动客户端（电话和平板）中被忽略。&lt;/param&gt;</span></span><br><span class="line">    Xrm.Utility.openEntityForm(name, id, parameters, windowOptions);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OpenNewContact</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	 <span class="keyword">var</span> parameters = &#123;&#125;;</span><br><span class="line">	 <span class="comment">//Set the Parent Customer field value to "Contoso".</span></span><br><span class="line">	 parameters[<span class="string">"parentcustomerid"</span>] = <span class="string">"2878282E-94D6-E111-9B1D-00155D9D700B"</span>;</span><br><span class="line">	 parameters[<span class="string">"parentcustomeridname"</span>] = <span class="string">"Contoso"</span>;</span><br><span class="line">	 parameters[<span class="string">"parentcustomeridtype"</span>] = <span class="string">"account"</span>;</span><br><span class="line">	 <span class="comment">//Set the Address Type to "Primary".</span></span><br><span class="line">	 parameters[<span class="string">"address1_addresstypecode"</span>] = <span class="string">"3"</span>;</span><br><span class="line">	 <span class="comment">//Set text in the Description field.</span></span><br><span class="line">	 parameters[<span class="string">"description"</span>] = <span class="string">"Default values for this record were set programmatically."</span>;</span><br><span class="line">	 <span class="comment">//Set Do not allow E-mails to "Do Not Allow".</span></span><br><span class="line">	 parameters[<span class="string">"donotemail"</span>] = <span class="string">"1"</span>;</span><br><span class="line"></span><br><span class="line">	 <span class="comment">// Open the window.</span></span><br><span class="line">	 Xrm.Utility.openEntityForm(<span class="string">"contact"</span>, <span class="literal">null</span>, parameters);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
 <li>小细节<ul>
 <li>pickList赋值用OptionSetValue（int）</li>
 <li>js文件无法上传至正式环境web资源时，先在测试环境上传，并新建解决方案，将web资源添加至解决方案后导出再导入正式环境</li>
