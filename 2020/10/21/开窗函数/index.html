@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">319</span>
         </span>
     </span>
 
@@ -97,6 +97,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -109,7 +111,23 @@
       
 
       
-      
+      <h1 id="开窗函数"><a href="#开窗函数" class="headerlink" title="开窗函数"></a>开窗函数</h1><blockquote>
+<p>与聚合函数一样，开窗函数也是对行集组进行聚合计算，但是它不像普通聚合函数那样每组只返回一个值，开窗函数可以为每组返回多个值，因为开窗函数所执行聚合计算的行集组是窗口。在 ISO SQL 规定了这样的函数为开窗函数，在 Oracle 中则被称为分析函数。</p>
+</blockquote>
+<h2 id="PARTITION-BY"><a href="#PARTITION-BY" class="headerlink" title="PARTITION BY"></a>PARTITION BY</h2><blockquote>
+<p>分组<br>开窗函数的OVER关键字后括号中的可以使用PARTITION BY 子句来定义行的分区来供进行聚合计算。与GROUP BY 子句不同，PARTITION BY 子句创建的分区是独立于结果集的，创建的分区只是供进行聚合计算的，而且不同的开窗函数所创建的分区也不互相影响。</p>
+</blockquote>
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><blockquote>
+<p>排序</p>
+</blockquote>
+<h2 id="聚合开窗函数"><a href="#聚合开窗函数" class="headerlink" title="聚合开窗函数"></a>聚合开窗函数</h2><blockquote>
+<p>聚合函数(列) OVER (选项)，这里的选项可以是PARTITION BY子句，但不可是ORDER BY子句</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">new_age,</span><br><span class="line"><span class="keyword">SUM</span>(new_age)<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> new_age) max_age</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
+<h2 id="排序开窗函数"><a href="#排序开窗函数" class="headerlink" title="排序开窗函数"></a>排序开窗函数</h2><blockquote>
+<p>排序函数(列) OVER(选项)，这里的选项可以是ORDER BY子句，也可以是　OVER（PARTITION BY子句　ORDER BY子句），但不可以是PARTITION BY子句</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">AccountNumber,</span><br><span class="line">row_number()<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> AccountNumber <span class="keyword">ORDER</span> <span class="keyword">BY</span> AccountNumber) <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -184,7 +202,7 @@
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/join/" rel="tag">join</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Server/" rel="tag">SQL Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E8%AF%AD%E6%B3%95/" rel="tag">SQL语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
 
 
     </footer>
