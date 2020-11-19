@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    categories |  岛
+    发货通知单二维码 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,45 +45,250 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
+  <article id="post-发货通知单二维码" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  发货通知单二维码
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/" class="article-date">
+  <time datetime="2020-11-17T05:58:51.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">159</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
+<p>成品资源出库时使用的发货通知单中二维码信息增加：<br>1、产品信息(物料名称) new_contractdetail_id<br>2、合同号 (合同单号) new_contract_id<br>3、最终客户 new_finalaccount_id<br>4、运输方式 new_shiptype –单行文本<br>5、产品送达地 new_shipplace  –单行文本<br>6、交货联系人 new_contact2 –单行文本</p>
+</blockquote>
+<h2 id="代码位置"><a href="#代码位置" class="headerlink" title="代码位置"></a>代码位置</h2><blockquote>
+<p>RekTec.Crm.Workflow.Sales.ShipmentController.CreateQRCode</p>
+</blockquote>
+<h2 id="OrganizationService-Retrieve"><a href="#OrganizationService-Retrieve" class="headerlink" title="OrganizationService.Retrieve"></a>OrganizationService.Retrieve</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OrganizationService.Retrieve(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(shipmentid), <span class="keyword">new</span> ColumnSet(<span class="keyword">new</span> string[] &#123; <span class="string">"new_name"</span> &#125;));</span><br><span class="line">Entity accountclassification = OrganizationService.Retrieve(<span class="string">"new_accountclassification"</span>, classificationId, <span class="keyword">new</span> ColumnSet(<span class="keyword">true</span>));</span><br><span class="line">columnSet: 传入字段时为字段，传入<span class="keyword">true</span>为所有字段，传入<span class="keyword">false</span>只查询主键</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改字段大小"><a href="#修改字段大小" class="headerlink" title="修改字段大小"></a>修改字段大小</h2><blockquote>
+<p>自定义项字段详情中可设置字段长度</p>
+</blockquote>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRM/" rel="tag">CRM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E8%A1%A8/" rel="tag">报表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%80%E5%94%AE/" rel="tag">销售</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
   
-    <h1 class="page-type-title">Categories</h1>
-    <!-- <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul> -->
-    <ul class="category-list">
-      
-         
-          <a class="category-list-link" href="/categories/工作/" title="工作">
-            <li class="category-list-item">
-            工作<i>7</i>
-            </li>
-          </a>
-        
-      
-         
-          <a class="category-list-link" href="/categories/工具/" title="工具">
-            <li class="category-list-item">
-            工具<i>1</i>
-            </li>
-          </a>
-        
-      
-         
-          <a class="category-list-link" href="/categories/技术/" title="技术">
-            <li class="category-list-item">
-            技术<i>16</i>
-            </li>
-          </a>
-        
-      
-         
-          <a class="category-list-link" href="/categories/生活/" title="生活">
-            <li class="category-list-item">
-            生活<i>1</i>
-            </li>
-          </a>
-        
-      
-      </ul>
   
+  <nav class="article-nav">
+    
+      <a href="/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            成品资源报表
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/11/15/rtcrm-js%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E5%BA%93%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">rtcrm.js常用脚本库方法解析</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '3ca37UwilGw72aqkh37fe6U5-gzGzoHsz',
+        app_key: 'owV6K1tLvndEdJMFJ3prXXDV',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
 </section>
       <footer class="footer">
   <div class="outer">
@@ -240,6 +445,24 @@
 </script>
 
 
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 
 
