@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">945</span>
+            <span class="post-count">991</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -125,11 +125,16 @@
 <li>最终客户    new_finalaccount_id</li>
 <li>客户sap编码/售达方sap编码 new_accountno</li>
 <li>最终客户SAP编码 new_finalaccountcode</li>
-<li>付款条件 new_ord_payment_id</li>
-</ol>
-<h2 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h2><h3 id="objecttypecode"><a href="#objecttypecode" class="headerlink" title="objecttypecode"></a>objecttypecode</h3><blockquote>
+<li>付款条件 new_ord_payment_id<h2 id="导入成功后生成回款计划明细字段整理"><a href="#导入成功后生成回款计划明细字段整理" class="headerlink" title="导入成功后生成回款计划明细字段整理"></a>导入成功后生成回款计划明细字段整理</h2></li>
+<li>发货通知单 new_ord_shipment_id</li>
+<li>项次 new_seq</li>
+<li>计划回款日期 new_plandate</li>
+<li>计划回款金额 new_planmoney</li>
+<li>实际已回金额 new_actualmoney<h2 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h2><h3 id="objecttypecode"><a href="#objecttypecode" class="headerlink" title="objecttypecode"></a>objecttypecode</h3><blockquote>
 <p>StringMap表中objecttypecode字段<br>组织服务查询出的objecttypecode实际为entityName<br>sql查询出的是数字代码</p>
 </blockquote>
+</li>
+</ol>
 <p><img src="1.jpg" alt=""><br><img src="2.jpg" alt=""></p>
 <h3 id="CreateRequest"><a href="#CreateRequest" class="headerlink" title="CreateRequest"></a>CreateRequest</h3><blockquote>
 <p>创建实体<br>另一种方法是IOrganizationService.Create(Entity entity)</p>
@@ -261,6 +266,15 @@
   
   
   <nav class="article-nav">
+    
+      <a href="/2020/11/26/portal%E5%8F%91%E8%B4%A7%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%A1%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            portal发货单查询表
+          
+        </div>
+      </a>
     
     
       <a href="/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/" class="article-nav-link">

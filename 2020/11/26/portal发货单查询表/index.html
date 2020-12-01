@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+
+<html lang="ch">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="life" />
+   
+  <meta name="description" content="blog for LiMingHua" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    portal发货单查询表 |  岛
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-portal发货单查询表" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  portal发货单查询表
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/26/portal%E5%8F%91%E8%B4%A7%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%A1%A8/" class="article-date">
+  <time datetime="2020-11-26T01:17:37.000Z" itemprop="datePublished">2020-11-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h2><ol>
+<li>new_ord_shipment 发货通知单 new_contract_id 合同单号  new_userprofile_id 整机编号</li>
+<li>new_contractdetail 合同产品明细 new_contract_id 合同 </li>
+<li>new_srv_userprofile 产品档案 new_srv_userprofileid</li>
+<li>new_contract 合同申请单 new_contractid</li>
+<li>合同申请单为基础关联</li>
+</ol>
+<h2 id="字段说明"><a href="#字段说明" class="headerlink" title="字段说明"></a>字段说明</h2><ol>
+<li>单号–发货通知单号 new_name</li>
+<li>物料名称–合同产品明细 物料名称  new_product_id  自定义 new_product_id1</li>
+<li>产品特殊要求–合同产品明细 产品特殊要求 new_specialrequirement</li>
+<li>物料编码–合同产品明细 物料编码 new_code</li>
+<li>合同单号–关联合同的 合同单号CRT（单号）new_name  自定义 new_crt_name</li>
+<li>合同类型–关联合同（合同申请单） 合同类型 new_contracttype_id</li>
+<li>纸质合同编号–关联合同 纸质合同号（合同申请单） new_pono</li>
+<li>整机编号–发货通知单 整机编号 new_userprofile_id</li>
+<li>付款条件–发货通知单 付款条件 new_ord_payment_id</li>
+<li>产品名称–整机编号（产品档案） 产品名称 new_product_id  自定义 new_product_id2</li>
+<li>底盘发动机号–整机编号（产品档案） 底盘发动机号（底盘发动机编码） new_enginecode</li>
+<li>首付金额–关联合同（合同申请单） 首付金额 new_downpayments （万元）</li>
+<li>首付金额（经销商与重型）–关联合同（合同申请单） 首付金额（经销商与重型）new_sparepartsmoney （万元）</li>
+<li>首付比例–关联合同（合同申请单） 首付比例 new_downpaymentsrat（%）</li>
+<li>国际贸易条款1–关联合同（合同申请单） 国际贸易条款1 new_ord_trade_id</li>
+<li>交货地点–合同产品明细 交货地点 new_sendaddress</li>
+<li>经销/直销–发货通知单 经销/直销 new_selltype</li>
+<li>是否二手车–发货通知单 是否二手车 new_isold</li>
+<li>售达方–关联合同（合同申请单） 售达方 new_customer_id</li>
+<li>售达方管理员账号–关联合同（合同申请单） 售达方管理员账号 new_customeradmin_fddid</li>
+<li>最终用户–关联合同（合同申请单） 最终用户 new_enduser_id</li>
+<li>最终用户管理员账号–关联合同（合同申请单） 最终用户管理员账号（最终客户管理员账号） new_enduseradmin_fddid</li>
+<li>详细地址–关联合同（合同申请单） 详细地址 new_address</li>
+<li>徐工签约人–关联合同（合同申请单） 徐工签约人 new_ord_sales_id</li>
+<li>定价–合同产品明细 定价 new_price</li>
+<li>实际单台金额–发货通知单 实际单台金额 new_contractmoney</li>
+<li>开单时间–发货通知单 开单时间 createdon</li>
+<li>销售代表处–发货通知单 销售代表处 new_office_id</li>
+<li>sap合同凭证号–发货通知单 sap合同凭证号 new_sapcontractno</li>
+<li>客户SAP编码–发货通知单 最终客户sap编码 new_finalaccountcode</li>
+</ol>
+<h2 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	sm.new_name,</span><br><span class="line">	ctd.new_product_idName new_product_id1,</span><br><span class="line">	ctd.new_specialrequirement,</span><br><span class="line">	ctd.new_code,</span><br><span class="line">	ct.new_name new_crt_name,</span><br><span class="line">	ct.new_contracttype_idName new_contracttype_id,</span><br><span class="line">	ct.new_pono,</span><br><span class="line">	sm.new_userprofile_idName new_userprofile_id,</span><br><span class="line">	sm.new_ord_payment_idName new_ord_payment_id,</span><br><span class="line">	up.new_product_idName new_product_id2,</span><br><span class="line">	up.new_enginecode,</span><br><span class="line">	<span class="keyword">CAST</span> ( <span class="keyword">CONVERT</span> ( <span class="built_in">DECIMAL</span> ( <span class="number">18</span>, <span class="number">2</span> ), ct.new_downpayments ) <span class="keyword">AS</span> <span class="built_in">VARCHAR</span> ( <span class="number">256</span> ) ) + <span class="string">'万元'</span> new_downpayments,</span><br><span class="line">	<span class="keyword">CAST</span> ( <span class="keyword">CONVERT</span> ( <span class="built_in">DECIMAL</span> ( <span class="number">18</span>, <span class="number">2</span> ), ct.new_sparepartsmoney ) <span class="keyword">AS</span> <span class="built_in">VARCHAR</span> ( <span class="number">256</span> ) ) + <span class="string">'万元'</span> new_sparepartsmoney,</span><br><span class="line">	<span class="keyword">CAST</span> ( <span class="keyword">CONVERT</span> ( <span class="built_in">DECIMAL</span> ( <span class="number">18</span>, <span class="number">2</span> ), ct.new_downpaymentsrat ) <span class="keyword">AS</span> <span class="built_in">VARCHAR</span> ( <span class="number">256</span> ) ) + <span class="string">'%'</span> new_downpaymentsrat,</span><br><span class="line">	ct.new_ord_trade_idName new_ord_trade_id,</span><br><span class="line">	ctd.new_sendaddress,</span><br><span class="line">	st.value <span class="keyword">AS</span> new_selltype,</span><br><span class="line"><span class="keyword">CASE</span></span><br><span class="line">		sm.new_isold </span><br><span class="line">		<span class="keyword">WHEN</span> <span class="string">'0'</span> <span class="keyword">THEN</span></span><br><span class="line">		<span class="string">'否'</span> <span class="keyword">ELSE</span> <span class="string">'是'</span> </span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> new_isold,</span><br><span class="line">	ct.new_customer_idName new_customer_id,</span><br><span class="line">	ct.new_customeradmin_fddid,</span><br><span class="line">	ct.new_enduser_idName new_enduser_id,</span><br><span class="line">	ct.new_enduseradmin_fddid,</span><br><span class="line">	ct.new_address,</span><br><span class="line">	ct.new_ord_sales_idName new_ord_sales_id,</span><br><span class="line">	<span class="keyword">CAST</span> ( <span class="keyword">CONVERT</span> ( <span class="built_in">DECIMAL</span> ( <span class="number">18</span>, <span class="number">2</span> ), ctd.new_price ) <span class="keyword">AS</span> <span class="built_in">VARCHAR</span> ( <span class="number">256</span> ) ) + <span class="string">'元'</span> new_price,</span><br><span class="line">	<span class="keyword">CAST</span> ( <span class="keyword">CONVERT</span> ( <span class="built_in">DECIMAL</span> ( <span class="number">18</span>, <span class="number">2</span> ), sm.new_contractmoney ) <span class="keyword">AS</span> <span class="built_in">VARCHAR</span> ( <span class="number">256</span> ) ) + <span class="string">'元'</span> new_contractmoney,</span><br><span class="line">	sm.createdon,</span><br><span class="line">	sm.new_office_idName new_office_id,</span><br><span class="line">	sm.new_sapcontractno,</span><br><span class="line">	sm.new_finalaccountcode </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	new_contract ct</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> new_ord_shipment sm <span class="keyword">ON</span> sm.new_contract_id = ct.new_contractid </span><br><span class="line">	<span class="keyword">AND</span> sm.statecode = <span class="number">0</span></span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> new_contractdetail ctd <span class="keyword">ON</span> ctd.new_contract_id = ct.new_contractid </span><br><span class="line">	<span class="keyword">AND</span> ctd.statecode = <span class="number">0</span></span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> new_srv_userprofile up <span class="keyword">ON</span> sm.new_userprofile_id = up.new_srv_userprofileid </span><br><span class="line">	<span class="keyword">AND</span> up.statecode = <span class="number">0</span></span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> stringmap st <span class="keyword">ON</span> st.objecttypecode = <span class="number">10205</span> </span><br><span class="line">	<span class="keyword">AND</span> st.attributename = <span class="string">'new_selltype'</span> </span><br><span class="line">	<span class="keyword">AND</span> st.AttributeValue = sm.new_selltype </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	ct.statecode = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="角色过滤"><a href="#角色过滤" class="headerlink" title="角色过滤"></a>角色过滤</h2><blockquote>
+<p>基于合同申请单进行权限控制<br>直销销售员 portal制单人 new_portalowner_id  徐工签约人 new_ord_sales_id<br>代表处 代表处 new_office_id<br>经销商 经销商 new_discustomer<br>经销销售员 portal制单人 new_portalowner_id<br>Portal 上经销商、代表处、经销销售员、直销销售员绑定部门实体类型均为account</p>
+</blockquote>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//互联用户类型</span></span><br><span class="line"><span class="keyword">var</span> userType = UserIdentity.GetUserType();</span><br><span class="line"><span class="comment">//互联用户id</span></span><br><span class="line"><span class="keyword">var</span> userid = UserIdentity.GetCrmUserId();</span><br><span class="line"><span class="comment">//绑定部门id</span></span><br><span class="line"><span class="keyword">var</span> departid = UserIdentity.GetCrmDepartId();</span><br><span class="line"><span class="comment">//代表处</span></span><br><span class="line"><span class="keyword">if</span> (userType.Equals(<span class="string">"7"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//代表处等于绑定部门id(accountid)上的代表处</span></span><br><span class="line">    <span class="keyword">string</span> param = <span class="string">" AND ct.new_office_id = (select new_office_id FROM Account where AccountId = @dbc) "</span>;</span><br><span class="line">    sql += param;</span><br><span class="line">    paramList.Add(<span class="string">"dbc"</span>, departid);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//经销商</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (userType.Equals(<span class="string">"3"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//经销商等于绑定部门id(accountid)</span></span><br><span class="line">    <span class="keyword">string</span> param = <span class="string">" AND ct.new_discustomer = @jxs "</span>;</span><br><span class="line">    sql += param;</span><br><span class="line">    paramList.Add(<span class="string">"jxs"</span>, departid);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//经销销售员</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (userType.Equals(<span class="string">"6"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//portal制单人等于互联用户上的绑定用户id</span></span><br><span class="line">    <span class="keyword">string</span> param = <span class="string">" AND ct.new_portalowner_id = (select new_binduser_id FROM new_outeruser WHERE new_outeruserid = @jxxsy )"</span>;</span><br><span class="line">    sql += param;</span><br><span class="line">    paramList.Add(<span class="string">"jxxsy"</span>, userid);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//直销销售员</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (userType.Equals(<span class="string">"5"</span>)) &#123;</span><br><span class="line">    <span class="comment">//portal制单人、徐工签约人等于互联用户上的绑定用户id</span></span><br><span class="line">    <span class="keyword">string</span> param = <span class="string">" AND ct.new_portalowner_id = (select new_binduser_id FROM new_outeruser WHERE new_outeruserid = @zxxsy ) "</span> +</span><br><span class="line">        <span class="string">"or ct.new_ord_sales_id = (select new_binduser_id FROM new_outeruser WHERE new_outeruserid = @zxxsy ) "</span>;</span><br><span class="line">    sql += param;</span><br><span class="line">    paramList.Add(<span class="string">"zxxsy"</span>, userid);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="1.jpg" alt=""></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/11/26/portal%E5%8F%91%E8%B4%A7%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%A1%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRM/" rel="tag">CRM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Portal/" rel="tag">Portal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%80%E5%94%AE/" rel="tag">销售</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/11/28/%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E8%B7%9F%E8%B8%AA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据导出跟踪
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/11/23/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E5%AF%BC%E5%85%A5%E6%8C%89%E9%92%AE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">发货通知单导入按钮</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '3ca37UwilGw72aqkh37fe6U5-gzGzoHsz',
+        app_key: 'owV6K1tLvndEdJMFJ3prXXDV',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> 李明华
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/04/17/aboutMe/">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wepay.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=480654&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>
