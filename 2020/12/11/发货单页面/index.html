@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    成品车出库自动同步送车记录 |  岛
+    发货单页面 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-成品车出库自动同步送车记录" class="article article-type-post" itemscope
+  <article id="post-发货单页面" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  成品车出库自动同步送车记录
+  发货单页面
 </h1>
  
 
@@ -62,8 +62,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/12/06/%E6%88%90%E5%93%81%E8%BD%A6%E5%87%BA%E5%BA%93%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%80%81%E8%BD%A6%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2020-12-06T09:21:44.000Z" itemprop="datePublished">2020-12-06</time>
+      <a href="/2020/12/11/%E5%8F%91%E8%B4%A7%E5%8D%95%E9%A1%B5%E9%9D%A2/" class="article-date">
+  <time datetime="2020-12-11T08:33:14.000Z" itemprop="datePublished">2020-12-11</time>
 </a>
       
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">621</span>
+            <span class="post-count">304</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -111,45 +111,40 @@
       
 
       
-      <h2 id="场景及说明"><a href="#场景及说明" class="headerlink" title="场景及说明"></a>场景及说明</h2><blockquote>
-<p>送车记录维护目前是手工新建送车记录，为了更好的及时做到送车记录回传需要变更为根据成品车出库自动同步送车记录，后续根据实际送车需要再去维护相应的送车记录。自动同步送车记录的逻辑与随车物品发放记录自动同步类似。<br>成品车出库制单状态的单据点击确认按钮时同步更新送车记录维护<br>hiddenapi中入参为成品车出库id   workflow VinShipOutCommand Confirm方法<br>根据发货通知单号带出相关字段</p>
+      <h2 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h2><blockquote>
+<p>移动端vue框架  vant<br><a href="https://vant-contrib.gitee.io/vant/#/zh-CN/" target="_blank" rel="noopener">文档</a></p>
 </blockquote>
-<h2 id="实体信息"><a href="#实体信息" class="headerlink" title="实体信息"></a>实体信息</h2><h3 id="成品车出库"><a href="#成品车出库" class="headerlink" title="成品车出库"></a>成品车出库</h3><blockquote>
-<p>new_vin_shipout</p>
-</blockquote>
-<ol>
-<li>new_vin_shipoutid 主键</li>
-</ol>
-<h3 id="送车记录"><a href="#送车记录" class="headerlink" title="送车记录"></a>送车记录</h3><blockquote>
-<p>new_vin_sendtruckmaintain</p>
-</blockquote>
-<ol>
-<li>new_vin_sendtruckmaintainid 主键</li>
-<li>new_sender 送车人</li>
-<li>new_address 送车地点</li>
-<li>new_shiptype 提货方式</li>
-<li>new_producttypeid 产品组</li>
-<li>new_shipnoticeid 提单号</li>
-<li>new_productid 物料描述</li>
-<li>new_vinmodelid 产品型号</li>
-<li>new_productcode 物料编码</li>
-<li>new_vinid 车辆vin码</li>
-<li>new_contractid 合同号</li>
-<li>new_new_saledepart 代表处</li>
-<li>new_accountid 购车单位</li>
-<li>new_senddate 送车日期</li>
-</ol>
-<h2 id="送车记录可用方法-VinSendTruckMainTainCommand"><a href="#送车记录可用方法-VinSendTruckMainTainCommand" class="headerlink" title="送车记录可用方法  VinSendTruckMainTainCommand"></a>送车记录可用方法  VinSendTruckMainTainCommand</h2><ol>
-<li>VinSendTruckMainTainInfo GetInfoByVin(string vinid) 根据vin码获取信息</li>
-<li>VinSendTruckMainTainInfo GetInfoByShipment(string shipmentid) 根据发货通知单号获取信息</li>
-</ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 同步创建送车记录维护</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用VinSendTruckMainTainCommand中GetInfoByVin获取送车记录维护字段信息</span></span><br><span class="line">VinSendTruckMainTainInfo vinSendTruckMainTainInfo = Command&lt;VinSendTruckMainTainCommand&gt;().GetInfoByVin(vinId);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建实体</span></span><br><span class="line"><span class="keyword">var</span> new_vin_sendtruckmaintain = <span class="keyword">new</span> Entity(<span class="string">"new_vin_sendtruckmaintain"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车人（发运人实体）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipperid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_sender"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_shipper"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipperid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车地点</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipplace))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_address"</span>] = vinSendTruckMainTainInfo.new_shipplace;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提货方式</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shiptype))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shiptype"</span>] = vinSendTruckMainTainInfo.new_shiptype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品组</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_producttypeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_producttypeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_productgroup"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_producttypeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提单号(发货通知单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipnoticeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shipnoticeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipnoticeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料描述(产品物料)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"product"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_productid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品型号（成品车型号）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinmodelid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinmodelid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_productmodel"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinmodelid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料编码</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productcode))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productcode"</span>] = vinSendTruckMainTainInfo.new_productcode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//车辆vin码（产品档案）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_srv_userprofile"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合同号(合同申请单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_contract))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_contractid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_contract"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_contract));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//代表处(业务部门)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_salebu))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_new_saledepart"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"businessunit"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_salebu));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//购车单位</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_enduser))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_accountid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"account"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_enduser));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车日期</span></span><br><span class="line"><span class="keyword">if</span> (vinSendTruckMainTainInfo.new_shipdate != <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_senddate"</span>] = vinSendTruckMainTainInfo.new_shipdate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">OrganizationService.Create(new_vin_sendtruckmaintain);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><h3 id="获取url参数"><a href="#获取url参数" class="headerlink" title="获取url参数"></a>获取url参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取页面url参数</span></span><br><span class="line">getQueryVariable(variable)</span><br><span class="line">&#123;</span><br><span class="line">       <span class="keyword">var</span> query = <span class="built_in">window</span>.location.search.substring(<span class="number">1</span>);</span><br><span class="line">       <span class="keyword">var</span> vars = query.split(<span class="string">"&amp;"</span>);</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;vars.length;i++) &#123;</span><br><span class="line">               <span class="keyword">var</span> pair = vars[i].split(<span class="string">"="</span>);</span><br><span class="line">               <span class="keyword">if</span>(pair[<span class="number">0</span>] == variable)&#123;<span class="keyword">return</span> pair[<span class="number">1</span>];&#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span>(<span class="literal">false</span>);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-
-<h3 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h3><blockquote>
-<p>发货通知单查询增加校验 new_documentstatus 1 未确认 2 已确认 3 已作废</p>
+<h2 id="css背景图片设置"><a href="#css背景图片设置" class="headerlink" title="css背景图片设置"></a>css背景图片设置</h2><h3 id="body设置"><a href="#body设置" class="headerlink" title="body设置"></a>body设置</h3><blockquote>
+<p>缺点是只能横向充满，高度是按比例拉伸的</p>
 </blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">   <span class="attribute">background-image</span>:<span class="built_in">url</span>(test.jpg);</span><br><span class="line">   <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">   <span class="attribute">background-size</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="用一个div充满整个body"><a href="#用一个div充满整个body" class="headerlink" title="用一个div充满整个body"></a>用一个div充满整个body</h3><blockquote>
+<p>缺点可想而知，网页的代码只能放在这个div里</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"background"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">	<span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.background</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">background-image</span>:<span class="built_in">url</span>(timg.jpg);</span><br><span class="line">	<span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">	<span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用一个img充满整个body"><a href="#用一个img充满整个body" class="headerlink" title="用一个img充满整个body"></a>用一个img充满整个body</h3><blockquote>
+<p>后面的元素都要设置定位</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"background"</span> <span class="attr">src</span>=<span class="string">"timg.jpg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">	<span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-class">.background</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><blockquote>
+<p>设置div透明度</p>
+</blockquote>
+<h2 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h2><h3 id="AllowAnonymous-匿名头"><a href="#AllowAnonymous-匿名头" class="headerlink" title="AllowAnonymous 匿名头"></a>AllowAnonymous 匿名头</h3><blockquote>
+<p>绕过登录验证，类似注解</p>
+</blockquote>
+<h3 id="系统参数"><a href="#系统参数" class="headerlink" title="系统参数"></a>系统参数</h3><blockquote>
+<p>自定义项中系统参数设置</p>
+</blockquote>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取系统参数</span></span><br><span class="line"><span class="keyword">string</span> ip = CrmHelper.GetSystemParameterValue(OrganizationService, <span class="string">"dingTalkIp"</span>);</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -217,14 +212,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/12/06/%E6%88%90%E5%93%81%E8%BD%A6%E5%87%BA%E5%BA%93%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%80%81%E8%BD%A6%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/12/11/%E5%8F%91%E8%B4%A7%E5%8D%95%E9%A1%B5%E9%9D%A2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRM/" rel="tag">CRM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90/" rel="tag">成品资源</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRM/" rel="tag">CRM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E6%9D%83%E9%99%90/" rel="tag">绕过登录权限</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" rel="tag">自定义页面</a></li></ul>
 
 
     </footer>
@@ -235,19 +230,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/12/09/otto%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            otto机器人
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/12/04/Vue%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E4%B8%BA%E7%A9%BA/" class="article-nav-link">
+      <a href="/2020/12/11/portal%E6%90%AD%E5%BB%BA%E7%9B%B8%E5%85%B3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Vue判断对象为空</div>
+        <div class="article-nav-title">portal搭建相关</div>
       </a>
     
   </nav>
