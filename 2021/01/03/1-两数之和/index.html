@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    FetchXML查询 |  岛
+    1.两数之和 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-FetchXML查询" class="article article-type-post" itemscope
+  <article id="post-1-两数之和" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  FetchXML查询
+  1.两数之和
 </h1>
  
 
@@ -62,10 +62,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/12/30/FetchXML%E6%9F%A5%E8%AF%A2/" class="article-date">
-  <time datetime="2020-12-30T01:48:20.000Z" itemprop="datePublished">2020-12-30</time>
+      <a href="/2021/01/03/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="article-date">
+  <time datetime="2021-01-03T01:59:20.000Z" itemprop="datePublished">2021-01-03</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -73,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">481</span>
+            <span class="post-count">650</span>
         </span>
     </span>
 
@@ -107,14 +111,40 @@
       
 
       
-      <h2 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 获取当前服务单的回访任务fetch方式</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="id"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> List&lt;SurveyTaskModel&gt; <span class="title">GetSurveyTaskLine2</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">string</span>.IsNullOrWhiteSpace(id))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"当前服务单id丢失"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">string</span> fetchXml = String.Format(<span class="string">@"&lt;fetch mapping='logical' version='1.0'&gt;</span></span><br><span class="line"><span class="string">                                                  &lt;entity name='new_srv_surveytask'&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_srv_surveytaskid' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_name' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_result' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_completecycle' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_satisfactiondegree' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_nosatisfiedreason' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_memo' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_rejectedreason' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_belonguser_idname' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_surveytime' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;filter&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;condition attribute='new_srv_surveytaskid' operator='eq' value='&#123;0&#125;' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;/filter&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;link-entity name='new_srv_workorder' from='new_srv_workorderid' to='new_srv_workorder_id' alias='sw' link-type='outer'&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;attribute name='new_srv_worker_id' /&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;attribute name='new_srv_worker_idname' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;/link-entity&gt;</span></span><br><span class="line"><span class="string">                                                  &lt;/entity&gt;</span></span><br><span class="line"><span class="string">                                                &lt;/fetch&gt;"</span>, id);</span><br><span class="line">            <span class="keyword">var</span> result = OrganizationServiceAdmin.RetrieveMultiple(<span class="keyword">new</span> FetchExpression(fetchXml));</span><br><span class="line"></span><br><span class="line">            List&lt;SurveyTaskModel&gt; list = <span class="keyword">new</span> List&lt;SurveyTaskModel&gt;();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> result.Entities)</span><br><span class="line">            &#123;</span><br><span class="line">                list.Add(<span class="keyword">new</span> SurveyTaskModel</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//主键</span></span><br><span class="line">                    id = item.GetAttributeValue&lt;Guid&gt;(<span class="string">"new_srv_surveytaskid"</span>).ToString(),</span><br><span class="line">                    <span class="comment">//单号 new_name</span></span><br><span class="line">                    new_name = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_name"</span>),</span><br><span class="line">                    <span class="comment">//服务人员 new_srv_worker_idname</span></span><br><span class="line">                    new_srv_worker_idname = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_srv_worker_idname"</span>),</span><br><span class="line">                    <span class="comment">//解决情况 new_result</span></span><br><span class="line">                    new_result = item.FormattedValues[<span class="string">"new_result"</span>],</span><br><span class="line">                    <span class="comment">//完工周期 new_completecycle</span></span><br><span class="line">                    new_completecycle = item.GetAttributeValue&lt;Decimal&gt;(<span class="string">"new_completecycle"</span>).ToString(),</span><br><span class="line">                    <span class="comment">//服务是否满意 new_satisfactiondegree</span></span><br><span class="line">                    new_satisfactiondegree = item.FormattedValues[<span class="string">"new_satisfactiondegree"</span>],</span><br><span class="line">                    <span class="comment">//不满意原因 new_nosatisfiedreason</span></span><br><span class="line">                    new_nosatisfiedreason = item.FormattedValues[<span class="string">"new_nosatisfiedreason"</span>],</span><br><span class="line">                    <span class="comment">//回访结果备注 new_memo</span></span><br><span class="line">                    new_memo = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_memo"</span>),</span><br><span class="line">                    <span class="comment">//驳回原因 new_rejectedreason</span></span><br><span class="line">                    new_rejectedreason = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_rejectedreason"</span>),</span><br><span class="line">                    <span class="comment">//回访坐席 new_belonguser_idname</span></span><br><span class="line">                    new_belonguser_idname = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_belonguser_idname"</span>),</span><br><span class="line">                    <span class="comment">//实际回访时间 new_surveytime</span></span><br><span class="line">                    new_surveytime = item.GetAttributeValue&lt;DateTime&gt;(<span class="string">"new_surveytime"</span>).ToString(),</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="OrganizationServiceAdmin"><a href="#OrganizationServiceAdmin" class="headerlink" title="OrganizationServiceAdmin"></a>OrganizationServiceAdmin</h2><blockquote>
-<p>构造函数里CreateOrganizationService<br>IPortalCommandContext：调用PortalCommand时需要传入的上下文<br>IUserIdentity：当前用户身份信息。不会包含框架级的认证类型，只含身份id.</p>
+      <h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</p>
 </blockquote>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WorkOrderCommand</span> : <span class="title">PortalCommand</span></span><br><span class="line">   &#123;</span><br><span class="line">       IOrganizationService OrganizationServiceAdmin;</span><br><span class="line">       <span class="keyword">protected</span> <span class="keyword">readonly</span> OrganizationServiceContext orgContext;</span><br><span class="line">       <span class="comment">//private PersisitBroker broker;</span></span><br><span class="line">       XStudio.Data.PersisitBroker broker = <span class="keyword">new</span> XStudio.Data.PersisitBroker(<span class="string">"crm"</span>);</span><br><span class="line">       </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">WorkOrderCommand</span>(<span class="params">IUserIdentity identity</span>) : <span class="title">base</span>(<span class="params">identity</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">this</span>.orgContext = <span class="keyword">new</span> OrganizationServiceContext(OrganizationService);</span><br><span class="line">           OrganizationServiceAdmin = CrmServiceFactory.CreateOrganizationService(Guid.Empty);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">WorkOrderCommand</span>(<span class="params">IPortalCommandContext portalCommandContext</span>) : <span class="title">base</span>(<span class="params">portalCommandContext</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">this</span>.orgContext = <span class="keyword">new</span> OrganizationServiceContext(<span class="keyword">this</span>.OrganizationService);</span><br><span class="line">           OrganizationServiceAdmin = CrmServiceFactory.CreateOrganizationService(Guid.Empty);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"><span class="keyword">bool</span> disposing</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">if</span> (disposing)</span><br><span class="line">               <span class="keyword">this</span>.orgContext.Dispose();</span><br><span class="line">           <span class="keyword">base</span>.Dispose(disposing);</span><br><span class="line">       &#125;</span><br><span class="line">       Crm.Common.Logger.Logger log = <span class="keyword">new</span> Crm.Common.Logger.Logger();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：nums = [3,3], target = 6<br>输出：[0,1]</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] rs = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="comment">////暴力枚举  n^2 </span></span><br><span class="line">        <span class="comment">// int size = nums.length;</span></span><br><span class="line">        <span class="comment">// for(int i = 0;i&lt;size;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     for(int j = 0;j&lt;size;j++)&#123;</span></span><br><span class="line">        <span class="comment">//         if(nums[i]+nums[j]==target &amp;&amp; i != j)&#123;</span></span><br><span class="line">        <span class="comment">//             rs[0] = i;</span></span><br><span class="line">        <span class="comment">//             rs[1] = j;</span></span><br><span class="line">        <span class="comment">//             return rs;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//// 双重循环 循环极限为(n^2-n)/2 </span></span><br><span class="line">        <span class="comment">// for(int i = 0; i &lt; nums.length; i++)&#123;</span></span><br><span class="line">        <span class="comment">//     for(int j = nums.length - 1; j &gt; i; j --)&#123;</span></span><br><span class="line">        <span class="comment">//         if(nums[i]+nums[j] == target)&#123;</span></span><br><span class="line">        <span class="comment">//            rs[0] = i;</span></span><br><span class="line">        <span class="comment">//            rs[1] = j; </span></span><br><span class="line">        <span class="comment">//            return rs;</span></span><br><span class="line">        <span class="comment">//         &#125;</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//hash O(N)</span></span><br><span class="line">        Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(nums[i]))&#123;</span><br><span class="line">                rs[<span class="number">0</span>] = i;</span><br><span class="line">                rs[<span class="number">1</span>] = map.get(nums[i]);</span><br><span class="line">                <span class="keyword">return</span> rs;</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="comment">// 将数据存入 key为补数 ，value为下标</span></span><br><span class="line">            map.put(target-nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取picklist值"><a href="#获取picklist值" class="headerlink" title="获取picklist值"></a>获取picklist值</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_satisfactiondegree = item.FormattedValues[<span class="string">"new_satisfactiondegree"</span>],</span><br></pre></td></tr></table></figure>
+<h3 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h3><ul>
+<li><p>思路<br>前两种写法都属于暴力枚举，即枚举数组中的每一个数 x，寻找数组中是否存在 target - x。<br>第一种写法使用遍历整个数组的方式寻找 target - x 时，没有注意到每一个位于 x 之前的元素都已经和 x 匹配过，而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x，不需对前面的元素再进行匹配，由此得出第二种写法。</p>
+</li>
+<li><p>时间复杂度<br>O(N^2)</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+<h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><ul>
+<li><p>思路<br>使用哈希表，可以将寻找 target - x 的时间复杂度降低到从 O(N) 降低到 O(1)。空间换时间。<br>创建一个哈希表，对于每一个 x，我们首先查询哈希表中是否存在 target - x，然后将 x 插入到哈希表中，即可保证不会让 x 和自己匹配。</p>
+</li>
+<li><p>时间复杂度<br>O(N)，其中 N 是数组中的元素数量。对于每一个元素 x，我们可以 O(1) 地寻找 target - x。</p>
+</li>
+<li><p>空间复杂度<br>O(N)，其中 N 是数组中的元素数量。主要为哈希表的开销。</p>
+</li>
+</ul>
+
       
       <!-- reward -->
       
@@ -182,13 +212,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/12/30/FetchXML%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2021/01/03/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li></ul>
+
 
     </footer>
 
@@ -198,19 +230,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2021/01/02/vue%E6%95%B0%E7%BB%84sort%E5%87%BD%E6%95%B0/" class="article-nav-link">
+      <a href="/2021/01/05/soap%E5%8D%8F%E8%AE%AE/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            vue数组sort函数
+            soap协议
           
         </div>
       </a>
     
     
-      <a href="/2020/12/30/Portal%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/" class="article-nav-link">
+      <a href="/2021/01/02/vue%E6%95%B0%E7%BB%84sort%E5%87%BD%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Portal报表开发</div>
+        <div class="article-nav-title">vue数组sort函数</div>
       </a>
     
   </nav>

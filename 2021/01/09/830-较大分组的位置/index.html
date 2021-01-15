@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    FetchXML查询 |  岛
+    830.较大分组的位置 |  岛
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-FetchXML查询" class="article article-type-post" itemscope
+  <article id="post-830-较大分组的位置" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  FetchXML查询
+  830.较大分组的位置
 </h1>
  
 
@@ -62,10 +62,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/12/30/FetchXML%E6%9F%A5%E8%AF%A2/" class="article-date">
-  <time datetime="2020-12-30T01:48:20.000Z" itemprop="datePublished">2020-12-30</time>
+      <a href="/2021/01/09/830-%E8%BE%83%E5%A4%A7%E5%88%86%E7%BB%84%E7%9A%84%E4%BD%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-09T06:30:15.000Z" itemprop="datePublished">2021-01-09</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -73,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">481</span>
+            <span class="post-count">946</span>
         </span>
     </span>
 
@@ -82,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -107,14 +111,49 @@
       
 
       
-      <h2 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 获取当前服务单的回访任务fetch方式</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="id"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> List&lt;SurveyTaskModel&gt; <span class="title">GetSurveyTaskLine2</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">string</span>.IsNullOrWhiteSpace(id))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"当前服务单id丢失"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">string</span> fetchXml = String.Format(<span class="string">@"&lt;fetch mapping='logical' version='1.0'&gt;</span></span><br><span class="line"><span class="string">                                                  &lt;entity name='new_srv_surveytask'&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_srv_surveytaskid' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_name' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_result' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_completecycle' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_satisfactiondegree' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_nosatisfiedreason' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_memo' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_rejectedreason' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_belonguser_idname' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;attribute name='new_surveytime' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;filter&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;condition attribute='new_srv_surveytaskid' operator='eq' value='&#123;0&#125;' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;/filter&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;link-entity name='new_srv_workorder' from='new_srv_workorderid' to='new_srv_workorder_id' alias='sw' link-type='outer'&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;attribute name='new_srv_worker_id' /&gt;</span></span><br><span class="line"><span class="string">                                                      &lt;attribute name='new_srv_worker_idname' /&gt;</span></span><br><span class="line"><span class="string">                                                    &lt;/link-entity&gt;</span></span><br><span class="line"><span class="string">                                                  &lt;/entity&gt;</span></span><br><span class="line"><span class="string">                                                &lt;/fetch&gt;"</span>, id);</span><br><span class="line">            <span class="keyword">var</span> result = OrganizationServiceAdmin.RetrieveMultiple(<span class="keyword">new</span> FetchExpression(fetchXml));</span><br><span class="line"></span><br><span class="line">            List&lt;SurveyTaskModel&gt; list = <span class="keyword">new</span> List&lt;SurveyTaskModel&gt;();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> result.Entities)</span><br><span class="line">            &#123;</span><br><span class="line">                list.Add(<span class="keyword">new</span> SurveyTaskModel</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//主键</span></span><br><span class="line">                    id = item.GetAttributeValue&lt;Guid&gt;(<span class="string">"new_srv_surveytaskid"</span>).ToString(),</span><br><span class="line">                    <span class="comment">//单号 new_name</span></span><br><span class="line">                    new_name = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_name"</span>),</span><br><span class="line">                    <span class="comment">//服务人员 new_srv_worker_idname</span></span><br><span class="line">                    new_srv_worker_idname = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_srv_worker_idname"</span>),</span><br><span class="line">                    <span class="comment">//解决情况 new_result</span></span><br><span class="line">                    new_result = item.FormattedValues[<span class="string">"new_result"</span>],</span><br><span class="line">                    <span class="comment">//完工周期 new_completecycle</span></span><br><span class="line">                    new_completecycle = item.GetAttributeValue&lt;Decimal&gt;(<span class="string">"new_completecycle"</span>).ToString(),</span><br><span class="line">                    <span class="comment">//服务是否满意 new_satisfactiondegree</span></span><br><span class="line">                    new_satisfactiondegree = item.FormattedValues[<span class="string">"new_satisfactiondegree"</span>],</span><br><span class="line">                    <span class="comment">//不满意原因 new_nosatisfiedreason</span></span><br><span class="line">                    new_nosatisfiedreason = item.FormattedValues[<span class="string">"new_nosatisfiedreason"</span>],</span><br><span class="line">                    <span class="comment">//回访结果备注 new_memo</span></span><br><span class="line">                    new_memo = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_memo"</span>),</span><br><span class="line">                    <span class="comment">//驳回原因 new_rejectedreason</span></span><br><span class="line">                    new_rejectedreason = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_rejectedreason"</span>),</span><br><span class="line">                    <span class="comment">//回访坐席 new_belonguser_idname</span></span><br><span class="line">                    new_belonguser_idname = item.GetAttributeValue&lt;<span class="keyword">string</span>&gt;(<span class="string">"new_belonguser_idname"</span>),</span><br><span class="line">                    <span class="comment">//实际回访时间 new_surveytime</span></span><br><span class="line">                    new_surveytime = item.GetAttributeValue&lt;DateTime&gt;(<span class="string">"new_surveytime"</span>).ToString(),</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="OrganizationServiceAdmin"><a href="#OrganizationServiceAdmin" class="headerlink" title="OrganizationServiceAdmin"></a>OrganizationServiceAdmin</h2><blockquote>
-<p>构造函数里CreateOrganizationService<br>IPortalCommandContext：调用PortalCommand时需要传入的上下文<br>IUserIdentity：当前用户身份信息。不会包含框架级的认证类型，只含身份id.</p>
+      <h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>在一个由小写字母构成的字符串 s 中，包含由一些连续的相同字符所构成的分组。</p>
+<p>例如，在字符串 s = “abbxxxxzyy” 中，就含有 “a”, “bb”, “xxxx”, “z” 和 “yy” 这样的一些分组。</p>
+<p>分组可以用区间 [start, end] 表示，其中 start 和 end 分别表示该分组的起始和终止位置的下标。上例中的 “xxxx” 分组用区间表示为 [3,6] 。</p>
+<p>我们称所有包含大于或等于三个连续字符的分组为 较大分组 。</p>
+<p>找到每一个 较大分组 的区间，按起始位置下标递增顺序排序后，返回结果。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：s = “abbxxxxzzy”<br>输出：[[3,6]]<br>解释：”xxxx” 是一个起始于 3 且终止于 6 的较大分组。</p>
 </blockquote>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WorkOrderCommand</span> : <span class="title">PortalCommand</span></span><br><span class="line">   &#123;</span><br><span class="line">       IOrganizationService OrganizationServiceAdmin;</span><br><span class="line">       <span class="keyword">protected</span> <span class="keyword">readonly</span> OrganizationServiceContext orgContext;</span><br><span class="line">       <span class="comment">//private PersisitBroker broker;</span></span><br><span class="line">       XStudio.Data.PersisitBroker broker = <span class="keyword">new</span> XStudio.Data.PersisitBroker(<span class="string">"crm"</span>);</span><br><span class="line">       </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">WorkOrderCommand</span>(<span class="params">IUserIdentity identity</span>) : <span class="title">base</span>(<span class="params">identity</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">this</span>.orgContext = <span class="keyword">new</span> OrganizationServiceContext(OrganizationService);</span><br><span class="line">           OrganizationServiceAdmin = CrmServiceFactory.CreateOrganizationService(Guid.Empty);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">WorkOrderCommand</span>(<span class="params">IPortalCommandContext portalCommandContext</span>) : <span class="title">base</span>(<span class="params">portalCommandContext</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">this</span>.orgContext = <span class="keyword">new</span> OrganizationServiceContext(<span class="keyword">this</span>.OrganizationService);</span><br><span class="line">           OrganizationServiceAdmin = CrmServiceFactory.CreateOrganizationService(Guid.Empty);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"><span class="keyword">bool</span> disposing</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">if</span> (disposing)</span><br><span class="line">               <span class="keyword">this</span>.orgContext.Dispose();</span><br><span class="line">           <span class="keyword">base</span>.Dispose(disposing);</span><br><span class="line">       &#125;</span><br><span class="line">       Crm.Common.Logger.Logger log = <span class="keyword">new</span> Crm.Common.Logger.Logger();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：s = “abc”<br>输出：[]<br>解释：”a”,”b” 和 “c” 均不是符合要求的较大分组。</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：s = “abcdddeeeeaabbbcd”<br>输出：[[3,5],[6,9],[12,14]]<br>解释：较大分组为 “ddd”, “eeee” 和 “bbb”</p>
+</blockquote>
+<p>示例 4：</p>
+<blockquote>
+<p>输入：s = “aba”<br>输出：[]</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; largeGroupPositions(String s) &#123;</span><br><span class="line">       s = s + <span class="string">"A"</span>;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; answer = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//指针i</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//指针j,当指针i停留在字符串s的第i个字符位置时,移动指针j</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;s.length();j++)&#123;</span><br><span class="line">                <span class="comment">//若出现了连续2位相等的情况</span></span><br><span class="line">                <span class="keyword">if</span>(s.charAt(i) == s.charAt(j))&#123;</span><br><span class="line">                    <span class="comment">//若出现了连续3位以上相等且连续有中断,记录当前i,j指针的位置,并将i指针移动到当前分组的末尾位置</span></span><br><span class="line">                    <span class="keyword">if</span>(j-i&gt;=<span class="number">2</span>&amp;&amp;s.charAt(i)!=s.charAt(j+<span class="number">1</span>))&#123;</span><br><span class="line">                        <span class="comment">// List&lt;Integer&gt; group = new ArrayList&lt;&gt;();</span></span><br><span class="line">                        <span class="comment">// group.add(i);</span></span><br><span class="line">                        <span class="comment">// group.add(j);</span></span><br><span class="line">                        answer.add(Arrays.asList(i,j));</span><br><span class="line">                        i= j+<span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//若只是连续2位相等,移动i指针,回退j指针</span></span><br><span class="line">                    i++;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> answer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取picklist值"><a href="#获取picklist值" class="headerlink" title="获取picklist值"></a>获取picklist值</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_satisfactiondegree = item.FormattedValues[<span class="string">"new_satisfactiondegree"</span>],</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; largeGroupPositions(String s) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, N = s.length(); <span class="comment">// i is the start of each group</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == N-<span class="number">1</span> || s.charAt(j) != s.charAt(j+<span class="number">1</span>)) &#123;</span><br><span class="line">				<span class="comment">//双指针法，判断条件更好更完善，不相等或者到达尾端时</span></span><br><span class="line">                <span class="comment">// Here, [i, j] represents a group.</span></span><br><span class="line">                <span class="keyword">if</span> (j-i+<span class="number">1</span> &gt;= <span class="number">3</span>)</span><br><span class="line">                    ans.add(Arrays.asList(<span class="keyword">new</span> Integer[]&#123;i, j&#125;));</span><br><span class="line">				<span class="comment">//i从j的下一个作为起始位置，相当于固定i，用j去遍历</span></span><br><span class="line">                i = j + <span class="number">1</span>;                                           </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p>时间复杂度<br>O(N(N-1)/2) N为字符串长度</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+<h3 id="一次遍历"><a href="#一次遍历" class="headerlink" title="一次遍历"></a>一次遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; largeGroupPositions(String s) &#123;</span><br><span class="line">        <span class="comment">// 1. 初始化</span></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();                <span class="comment">// 结果集</span></span><br><span class="line">        <span class="keyword">int</span> n   = s.length();                                       <span class="comment">// 字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">1</span>;                                                <span class="comment">// 用于记录分组长度 </span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 一次遍历该字符串</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">            <span class="comment">// 2.1 如果下一个字符与当前字符不同,或者已经枚举到字符串尾部,就说明当前字符为当前分组的尾部</span></span><br><span class="line">            <span class="keyword">if</span>(i == n - <span class="number">1</span> || s.charAt(i) != s.charAt(i + <span class="number">1</span>))&#123;</span><br><span class="line">                <span class="keyword">if</span>(num &gt;= <span class="number">3</span>)&#123;                                       <span class="comment">// 如果分组长度达到3</span></span><br><span class="line">                    res.add(Arrays.asList(i - num + <span class="number">1</span>,i));          <span class="comment">// 记录结果</span></span><br><span class="line">                &#125;   </span><br><span class="line">                num = <span class="number">1</span>;                                            <span class="comment">// 重置分组长度</span></span><br><span class="line">            <span class="comment">// 2.2 字符重复的情况</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                num++;                                              <span class="comment">// ++字符分区长度</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 3. 返回结果集</span></span><br><span class="line">        <span class="keyword">return</span> res;                                                </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路<br>遍历该序列，并记录当前分组的长度。如果下一个字符与当前字符不同，或者已经枚举到字符串尾部，就说明当前字符为当前分组的尾部。每次找到当前分组的尾部时，如果该分组长度达到 3，我们就将其加入答案。</p>
+</li>
+<li><p>时间复杂度<br>O(N) N为字符串长度</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+
       
       <!-- reward -->
       
@@ -182,13 +221,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2020/12/30/FetchXML%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liminghua.gitee.io/2021/01/09/830-%E8%BE%83%E5%A4%A7%E5%88%86%E7%BB%84%E7%9A%84%E4%BD%8D%E7%BD%AE/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li></ul>
+
 
     </footer>
 
@@ -198,19 +239,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2021/01/02/vue%E6%95%B0%E7%BB%84sort%E5%87%BD%E6%95%B0/" class="article-nav-link">
+      <a href="/2021/01/12/CRM-WebService%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            vue数组sort函数
+            CRM_WebService接口开发
           
         </div>
       </a>
     
     
-      <a href="/2020/12/30/Portal%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/" class="article-nav-link">
+      <a href="/2021/01/05/postMan%E8%AF%B7%E6%B1%82webservice%E6%8E%A5%E5%8F%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Portal报表开发</div>
+        <div class="article-nav-title">postMan请求webservice接口</div>
       </a>
     
   </nav>
