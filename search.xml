@@ -46,6 +46,36 @@
       </tags>
   </entry>
   <entry>
+    <title>1550.存在连续三个奇数的数组</title>
+    <url>/2021/01/19/1550-%E5%AD%98%E5%9C%A8%E8%BF%9E%E7%BB%AD%E4%B8%89%E4%B8%AA%E5%A5%87%E6%95%B0%E7%9A%84%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给你一个整数数组 arr，请你判断数组中是否存在连续三个元素都是奇数的情况：如果存在，请返回 true ；否则，返回 false 。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：arr = [2,6,4,1]<br>输出：false<br>解释：不存在连续三个元素都是奇数的情况。</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：arr = [1,2,34,3,4,5,7,23,12]<br>输出：true<br>解释：存在连续三个元素都是奇数的情况，即 [5,7,23] 。</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// class Solution &#123;</span></span><br><span class="line"><span class="comment">//     public boolean threeConsecutiveOdds(int[] arr) &#123;</span></span><br><span class="line"><span class="comment">//         int n = arr.length;</span></span><br><span class="line"><span class="comment">//         for (int i = 0; i &lt;= n - 3; ++i) &#123;</span></span><br><span class="line"><span class="comment">//             //a&amp;1   = 0 偶数</span></span><br><span class="line"><span class="comment">//             //a&amp;1   = 1 奇数</span></span><br><span class="line"><span class="comment">//             //任何偶数二进制第一位数必定0，而奇数必定是1，而1的二进制就是1</span></span><br><span class="line"><span class="comment">//             if ((arr[i] &amp; 1) != 0 &amp;&amp; (arr[i + 1] &amp; 1) != 0 &amp;&amp; (arr[i + 2] &amp; 1) != 0) &#123;</span></span><br><span class="line"><span class="comment">//                 return true;</span></span><br><span class="line"><span class="comment">//             &#125;</span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//         return false;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">threeConsecutiveOdds</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    LinkedList&lt;Integer&gt; temp = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">boolean</span> result = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : arr)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                temp.push(i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                temp.clear();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (temp.size()&gt;<span class="number">2</span>)&#123;</span><br><span class="line">                result = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路<br>位运算判断奇偶数</p>
+</li>
+<li><p>时间复杂度<br>O(N)</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1232.缀点成线</title>
     <url>/2021/01/17/1232-%E7%BC%80%E7%82%B9%E6%88%90%E7%BA%BF/</url>
     <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。</p>
@@ -85,6 +115,66 @@
       </tags>
   </entry>
   <entry>
+    <title>17.10主要元素</title>
+    <url>/2021/01/18/17-10%E4%B8%BB%E8%A6%81%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：[1,2,5,9,5,9,5,5,5]<br>输出：5</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：[3,2]<br>输出：-1</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：[2,2,1,1,1,2,2]<br>输出：2</p>
+</blockquote>
+<p>说明：</p>
+<blockquote>
+<p>你有办法在时间复杂度为 O(N)，空间复杂度为 O(1) 内完成吗？</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//执行用时：</span></span><br><span class="line"><span class="comment">//21 ms, 在所有 Java 提交中击败了12.59%的用户</span></span><br><span class="line"><span class="comment">//内存消耗：</span></span><br><span class="line"><span class="comment">//43.9 MB, 在所有 Java 提交中击败了8.10%的用户</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; temp = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.get(nums[i])==<span class="keyword">null</span>)&#123;</span><br><span class="line">                temp.put(nums[i],<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                temp.put(nums[i],temp.get(nums[i])+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(temp.get(nums[i])&gt;length/<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路<br>遍历列表，将元素重复出现的次数放入map并进行比对,但不符合题目要求空间复杂度O(1)</p>
+</li>
+<li><p>时间复杂度<br>O(N)</p>
+</li>
+<li><p>空间复杂度<br>O(N)</p>
+</li>
+</ul>
+<h3 id="摩尔投票算法"><a href="#摩尔投票算法" class="headerlink" title="摩尔投票算法"></a>摩尔投票算法</h3><ul>
+<li>用时最少</li>
+</ul>
+<p>执行用时：<br>1 ms, 在所有 Java 提交中击败了100.00%的用户<br>内存消耗：<br>41.6 MB, 在所有 Java 提交中击败了67.28%的用户</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//执行用时：</span></span><br><span class="line"><span class="comment">//1 ms, 在所有 Java 提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">//内存消耗：</span></span><br><span class="line"><span class="comment">//41.6 MB, 在所有 Java 提交中击败了67.28%的用户</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//记录元素出现次数</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//temp，存放需要进行比对的上一个元素</span></span><br><span class="line">        <span class="keyword">int</span> k = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			<span class="comment">//第一个元素或者说抵消后出现的第一个元素</span></span><br><span class="line">            <span class="keyword">if</span>(count == <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="comment">//计数1</span></span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">				<span class="comment">//将元素值存入temp</span></span><br><span class="line">                k = nums[i];  </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">//元素重复出现计数加1</span></span><br><span class="line">                <span class="keyword">if</span>(k == nums[i]) ++count; </span><br><span class="line">				<span class="comment">//元素不重复抵消一位(减1)</span></span><br><span class="line">                <span class="keyword">else</span> --count; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//若全部抵消，则不存在占比超过一半的元素</span></span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//验证</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">			<span class="comment">//对元素进行计数</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(k == nums[i]) count++;</span><br><span class="line">            &#125;</span><br><span class="line">			<span class="comment">//占比超过一半</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="number">2</span> * count &gt; nums.length)&#123;</span><br><span class="line">                <span class="keyword">return</span> k;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内存消耗最少</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> majority = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;  nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == majority) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(count == <span class="number">0</span>) &#123;</span><br><span class="line">                    majority = nums[i];</span><br><span class="line">                    count = <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == majority) &#123;</span><br><span class="line">                a++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a &gt; nums.length / <span class="number">2</span> ? majority : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>思路</li>
+</ul>
+<p>摩尔投票算法是基于这个事实：每次从序列里选择两个不相同的数字删除掉（或称为“抵消”），最后剩下一个数字或几个相同的数字，就是出现次数大于总数一半的那个。</p>
+<ul>
+<li><p>时间复杂度<br>O(2N) = O(N)</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>189.旋转数组</title>
     <url>/2021/01/15/189-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。</p>
@@ -116,6 +206,102 @@
 <h3 id="环状替换"><a href="#环状替换" class="headerlink" title="环状替换"></a>环状替换</h3><blockquote>
 <p>官方解答最优解法 暂时没整明白</p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>628.三个数的最大乘积</title>
+    <url>/2021/01/19/628-%E4%B8%89%E4%B8%AA%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/</url>
+    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。</p>
+<p>示例 1:</p>
+<blockquote>
+<p>输入: [1,2,3]<br>输出: 6</p>
+</blockquote>
+<p>示例 2:</p>
+<blockquote>
+<p>输入: [1,2,3,4]<br>输出: 24</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximumProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>] * nums[<span class="number">1</span>] * nums[nums.length - <span class="number">1</span>], nums[nums.length - <span class="number">1</span>] * nums[nums.length - <span class="number">2</span>] * nums[nums.length - <span class="number">3</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li>思路<br>我们将数组进行升序排序，如果数组中所有的元素都是非负数，那么答案即为最后三个元素的乘积。</li>
+</ul>
+<p>如果数组中出现了负数，那么我们还需要考虑乘积中包含负数的情况，显然选择最小的两个负数和最大的一个正数是最优的，即为前两个元素与最后一个元素的乘积。</p>
+<p>上述两个结果中的较大值就是答案。注意我们可以不用判断数组中到底有没有正数，0 或者负数，因为上述两个结果实际上已经包含了所有情况，最大值一定在其中。</p>
+<ul>
+<li><p>时间复杂度<br>O(NlogN)，其中 NN 是数组的长度。</p>
+</li>
+<li><p>空间复杂度<br>O(logN)，为排序使用的空间。</p>
+</li>
+</ul>
+<h3 id="线性扫描"><a href="#线性扫描" class="headerlink" title="线性扫描"></a>线性扫描</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximumProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, max3 = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n: nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n &lt;= min1) &#123;</span><br><span class="line">                min2 = min1;</span><br><span class="line">                min1 = n;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &lt;= min2) &#123;     <span class="comment">// n lies between min1 and min2</span></span><br><span class="line">                min2 = n;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (n &gt;= max1) &#123;            <span class="comment">// n is greater than max1, max2 and max3</span></span><br><span class="line">                max3 = max2;</span><br><span class="line">                max2 = max1;</span><br><span class="line">                max1 = n;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &gt;= max2) &#123;     <span class="comment">// n lies betweeen max1 and max2</span></span><br><span class="line">                max3 = max2;</span><br><span class="line">                max2 = n;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &gt;= max3) &#123;     <span class="comment">// n lies betwen max2 and max3</span></span><br><span class="line">                max3 = n;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(min1 * min2 * max1, max1 * max2 * max3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路<br>在方法一中，我们实际上只要求出数组中最大的三个数以及最小的两个数，因此我们可以不用排序，用线性扫描直接得出这五个数。<br>min1 &lt;= min2 &lt;= max3 &lt;= max2 &lt;= max1</p>
+</li>
+<li><p>时间复杂度<br>O(N)</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>228.区间汇总</title>
+    <url>/2021/01/14/228-%E5%8C%BA%E9%97%B4%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给定一个无重复元素的有序整数数组 nums 。</p>
+<p>返回 恰好覆盖数组中所有数字 的 最小有序 区间范围列表。也就是说，nums 的每个元素都恰好被某个区间范围所覆盖，并且不存在属于某个范围但不属于 nums 的数字 x 。</p>
+<p>列表中的每个区间范围 [a,b] 应该按如下格式输出：</p>
+<ul>
+<li>“a-&gt;b” ，如果 a != b</li>
+<li>“a” ，如果 a == b</li>
+</ul>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：nums = [0,1,2,4,5,7]<br>输出：[“0-&gt;2”,”4-&gt;5”,”7”]<br>解释：区间范围是：<br>[0,2] –&gt; “0-&gt;2”<br>[7,7] –&gt; “7”<br>[4,5] –&gt; “4-&gt;5”</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：nums = [0,2,3,4,6,8,9]<br>输出：[“0”,”2-&gt;4”,”6”,”8-&gt;9”]<br>解释：区间范围是：<br>[0,0] –&gt; “0”<br>[2,4] –&gt; “2-&gt;4”<br>[6,6] –&gt; “6”<br>[8,9] –&gt; “8-&gt;9”</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：nums = []<br>输出：[]</p>
+</blockquote>
+<p>示例 4：</p>
+<blockquote>
+<p>输入：nums = [-1]<br>输出：[“-1”]</p>
+</blockquote>
+<p>示例 5：</p>
+<blockquote>
+<p>输入：nums = [0]<br>输出：[“0”]</p>
+</blockquote>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">summaryRanges</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; ret = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">            <span class="keyword">int</span> low = i;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; n &amp;&amp; nums[i] == nums[i - <span class="number">1</span>] + <span class="number">1</span>) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> high = i - <span class="number">1</span>;</span><br><span class="line">            StringBuffer temp = <span class="keyword">new</span> StringBuffer(Integer.toString(nums[low]));</span><br><span class="line">            <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">                temp.append(<span class="string">"-&gt;"</span>);</span><br><span class="line">                temp.append(Integer.toString(nums[high]));</span><br><span class="line">            &#125;</span><br><span class="line">            ret.add(temp.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次遍历"><a href="#一次遍历" class="headerlink" title="一次遍历"></a>一次遍历</h3><ul>
+<li>思路 </li>
+</ul>
+<p>从数组的位置 0 出发，向右遍历。每次遇到相邻元素之间的差值大于 1 时，就找到了一个区间。遍历完数组之后，就能得到一系列的区间的列表。</p>
+<p>在遍历过程中，维护下标 low 和 high 分别记录区间的起点和终点，对于任何区间都有 low≤high。当得到一个区间时，根据 low 和 high 的值生成区间的字符串表示。</p>
+<p>当 low&lt;high 时，区间的字符串表示为 low-&gt;high；</p>
+<p>当 low=high 时，区间的字符串表示为 low。</p>
+<ul>
+<li><p>时间复杂度<br>O(N)</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>LeetCode</category>
@@ -183,53 +369,44 @@
       </tags>
   </entry>
   <entry>
-    <title>17.10主要元素</title>
-    <url>/2021/01/18/17-10%E4%B8%BB%E8%A6%81%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。</p>
+    <title>977.有序数组的平方</title>
+    <url>/2021/01/19/977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/</url>
+    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。</p>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：[1,2,5,9,5,9,5,5,5]<br>输出：5</p>
+<p>输入：nums = [-4,-1,0,3,10]<br>输出：[0,1,9,16,100]<br>解释：平方后，数组变为 [16,1,0,9,100]<br>排序后，数组变为 [0,1,9,16,100]</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：[3,2]<br>输出：-1</p>
+<p>输入：nums = [-7,-3,2,3,11]<br>输出：[4,9,9,49,121]</p>
 </blockquote>
-<p>示例 3：</p>
-<blockquote>
-<p>输入：[2,2,1,1,1,2,2]<br>输出：2</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>你有办法在时间复杂度为 O(N)，空间复杂度为 O(1) 内完成吗？</p>
-</blockquote>
-<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//执行用时：</span></span><br><span class="line"><span class="comment">//21 ms, 在所有 Java 提交中击败了12.59%的用户</span></span><br><span class="line"><span class="comment">//内存消耗：</span></span><br><span class="line"><span class="comment">//43.9 MB, 在所有 Java 提交中击败了8.10%的用户</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; temp = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.get(nums[i])==<span class="keyword">null</span>)&#123;</span><br><span class="line">                temp.put(nums[i],<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                temp.put(nums[i],temp.get(nums[i])+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(temp.get(nums[i])&gt;length/<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; ++i) &#123;</span><br><span class="line">            ans[i] = A[i] * A[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(ans);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>思路<br>遍历列表，将元素重复出现的次数放入map并进行比对,但不符合题目要求空间复杂度O(1)</p>
+<li><p>时间复杂度<br>O(nlogn)，其中 n 是数组 A 的长度。</p>
 </li>
-<li><p>时间复杂度<br>O(N)</p>
-</li>
-<li><p>空间复杂度<br>O(N)</p>
+<li><p>空间复杂度<br>O(logn)。除了存储答案的数组以外，需要 O(logn) 的栈空间进行排序。</p>
 </li>
 </ul>
-<h3 id="摩尔投票算法"><a href="#摩尔投票算法" class="headerlink" title="摩尔投票算法"></a>摩尔投票算法</h3><ul>
-<li>用时最少</li>
-</ul>
-<p>执行用时：<br>1 ms, 在所有 Java 提交中击败了100.00%的用户<br>内存消耗：<br>41.6 MB, 在所有 Java 提交中击败了67.28%的用户</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//执行用时：</span></span><br><span class="line"><span class="comment">//1 ms, 在所有 Java 提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">//内存消耗：</span></span><br><span class="line"><span class="comment">//41.6 MB, 在所有 Java 提交中击败了67.28%的用户</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//记录元素出现次数</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//temp，存放需要进行比对的上一个元素</span></span><br><span class="line">        <span class="keyword">int</span> k = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			<span class="comment">//第一个元素或者说抵消后出现的第一个元素</span></span><br><span class="line">            <span class="keyword">if</span>(count == <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="comment">//计数1</span></span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">				<span class="comment">//将元素值存入temp</span></span><br><span class="line">                k = nums[i];  </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">//元素重复出现计数加1</span></span><br><span class="line">                <span class="keyword">if</span>(k == nums[i]) ++count; </span><br><span class="line">				<span class="comment">//元素不重复抵消一位(减1)</span></span><br><span class="line">                <span class="keyword">else</span> --count; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//若全部抵消，则不存在占比超过一半的元素</span></span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//验证</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">			<span class="comment">//对元素进行计数</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(k == nums[i]) count++;</span><br><span class="line">            &#125;</span><br><span class="line">			<span class="comment">//占比超过一半</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="number">2</span> * count &gt; nums.length)&#123;</span><br><span class="line">                <span class="keyword">return</span> k;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="双指针（中位向两边）"><a href="#双指针（中位向两边）" class="headerlink" title="双指针（中位向两边）"></a>双指针（中位向两边）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.length;</span><br><span class="line">        <span class="keyword">int</span> negative = -<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//找正负数分界点点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                negative = i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>, i = negative, j = negative + <span class="number">1</span>;</span><br><span class="line">		<span class="comment">//存在负数</span></span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span> || j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="comment">//右边遍历完，j指针向左移动</span></span><br><span class="line">                ans[index] = A[j] * A[j];</span><br><span class="line">                ++j;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</span><br><span class="line">				<span class="comment">//左边遍历完毕，i指针向右移动</span></span><br><span class="line">                ans[index] = A[i] * A[i];</span><br><span class="line">                --i;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[i] * A[i] &lt; A[j] * A[j]) &#123;</span><br><span class="line">				<span class="comment">//i指向值的平方小，存入，指针向左移动</span></span><br><span class="line">                ans[index] = A[i] * A[i];</span><br><span class="line">                --i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">//j指针指向值的平方小，存入，指针向右移动</span></span><br><span class="line">                ans[index] = A[j] * A[j];</span><br><span class="line">                ++j;</span><br><span class="line">            &#125;</span><br><span class="line">			<span class="comment">//结果集指向下一位</span></span><br><span class="line">            ++index;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>内存消耗最少</li>
+<li>思路<br>显然，如果数组 A 中的所有数都是非负数，那么将每个数平方后，数组仍然保持升序；如果数组 A 中的所有数都是负数，那么将每个数平方后，数组会保持降序。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> majority = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;  nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == majority) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(count == <span class="number">0</span>) &#123;</span><br><span class="line">                    majority = nums[i];</span><br><span class="line">                    count = <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == majority) &#123;</span><br><span class="line">                a++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a &gt; nums.length / <span class="number">2</span> ? majority : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>这样一来，如果我们能够找到数组 A 中负数与非负数的分界线，那么就可以用类似「归并排序」的方法了。具体地，我们设 neg 为数组 A 中负数与非负数的分界线，也就是说，A[0] 到 A[neg] 均为负数，而  A[neg+1] 到 A[n−1] 均为非负数。当我们将数组 A 中的数平方后，那么 A[0] 到 A[neg] 单调递减，A[neg+1] 到 A[n−1] 单调递增。</p>
+<p>由于我们得到了两个已经有序的子数组，因此就可以使用归并的方法进行排序了。具体地，使用两个指针分别指向位置 neg 和 neg+1，每次比较两个指针对应的数，选择较小的那个放入答案并移动指针。当某一指针移至边界时，将另一指针还未遍历到的数依次放入答案。</p>
+<ul>
+<li><p>时间复杂度<br>O(n)，其中 n 是数组 A 的长度</p>
+</li>
+<li><p>空间复杂度<br>O(1)</p>
+</li>
+</ul>
+<h3 id="双指针（两边至中间）"><a href="#双指针（两边至中间）" class="headerlink" title="双指针（两边至中间）"></a>双指针（两边至中间）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = n - <span class="number">1</span>, pos = n - <span class="number">1</span>; i &lt;= j;) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] * A[i] &gt; A[j] * A[j]) &#123;</span><br><span class="line">                ans[pos] = A[i] * A[i];</span><br><span class="line">                ++i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans[pos] = A[j] * A[j];</span><br><span class="line">                --j;</span><br><span class="line">            &#125;</span><br><span class="line">            --pos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>思路</li>
-</ul>
-<p>摩尔投票算法是基于这个事实：每次从序列里选择两个不相同的数字删除掉（或称为“抵消”），最后剩下一个数字或几个相同的数字，就是出现次数大于总数一半的那个。</p>
-<ul>
-<li><p>时间复杂度<br>O(2N) = O(N)</p>
+<li><p>思路<br>同样地，可以使用两个指针分别指向位置 0 和 n−1，每次比较两个指针对应的数，选择较大的那个逆序放入答案并移动指针。这种方法无需处理某一指针移动至边界的情况，</p>
+</li>
+<li><p>时间复杂度<br>O(n)，其中 n 是数组 A 的长度</p>
 </li>
 <li><p>空间复杂度<br>O(1)</p>
 </li>
@@ -240,59 +417,7 @@
       </categories>
       <tags>
         <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>228.区间汇总</title>
-    <url>/2021/01/14/228-%E5%8C%BA%E9%97%B4%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>给定一个无重复元素的有序整数数组 nums 。</p>
-<p>返回 恰好覆盖数组中所有数字 的 最小有序 区间范围列表。也就是说，nums 的每个元素都恰好被某个区间范围所覆盖，并且不存在属于某个范围但不属于 nums 的数字 x 。</p>
-<p>列表中的每个区间范围 [a,b] 应该按如下格式输出：</p>
-<ul>
-<li>“a-&gt;b” ，如果 a != b</li>
-<li>“a” ，如果 a == b</li>
-</ul>
-<p>示例 1：</p>
-<blockquote>
-<p>输入：nums = [0,1,2,4,5,7]<br>输出：[“0-&gt;2”,”4-&gt;5”,”7”]<br>解释：区间范围是：<br>[0,2] –&gt; “0-&gt;2”<br>[7,7] –&gt; “7”<br>[4,5] –&gt; “4-&gt;5”</p>
-</blockquote>
-<p>示例 2：</p>
-<blockquote>
-<p>输入：nums = [0,2,3,4,6,8,9]<br>输出：[“0”,”2-&gt;4”,”6”,”8-&gt;9”]<br>解释：区间范围是：<br>[0,0] –&gt; “0”<br>[2,4] –&gt; “2-&gt;4”<br>[6,6] –&gt; “6”<br>[8,9] –&gt; “8-&gt;9”</p>
-</blockquote>
-<p>示例 3：</p>
-<blockquote>
-<p>输入：nums = []<br>输出：[]</p>
-</blockquote>
-<p>示例 4：</p>
-<blockquote>
-<p>输入：nums = [-1]<br>输出：[“-1”]</p>
-</blockquote>
-<p>示例 5：</p>
-<blockquote>
-<p>输入：nums = [0]<br>输出：[“0”]</p>
-</blockquote>
-<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">summaryRanges</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; ret = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">            <span class="keyword">int</span> low = i;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; n &amp;&amp; nums[i] == nums[i - <span class="number">1</span>] + <span class="number">1</span>) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> high = i - <span class="number">1</span>;</span><br><span class="line">            StringBuffer temp = <span class="keyword">new</span> StringBuffer(Integer.toString(nums[low]));</span><br><span class="line">            <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">                temp.append(<span class="string">"-&gt;"</span>);</span><br><span class="line">                temp.append(Integer.toString(nums[high]));</span><br><span class="line">            &#125;</span><br><span class="line">            ret.add(temp.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次遍历"><a href="#一次遍历" class="headerlink" title="一次遍历"></a>一次遍历</h3><ul>
-<li>思路 </li>
-</ul>
-<p>从数组的位置 0 出发，向右遍历。每次遇到相邻元素之间的差值大于 1 时，就找到了一个区间。遍历完数组之后，就能得到一系列的区间的列表。</p>
-<p>在遍历过程中，维护下标 low 和 high 分别记录区间的起点和终点，对于任何区间都有 low≤high。当得到一个区间时，根据 low 和 high 的值生成区间的字符串表示。</p>
-<p>当 low&lt;high 时，区间的字符串表示为 low-&gt;high；</p>
-<p>当 low=high 时，区间的字符串表示为 low。</p>
-<ul>
-<li><p>时间复杂度<br>O(N)</p>
-</li>
-<li><p>空间复杂度<br>O(1)</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -623,34 +748,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SQLServer查询跟踪</title>
-    <url>/2020/10/29/SQLServer%E6%9F%A5%E8%AF%A2%E8%B7%9F%E8%B8%AA/</url>
-    <content><![CDATA[<h1 id="SQL-Server-Profiler"><a href="#SQL-Server-Profiler" class="headerlink" title="SQL Server Profiler"></a>SQL Server Profiler</h1><blockquote>
-<p>数据库性能工具</p>
-</blockquote>
-<h2 id="1-新建跟踪"><a href="#1-新建跟踪" class="headerlink" title="1.新建跟踪"></a>1.新建跟踪</h2><blockquote>
-<p>文件-新建跟踪 </p>
-</blockquote>
-<h2 id="2-事件选择"><a href="#2-事件选择" class="headerlink" title="2.事件选择"></a>2.事件选择</h2><p><img src="1.jpg" alt=""></p>
-<blockquote>
-<p>Stored Procedures：TextData 根据sql中的文本值进行过滤 </p>
-</blockquote>
-<p><img src="2.jpg" alt=""></p>
-<blockquote>
-<p>列筛选器中键入TextData的类似于值 ：要跟踪的sql中特定的参数或关键字</p>
-</blockquote>
-<h2 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h2><p><img src="3.jpg" alt=""><br><img src="4.jpg" alt=""><br><img src="5.jpg" alt=""><br><img src="6.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>sql跟踪</tag>
-        <tag>SQL Server</tag>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PowerBI_DAX函数</title>
     <url>/2020/11/04/PowerBI_DAX%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="DAX函数"><a href="#DAX函数" class="headerlink" title="DAX函数"></a>DAX函数</h1><blockquote>
@@ -748,6 +845,34 @@
       <tags>
         <tag>powerBI</tag>
         <tag>DAX函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQLServer查询跟踪</title>
+    <url>/2020/10/29/SQLServer%E6%9F%A5%E8%AF%A2%E8%B7%9F%E8%B8%AA/</url>
+    <content><![CDATA[<h1 id="SQL-Server-Profiler"><a href="#SQL-Server-Profiler" class="headerlink" title="SQL Server Profiler"></a>SQL Server Profiler</h1><blockquote>
+<p>数据库性能工具</p>
+</blockquote>
+<h2 id="1-新建跟踪"><a href="#1-新建跟踪" class="headerlink" title="1.新建跟踪"></a>1.新建跟踪</h2><blockquote>
+<p>文件-新建跟踪 </p>
+</blockquote>
+<h2 id="2-事件选择"><a href="#2-事件选择" class="headerlink" title="2.事件选择"></a>2.事件选择</h2><p><img src="1.jpg" alt=""></p>
+<blockquote>
+<p>Stored Procedures：TextData 根据sql中的文本值进行过滤 </p>
+</blockquote>
+<p><img src="2.jpg" alt=""></p>
+<blockquote>
+<p>列筛选器中键入TextData的类似于值 ：要跟踪的sql中特定的参数或关键字</p>
+</blockquote>
+<h2 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h2><p><img src="3.jpg" alt=""><br><img src="4.jpg" alt=""><br><img src="5.jpg" alt=""><br><img src="6.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>sql跟踪</tag>
+        <tag>SQL Server</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -874,22 +999,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/04/17/aboutMe/</url>
-    <content><![CDATA[<blockquote>
-<p>A Coder, live in XuZhou, China .  </p>
-</blockquote>
-<ul>
-<li>姓名：李明华</li>
-<li>现居：江苏徐州</li>
-<li>GitHub：<a href="https://github.com/LiMingHuaGit" target="_blank" rel="noopener">LiMingHuaGit</a></li>
-<li>QQ：<a href="qq.com/">2290320152</a></li>
-<li>微信：<a href="wechat.com/">someonelover0</a></li>
-</ul>
-<img src="/2020/04/17/aboutMe/self.jpg" class="">
-]]></content>
-  </entry>
-  <entry>
     <title>SQL连接符、表达式及函数</title>
     <url>/2020/10/29/SQL%E8%BF%9E%E6%8E%A5%E7%AC%A6%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8A%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="连接符"><a href="#连接符" class="headerlink" title="连接符"></a>连接符</h1><h2 id="连接符-1"><a href="#连接符-1" class="headerlink" title="+ 连接符"></a>+ 连接符</h2><blockquote>
@@ -922,19 +1031,20 @@
       </tags>
   </entry>
   <entry>
-    <title>dll注册上传问题</title>
-    <url>/2020/12/14/dll%E6%B3%A8%E5%86%8C%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="类文件冲突"><a href="#类文件冲突" class="headerlink" title="类文件冲突"></a>类文件冲突</h2><blockquote>
-<p>原因是项目组同事新建了类文件没有上传，导致dll无法注册<br>像plugin，操作，流程都会这样，原来有的类文件要有不然是注册不了的<br><img src="1.png" alt=""></p>
+    <title>About Me</title>
+    <url>/2020/04/17/aboutMe/</url>
+    <content><![CDATA[<blockquote>
+<p>A Coder, live in XuZhou, China .  </p>
 </blockquote>
+<ul>
+<li>姓名：李明华</li>
+<li>现居：江苏徐州</li>
+<li>GitHub：<a href="https://github.com/LiMingHuaGit" target="_blank" rel="noopener">LiMingHuaGit</a></li>
+<li>QQ：<a href="qq.com/">2290320152</a></li>
+<li>微信：<a href="wechat.com/">someonelover0</a></li>
+</ul>
+<img src="/2020/04/17/aboutMe/self.jpg" class="">
 ]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>踩坑</tag>
-      </tags>
   </entry>
   <entry>
     <title>Vue判断对象为空</title>
@@ -965,6 +1075,21 @@
       <tags>
         <tag>vue</tag>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dll注册上传问题</title>
+    <url>/2020/12/14/dll%E6%B3%A8%E5%86%8C%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="类文件冲突"><a href="#类文件冲突" class="headerlink" title="类文件冲突"></a>类文件冲突</h2><blockquote>
+<p>原因是项目组同事新建了类文件没有上传，导致dll无法注册<br>像plugin，操作，流程都会这样，原来有的类文件要有不然是注册不了的<br><img src="1.png" alt=""></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>踩坑</tag>
       </tags>
   </entry>
   <entry>
@@ -1338,6 +1463,33 @@
       </tags>
   </entry>
   <entry>
+    <title>portal搭建相关</title>
+    <url>/2020/12/11/portal%E6%90%AD%E5%BB%BA%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h2 id="web-api项目"><a href="#web-api项目" class="headerlink" title="web api项目"></a>web api项目</h2><blockquote>
+<p>解决方案下新建ASP.NET WEB应用程序（.net Framework）</p>
+</blockquote>
+<p><img src="1.jpg" alt=""></p>
+<blockquote>
+<p>右键项目发布<br>根据所选的发布内容生成相应的目录结构<br>portal即发布在文件夹下，由多个dll配合完成后台响应</p>
+</blockquote>
+<p><img src="2.jpg" alt=""></p>
+<h2 id="服务器站点"><a href="#服务器站点" class="headerlink" title="服务器站点"></a>服务器站点</h2><blockquote>
+<p>将项目目录配置在站点下</p>
+</blockquote>
+<h2 id="事件查看器"><a href="#事件查看器" class="headerlink" title="事件查看器"></a>事件查看器</h2><blockquote>
+<p>查找bug</p>
+</blockquote>
+<p><img src="3.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>Portal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jdk源码_List</title>
     <url>/2020/10/08/jdk%E6%BA%90%E7%A0%81-List/</url>
     <content><![CDATA[<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><blockquote>
@@ -1467,33 +1619,6 @@
       </tags>
   </entry>
   <entry>
-    <title>portal搭建相关</title>
-    <url>/2020/12/11/portal%E6%90%AD%E5%BB%BA%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h2 id="web-api项目"><a href="#web-api项目" class="headerlink" title="web api项目"></a>web api项目</h2><blockquote>
-<p>解决方案下新建ASP.NET WEB应用程序（.net Framework）</p>
-</blockquote>
-<p><img src="1.jpg" alt=""></p>
-<blockquote>
-<p>右键项目发布<br>根据所选的发布内容生成相应的目录结构<br>portal即发布在文件夹下，由多个dll配合完成后台响应</p>
-</blockquote>
-<p><img src="2.jpg" alt=""></p>
-<h2 id="服务器站点"><a href="#服务器站点" class="headerlink" title="服务器站点"></a>服务器站点</h2><blockquote>
-<p>将项目目录配置在站点下</p>
-</blockquote>
-<h2 id="事件查看器"><a href="#事件查看器" class="headerlink" title="事件查看器"></a>事件查看器</h2><blockquote>
-<p>查找bug</p>
-</blockquote>
-<p><img src="3.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>Portal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>postMan请求webservice接口</title>
     <url>/2021/01/05/postMan%E8%AF%B7%E6%B1%82webservice%E6%8E%A5%E5%8F%A3/</url>
     <content><![CDATA[<h2 id="Java-WebService-wsdl"><a href="#Java-WebService-wsdl" class="headerlink" title="Java WebService wsdl"></a>Java WebService wsdl</h2><blockquote>
@@ -1520,6 +1645,34 @@
       </categories>
       <tags>
         <tag>WebService</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rtcrm.js常用脚本库方法解析</title>
+    <url>/2020/11/15/rtcrm-js%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E5%BA%93%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/***********************************************************</span></span><br><span class="line"><span class="comment">将Xrm对象下的常用的方法封装为 Rt对象，使用类似JQuery的Selector 方式访问 </span></span><br><span class="line"><span class="comment">选择器，支持如 #new_name, :section #section01 ,#tab tab01 三种的选择器</span></span><br><span class="line"><span class="comment">************************************************************/</span></span><br><span class="line"><span class="keyword">var</span> rtcrm = <span class="function"><span class="keyword">function</span> (<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isNull</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;check if object null&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">return</span> v === <span class="literal">null</span> || v === <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isNullOrEmpty</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;check if stirng is null or empty&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">return</span> _isNull(v) || v === <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_gets</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;根据selector返回CRM的对象数组&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="Array"&gt;CRM对象数组&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(selector)) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将形如 #new_name,#new_date,:tab #tab01 的selector拆分逐个判断查找</span></span><br><span class="line">        <span class="keyword">var</span> strList = selector.split(<span class="string">','</span>);</span><br><span class="line">        <span class="keyword">if</span> (_isNull(strList) || strList.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//要返回的UI 对象数据，包括界面上的控件、Tab、Section三种类型</span></span><br><span class="line">        <span class="keyword">var</span> uis = [];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//逐个的Selector判断</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; strList.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> str = strList[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// # 号开头的是Id Selector</span></span><br><span class="line">            <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">"#"</span>) &#123;</span><br><span class="line">				<span class="comment">//去掉前缀</span></span><br><span class="line">                <span class="keyword">var</span> ui = Xrm.Page.ui.controls.get(str.substring(<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">if</span> (ui) &#123;</span><br><span class="line">                    uis[uis.length] = ui;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// * 代表选择所有的界面UI控件</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">"*"</span>) &#123;</span><br><span class="line">                Xrm.Page.ui.controls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">uiA</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (uiA) &#123;</span><br><span class="line">                        uis[uis.length] = uiA;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//：好开头的代表伪类，只支持 ;tab :section两种伪类</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">":"</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> tabStrList = str.split(<span class="string">' '</span>);</span><br><span class="line">                <span class="keyword">if</span> (_isNull(tabStrList) || tabStrList.length &lt; <span class="number">2</span> || tabStrList[<span class="number">1</span>].substring(<span class="number">0</span>, <span class="number">1</span>) != <span class="string">"#"</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> tabName = tabStrList[<span class="number">1</span>].substring(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// :tab 伪类 selector</span></span><br><span class="line">                <span class="keyword">var</span> obj = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (tabStrList[<span class="number">0</span>] == <span class="string">":tab"</span>) &#123;</span><br><span class="line">                    obj = Xrm.Page.ui.tabs.get(tabName);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//:section 伪类 selector</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (tabStrList[<span class="number">0</span>] == <span class="string">":section"</span>) &#123;</span><br><span class="line">                    <span class="keyword">var</span> tabs = Xrm.Page.ui.tabs.get();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> tabs) &#123;</span><br><span class="line">                        obj = tabs[index].sections.get(tabName);</span><br><span class="line">                        <span class="keyword">if</span> (!_isNull(obj))</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (_isNull(obj)) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="comment">//如果Selector内容只有2个字符串，如 :tab #tab01 ,则代表选择的是tab本身</span></span><br><span class="line">                <span class="keyword">if</span> (tabStrList.length == <span class="number">2</span>) &#123;</span><br><span class="line">                    uis[uis.length] = obj;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//如果Selector内容只有3 个字符串，如 :tab #tab01 * ,代表选择tab下的所有的 控件，第三个字符串必须是 * 号</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (tabStrList.length == <span class="number">3</span>) &#123;</span><br><span class="line">                    tabStrList[<span class="number">2</span>] == <span class="string">"*"</span> &amp;&amp; obj &amp;&amp; obj.controls &amp;&amp; obj.controls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">uiA</span>) </span>&#123;</span><br><span class="line">                        uis[uis.length] = uiA;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_each</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;对于 选择到的所有的CRM UI元素调用 fn函数，fn函数形如： function(ui,index)&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="fn"&gt;回调函数&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs) || objs.length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; objs.length; i++) &#123;</span><br><span class="line">            fn &amp;&amp; fn(objs[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_eachAttr</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;对于 选择到的所有的CRM attribute 调用 fn函数，fn函数形如： function(attr,index)&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="fn"&gt;回调函数&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(fn)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs) || objs.length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; objs.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (objs[i] &amp;&amp; objs[i].getAttribute) &#123;</span><br><span class="line">                <span class="keyword">var</span> attr = objs[i].getAttribute();</span><br><span class="line">                fn &amp;&amp; fn(attr, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_get</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;返回selector选择到的第 i 个UI 控件，如果i 不输入，则返回第一个&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="i"&gt;字段的索引，标识第几个字段&lt;/param&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// '&gt;'优先级大于'&amp;&amp;'大于'?:',i为undefined时,undefined&gt;0返回false,undefined&amp;&amp;false为undefined,undefined?undefined:0值为0</span></span><br><span class="line">		<span class="comment">//undefined 派生自 null，null 和 undefined 都表示空缺的值，转化为布尔值时都是假值，可以相等</span></span><br><span class="line">		<span class="comment">//null 和 undefined 属于两种不同类型，使用全等运算符（==）或 typeof 运算符可以进行检测</span></span><br><span class="line">		<span class="comment">//检测一个变量是否初始化，可以使用 、undefined或typeof快速检测 eg：(a == undefined) &amp;&amp; (a = 0);(typeof a == "undefined") &amp;&amp; (a = 0);</span></span><br><span class="line">        <span class="keyword">var</span> index = i &amp;&amp; i &gt; <span class="number">0</span> ? i : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">		<span class="comment">//若为只传一个页面字段的情况下,如rtcrm(#new_name),则此时objs中只有一个boj为"Xrm.Page.ui.controls.get('new_name');",obj.length&gt;index为true,objs&amp;&amp;1为1,1&amp;&amp;true为true</span></span><br><span class="line">		<span class="comment">//则表达式结果为objs[0]</span></span><br><span class="line">        <span class="keyword">return</span> objs &amp;&amp; objs.length &amp;&amp; objs.length &gt; index ? objs[index] : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_getAttr</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">///	&lt;summary&gt;返回selector选择到的第 1 个attribute &lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> obj = _get();</span><br><span class="line">        <span class="keyword">return</span> obj &amp;&amp; obj.getAttribute ? obj.getAttribute() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_val</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">///	&lt;summary&gt;获取字段的值，或者设定字段的值&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">///	&lt;param name="v" type="Object"&gt;如果v==undifined，则为获取字段的值，否则为设定字段的值&lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(attr)) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (v === <span class="literal">undefined</span>)</span><br><span class="line">            <span class="keyword">return</span> attr.getValue ? attr.getValue() : <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> attr.setValue ? attr.setValue(v) : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_text</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;获取CRM的字段的文本表示&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getText ? attr.getText() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_req</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;获取或设定字段的Requie Level，none、&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;none，required，recommended&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">            <span class="keyword">return</span> attr &amp;&amp; attr.getRequiredLevel ? attr.getRequiredLevel() : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _eachAttr(<span class="function"><span class="keyword">function</span> (<span class="params">attribute</span>) </span>&#123;</span><br><span class="line">                attribute &amp;&amp; attribute.setRequiredLevel &amp;&amp; attribute.setRequiredLevel(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_length</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;返回选择器选择到的UI控件的个数&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> objs.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_attrType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;字段的属性类别&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="String"&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getAttributeType ? attr.getAttributeType() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_fire</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;调用字段的 fireOnChange&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        attr &amp;&amp; attr.fireOnChange &amp;&amp; attr.fireOnChange();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isDirty</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;检查界面上的字段的值是否发生改变了&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="Boolean"&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getIsDirty ? attr.getIsDirty() : Xrm.Page.data.entity.getIsDirty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_submitMode</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或者获取属性的SubmitMode&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">            <span class="keyword">return</span> attr &amp;&amp; attr.getSubmitMode ? attr.getSubmitMode() : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _eachAttr(<span class="function"><span class="keyword">function</span> (<span class="params">attribute</span>) </span>&#123;</span><br><span class="line">                attribute &amp;&amp; attribute.setSubmitMode &amp;&amp; attribute.setSubmitMode(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_disabled</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或获取UI控件是否禁用&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> obj = _get();</span><br><span class="line">            <span class="keyword">return</span> obj &amp;&amp; obj.getDisabled ? obj.getDisabled() : <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _each(<span class="function"><span class="keyword">function</span> (<span class="params">ui</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> controlType = ui.getControlType();</span><br><span class="line">                <span class="keyword">if</span> (controlType != <span class="string">"iframe"</span> &amp;&amp; controlType != <span class="string">"webresource"</span> &amp;&amp; controlType != <span class="string">"subgrid"</span> &amp;&amp; controlType != <span class="string">"searchwidget"</span> &amp;&amp; controlType != <span class="string">"kbsearch"</span>)</span><br><span class="line">                    ui &amp;&amp; ui.setDisabled &amp;&amp; ui.setDisabled(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_visible</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或获取UI控件是否可视&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> obj = _get();</span><br><span class="line">            <span class="keyword">return</span> obj &amp;&amp; obj.getVisible ? obj.getVisible() : <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _each(<span class="function"><span class="keyword">function</span> (<span class="params">ui</span>) </span>&#123;</span><br><span class="line">                ui &amp;&amp; ui.setVisible &amp;&amp; ui.setVisible(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_hide</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">/// 隐藏界面UI控件</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        _visible(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_show</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">///显示字段或其他的UI控件</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        _visible(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_focus</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">///设定控件获取输入焦点</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> obj = _get();</span><br><span class="line">        obj &amp;&amp; obj.setFocus &amp;&amp; obj.setFocus();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="keyword">get</span>: _get,</span><br><span class="line">        getAttr: _getAttr,</span><br><span class="line">        val: _val,</span><br><span class="line">        text: _text,</span><br><span class="line">        req: _req,</span><br><span class="line">        focus: _focus,</span><br><span class="line">        each: _each,</span><br><span class="line">        eachAttr: _eachAttr,</span><br><span class="line">        length: _length,</span><br><span class="line">        attrType: _attrType,</span><br><span class="line">        fire: _fire,</span><br><span class="line">        isDirty: _isDirty,</span><br><span class="line">        submitMode: _submitMode,</span><br><span class="line">        disabled: _disabled,</span><br><span class="line">        visible: _visible,</span><br><span class="line">        hide: _hide,</span><br><span class="line">        show: _show</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><h2 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h2><blockquote>
+<p>rtcrm(“#new_name”).val();<br>获取new_name字段的值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//找到表单上一个对象,_gets()、_get()方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>);</span><br><span class="line"><span class="comment">//获取属性,_getAttr()方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>).getAttribute();</span><br><span class="line"><span class="comment">//获取值,_val(v)方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>).getAttribute().getValue();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>便捷的写法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//直接获取字段</span></span><br><span class="line">Xrm.Page.getAttribute(<span class="string">"new_account_id"</span>).getValue()</span><br></pre></td></tr></table></figure>
+
+<h2 id="getEntityId"><a href="#getEntityId" class="headerlink" title="getEntityId()"></a>getEntityId()</h2><blockquote>
+<p>rtcrm.getEntityId(); “{30FEBF82-0440-EB11-8AC1-005056AF9937}”<br>Xrm.Page.data.entity.getId()</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var new_srv_superviseid &#x3D; window.parent.Xrm.Page.data.entity.getId().replace(&quot;&#123;&quot;,&quot;&quot;).replace(&quot;&#125;&quot;,&quot;&quot;);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>瑞泰框架</tag>
+        <tag>rtcrm.js</tag>
       </tags>
   </entry>
   <entry>
@@ -1556,6 +1709,72 @@
       <tags>
         <tag>WebService</tag>
         <tag>soap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关键业务表单体现vip客户</title>
+    <url>/2020/12/18/%E5%85%B3%E9%94%AE%E4%B8%9A%E5%8A%A1%E8%A1%A8%E5%8D%95%E4%BD%93%E7%8E%B0vip%E5%AE%A2%E6%88%B7/</url>
+    <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p><img src="1.png" alt=""></p>
+<blockquote>
+<p>销售信息、客户档案、客户分级申请单、合同、发货通知单、逾期催收和服务单</p>
+</blockquote>
+<h2 id="客户档案"><a href="#客户档案" class="headerlink" title="客户档案"></a>客户档案</h2><blockquote>
+<p>account.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="keyword">if</span>(rtcrm(<span class="string">"#new_accountproperty"</span>).val()==<span class="number">2</span>)&#123;</span><br><span class="line">   <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户名称_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line"><span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户类别_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="销售信息"><a href="#销售信息" class="headerlink" title="销售信息"></a>销售信息</h2><blockquote>
+<p>opportunity.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根据客户名称查询客户类别，vip客户背景颜色变为黄色</span></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户分级申请单"><a href="#客户分级申请单" class="headerlink" title="客户分级申请单"></a>客户分级申请单</h2><blockquote>
+<p>new_accountclassification.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户类别_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合同申请单"><a href="#合同申请单" class="headerlink" title="合同申请单"></a>合同申请单</h2><blockquote>
+<p>new_contract.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">new_enduser_id_lookupValue</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_enduser_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_enduser_id_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="发货通知单"><a href="#发货通知单" class="headerlink" title="发货通知单"></a>发货通知单</h2><blockquote>
+<p>new_ord_shipment.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根据最终用户查询客户类别，vip客户背景颜色变为黄色</span></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_finalaccount_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_finalaccount_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="逾期催收"><a href="#逾期催收" class="headerlink" title="逾期催收"></a>逾期催收</h2><blockquote>
+<p>new_delaymanagement.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务单"><a href="#服务单" class="headerlink" title="服务单"></a>服务单</h2><blockquote>
+<p>new_srv_workorder.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_customerid"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_customerid_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>CRM样式变更</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>删除文件夹没有权限</title>
+    <url>/2021/01/18/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>替换服务器上网站静态资源时提示：<br>您需要来自xxx的权限才能对此文件夹进行更改</p>
+<p><img src="1.png" alt=""></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>移动文件夹到C盘ProgramFiles,右键删除即可。</p>
+<p><img src="2.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>踩坑</tag>
+        <tag>删除文件</tag>
+        <tag>系统权限</tag>
       </tags>
   </entry>
   <entry>
@@ -1650,20 +1869,27 @@
       </tags>
   </entry>
   <entry>
-    <title>删除文件夹没有权限</title>
-    <url>/2021/01/18/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>替换服务器上网站静态资源时提示：<br>您需要来自xxx的权限才能对此文件夹进行更改</p>
-<p><img src="1.png" alt=""></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>移动文件夹到C盘ProgramFiles,右键删除即可。</p>
-<p><img src="2.png" alt=""></p>
+    <title>发货通知单二维码</title>
+    <url>/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/</url>
+    <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
+<p>成品资源出库时使用的发货通知单中二维码信息增加：<br>1、产品信息(物料名称) new_contractdetail_id<br>2、合同号 (合同单号) new_contract_id<br>3、最终客户 new_finalaccount_id<br>4、运输方式 new_shiptype –单行文本<br>5、产品送达地 new_shipplace  –单行文本<br>6、交货联系人 new_contact2 –单行文本</p>
+</blockquote>
+<h2 id="代码位置"><a href="#代码位置" class="headerlink" title="代码位置"></a>代码位置</h2><blockquote>
+<p>RekTec.Crm.Workflow.Sales.ShipmentController.CreateQRCode</p>
+</blockquote>
+<h2 id="OrganizationService-Retrieve"><a href="#OrganizationService-Retrieve" class="headerlink" title="OrganizationService.Retrieve"></a>OrganizationService.Retrieve</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OrganizationService.Retrieve(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(shipmentid), <span class="keyword">new</span> ColumnSet(<span class="keyword">new</span> string[] &#123; <span class="string">"new_name"</span> &#125;));</span><br><span class="line">Entity accountclassification = OrganizationService.Retrieve(<span class="string">"new_accountclassification"</span>, classificationId, <span class="keyword">new</span> ColumnSet(<span class="keyword">true</span>));</span><br><span class="line">columnSet: 传入字段时为字段，传入<span class="keyword">true</span>为所有字段，传入<span class="keyword">false</span>只查询主键</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改字段大小"><a href="#修改字段大小" class="headerlink" title="修改字段大小"></a>修改字段大小</h2><blockquote>
+<p>自定义项字段详情中可设置字段长度</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>工作</category>
       </categories>
       <tags>
-        <tag>踩坑</tag>
-        <tag>删除文件</tag>
-        <tag>系统权限</tag>
+        <tag>CRM</tag>
+        <tag>销售</tag>
+        <tag>报表</tag>
       </tags>
   </entry>
   <entry>
@@ -1710,218 +1936,6 @@
         <tag>CRM</tag>
         <tag>自定义页面</tag>
         <tag>绕过登录权限</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>rtcrm.js常用脚本库方法解析</title>
-    <url>/2020/11/15/rtcrm-js%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E5%BA%93%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/***********************************************************</span></span><br><span class="line"><span class="comment">将Xrm对象下的常用的方法封装为 Rt对象，使用类似JQuery的Selector 方式访问 </span></span><br><span class="line"><span class="comment">选择器，支持如 #new_name, :section #section01 ,#tab tab01 三种的选择器</span></span><br><span class="line"><span class="comment">************************************************************/</span></span><br><span class="line"><span class="keyword">var</span> rtcrm = <span class="function"><span class="keyword">function</span> (<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isNull</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;check if object null&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">return</span> v === <span class="literal">null</span> || v === <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isNullOrEmpty</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;check if stirng is null or empty&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">return</span> _isNull(v) || v === <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_gets</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;根据selector返回CRM的对象数组&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="Array"&gt;CRM对象数组&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(selector)) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将形如 #new_name,#new_date,:tab #tab01 的selector拆分逐个判断查找</span></span><br><span class="line">        <span class="keyword">var</span> strList = selector.split(<span class="string">','</span>);</span><br><span class="line">        <span class="keyword">if</span> (_isNull(strList) || strList.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//要返回的UI 对象数据，包括界面上的控件、Tab、Section三种类型</span></span><br><span class="line">        <span class="keyword">var</span> uis = [];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//逐个的Selector判断</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; strList.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> str = strList[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// # 号开头的是Id Selector</span></span><br><span class="line">            <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">"#"</span>) &#123;</span><br><span class="line">				<span class="comment">//去掉前缀</span></span><br><span class="line">                <span class="keyword">var</span> ui = Xrm.Page.ui.controls.get(str.substring(<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">if</span> (ui) &#123;</span><br><span class="line">                    uis[uis.length] = ui;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// * 代表选择所有的界面UI控件</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">"*"</span>) &#123;</span><br><span class="line">                Xrm.Page.ui.controls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">uiA</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (uiA) &#123;</span><br><span class="line">                        uis[uis.length] = uiA;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//：好开头的代表伪类，只支持 ;tab :section两种伪类</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (str.charAt(<span class="number">0</span>) == <span class="string">":"</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> tabStrList = str.split(<span class="string">' '</span>);</span><br><span class="line">                <span class="keyword">if</span> (_isNull(tabStrList) || tabStrList.length &lt; <span class="number">2</span> || tabStrList[<span class="number">1</span>].substring(<span class="number">0</span>, <span class="number">1</span>) != <span class="string">"#"</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> tabName = tabStrList[<span class="number">1</span>].substring(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// :tab 伪类 selector</span></span><br><span class="line">                <span class="keyword">var</span> obj = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (tabStrList[<span class="number">0</span>] == <span class="string">":tab"</span>) &#123;</span><br><span class="line">                    obj = Xrm.Page.ui.tabs.get(tabName);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//:section 伪类 selector</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (tabStrList[<span class="number">0</span>] == <span class="string">":section"</span>) &#123;</span><br><span class="line">                    <span class="keyword">var</span> tabs = Xrm.Page.ui.tabs.get();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> tabs) &#123;</span><br><span class="line">                        obj = tabs[index].sections.get(tabName);</span><br><span class="line">                        <span class="keyword">if</span> (!_isNull(obj))</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (_isNull(obj)) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="comment">//如果Selector内容只有2个字符串，如 :tab #tab01 ,则代表选择的是tab本身</span></span><br><span class="line">                <span class="keyword">if</span> (tabStrList.length == <span class="number">2</span>) &#123;</span><br><span class="line">                    uis[uis.length] = obj;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//如果Selector内容只有3 个字符串，如 :tab #tab01 * ,代表选择tab下的所有的 控件，第三个字符串必须是 * 号</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (tabStrList.length == <span class="number">3</span>) &#123;</span><br><span class="line">                    tabStrList[<span class="number">2</span>] == <span class="string">"*"</span> &amp;&amp; obj &amp;&amp; obj.controls &amp;&amp; obj.controls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">uiA</span>) </span>&#123;</span><br><span class="line">                        uis[uis.length] = uiA;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_each</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;对于 选择到的所有的CRM UI元素调用 fn函数，fn函数形如： function(ui,index)&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="fn"&gt;回调函数&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs) || objs.length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; objs.length; i++) &#123;</span><br><span class="line">            fn &amp;&amp; fn(objs[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_eachAttr</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;对于 选择到的所有的CRM attribute 调用 fn函数，fn函数形如： function(attr,index)&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="fn"&gt;回调函数&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(fn)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs) || objs.length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; objs.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (objs[i] &amp;&amp; objs[i].getAttribute) &#123;</span><br><span class="line">                <span class="keyword">var</span> attr = objs[i].getAttribute();</span><br><span class="line">                fn &amp;&amp; fn(attr, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_get</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;返回selector选择到的第 i 个UI 控件，如果i 不输入，则返回第一个&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="i"&gt;字段的索引，标识第几个字段&lt;/param&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// '&gt;'优先级大于'&amp;&amp;'大于'?:',i为undefined时,undefined&gt;0返回false,undefined&amp;&amp;false为undefined,undefined?undefined:0值为0</span></span><br><span class="line">		<span class="comment">//undefined 派生自 null，null 和 undefined 都表示空缺的值，转化为布尔值时都是假值，可以相等</span></span><br><span class="line">		<span class="comment">//null 和 undefined 属于两种不同类型，使用全等运算符（==）或 typeof 运算符可以进行检测</span></span><br><span class="line">		<span class="comment">//检测一个变量是否初始化，可以使用 、undefined或typeof快速检测 eg：(a == undefined) &amp;&amp; (a = 0);(typeof a == "undefined") &amp;&amp; (a = 0);</span></span><br><span class="line">        <span class="keyword">var</span> index = i &amp;&amp; i &gt; <span class="number">0</span> ? i : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">		<span class="comment">//若为只传一个页面字段的情况下,如rtcrm(#new_name),则此时objs中只有一个boj为"Xrm.Page.ui.controls.get('new_name');",obj.length&gt;index为true,objs&amp;&amp;1为1,1&amp;&amp;true为true</span></span><br><span class="line">		<span class="comment">//则表达式结果为objs[0]</span></span><br><span class="line">        <span class="keyword">return</span> objs &amp;&amp; objs.length &amp;&amp; objs.length &gt; index ? objs[index] : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_getAttr</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">///	&lt;summary&gt;返回selector选择到的第 1 个attribute &lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> obj = _get();</span><br><span class="line">        <span class="keyword">return</span> obj &amp;&amp; obj.getAttribute ? obj.getAttribute() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_val</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">///	&lt;summary&gt;获取字段的值，或者设定字段的值&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">///	&lt;param name="v" type="Object"&gt;如果v==undifined，则为获取字段的值，否则为设定字段的值&lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(attr)) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (v === <span class="literal">undefined</span>)</span><br><span class="line">            <span class="keyword">return</span> attr.getValue ? attr.getValue() : <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> attr.setValue ? attr.setValue(v) : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_text</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;获取CRM的字段的文本表示&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getText ? attr.getText() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_req</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;获取或设定字段的Requie Level，none、&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;none，required，recommended&lt;/param&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">            <span class="keyword">return</span> attr &amp;&amp; attr.getRequiredLevel ? attr.getRequiredLevel() : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _eachAttr(<span class="function"><span class="keyword">function</span> (<span class="params">attribute</span>) </span>&#123;</span><br><span class="line">                attribute &amp;&amp; attribute.setRequiredLevel &amp;&amp; attribute.setRequiredLevel(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_length</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;返回选择器选择到的UI控件的个数&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> objs = _gets();</span><br><span class="line">        <span class="keyword">if</span> (_isNull(objs)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> objs.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_attrType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;字段的属性类别&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="String"&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getAttributeType ? attr.getAttributeType() : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_fire</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;调用字段的 fireOnChange&lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        attr &amp;&amp; attr.fireOnChange &amp;&amp; attr.fireOnChange();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_isDirty</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;检查界面上的字段的值是否发生改变了&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type="Boolean"&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">        <span class="keyword">return</span> attr &amp;&amp; attr.getIsDirty ? attr.getIsDirty() : Xrm.Page.data.entity.getIsDirty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_submitMode</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或者获取属性的SubmitMode&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNullOrEmpty(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> attr = _getAttr();</span><br><span class="line">            <span class="keyword">return</span> attr &amp;&amp; attr.getSubmitMode ? attr.getSubmitMode() : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _eachAttr(<span class="function"><span class="keyword">function</span> (<span class="params">attribute</span>) </span>&#123;</span><br><span class="line">                attribute &amp;&amp; attribute.setSubmitMode &amp;&amp; attribute.setSubmitMode(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_disabled</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或获取UI控件是否禁用&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> obj = _get();</span><br><span class="line">            <span class="keyword">return</span> obj &amp;&amp; obj.getDisabled ? obj.getDisabled() : <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _each(<span class="function"><span class="keyword">function</span> (<span class="params">ui</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> controlType = ui.getControlType();</span><br><span class="line">                <span class="keyword">if</span> (controlType != <span class="string">"iframe"</span> &amp;&amp; controlType != <span class="string">"webresource"</span> &amp;&amp; controlType != <span class="string">"subgrid"</span> &amp;&amp; controlType != <span class="string">"searchwidget"</span> &amp;&amp; controlType != <span class="string">"kbsearch"</span>)</span><br><span class="line">                    ui &amp;&amp; ui.setDisabled &amp;&amp; ui.setDisabled(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_visible</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;设定或获取UI控件是否可视&lt;/summary&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;param name="v"&gt;&lt;/param&gt;</span></span><br><span class="line">        <span class="comment">/// &lt;returns type=""&gt;&lt;/returns&gt;</span></span><br><span class="line">        <span class="keyword">if</span> (_isNull(v)) &#123;</span><br><span class="line">            <span class="keyword">var</span> obj = _get();</span><br><span class="line">            <span class="keyword">return</span> obj &amp;&amp; obj.getVisible ? obj.getVisible() : <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            _each(<span class="function"><span class="keyword">function</span> (<span class="params">ui</span>) </span>&#123;</span><br><span class="line">                ui &amp;&amp; ui.setVisible &amp;&amp; ui.setVisible(v);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_hide</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">/// 隐藏界面UI控件</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        _visible(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_show</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">///显示字段或其他的UI控件</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        _visible(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_focus</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line">        <span class="comment">///设定控件获取输入焦点</span></span><br><span class="line">        <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">        <span class="keyword">var</span> obj = _get();</span><br><span class="line">        obj &amp;&amp; obj.setFocus &amp;&amp; obj.setFocus();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="keyword">get</span>: _get,</span><br><span class="line">        getAttr: _getAttr,</span><br><span class="line">        val: _val,</span><br><span class="line">        text: _text,</span><br><span class="line">        req: _req,</span><br><span class="line">        focus: _focus,</span><br><span class="line">        each: _each,</span><br><span class="line">        eachAttr: _eachAttr,</span><br><span class="line">        length: _length,</span><br><span class="line">        attrType: _attrType,</span><br><span class="line">        fire: _fire,</span><br><span class="line">        isDirty: _isDirty,</span><br><span class="line">        submitMode: _submitMode,</span><br><span class="line">        disabled: _disabled,</span><br><span class="line">        visible: _visible,</span><br><span class="line">        hide: _hide,</span><br><span class="line">        show: _show</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><h2 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h2><blockquote>
-<p>rtcrm(“#new_name”).val();<br>获取new_name字段的值</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//找到表单上一个对象,_gets()、_get()方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>);</span><br><span class="line"><span class="comment">//获取属性,_getAttr()方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>).getAttribute();</span><br><span class="line"><span class="comment">//获取值,_val(v)方法</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">"new_account_id"</span>).getAttribute().getValue();</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>便捷的写法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//直接获取字段</span></span><br><span class="line">Xrm.Page.getAttribute(<span class="string">"new_account_id"</span>).getValue()</span><br></pre></td></tr></table></figure>
-
-<h2 id="getEntityId"><a href="#getEntityId" class="headerlink" title="getEntityId()"></a>getEntityId()</h2><blockquote>
-<p>rtcrm.getEntityId(); “{30FEBF82-0440-EB11-8AC1-005056AF9937}”<br>Xrm.Page.data.entity.getId()</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var new_srv_superviseid &#x3D; window.parent.Xrm.Page.data.entity.getId().replace(&quot;&#123;&quot;,&quot;&quot;).replace(&quot;&#125;&quot;,&quot;&quot;);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>瑞泰框架</tag>
-        <tag>rtcrm.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关键业务表单体现vip客户</title>
-    <url>/2020/12/18/%E5%85%B3%E9%94%AE%E4%B8%9A%E5%8A%A1%E8%A1%A8%E5%8D%95%E4%BD%93%E7%8E%B0vip%E5%AE%A2%E6%88%B7/</url>
-    <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p><img src="1.png" alt=""></p>
-<blockquote>
-<p>销售信息、客户档案、客户分级申请单、合同、发货通知单、逾期催收和服务单</p>
-</blockquote>
-<h2 id="客户档案"><a href="#客户档案" class="headerlink" title="客户档案"></a>客户档案</h2><blockquote>
-<p>account.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="keyword">if</span>(rtcrm(<span class="string">"#new_accountproperty"</span>).val()==<span class="number">2</span>)&#123;</span><br><span class="line">   <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户名称_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line"><span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户类别_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="销售信息"><a href="#销售信息" class="headerlink" title="销售信息"></a>销售信息</h2><blockquote>
-<p>opportunity.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根据客户名称查询客户类别，vip客户背景颜色变为黄色</span></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="客户分级申请单"><a href="#客户分级申请单" class="headerlink" title="客户分级申请单"></a>客户分级申请单</h2><blockquote>
-<p>new_accountclassification.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"客户类别_label"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="合同申请单"><a href="#合同申请单" class="headerlink" title="合同申请单"></a>合同申请单</h2><blockquote>
-<p>new_contract.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">new_enduser_id_lookupValue</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_enduser_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_enduser_id_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="发货通知单"><a href="#发货通知单" class="headerlink" title="发货通知单"></a>发货通知单</h2><blockquote>
-<p>new_ord_shipment.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//根据最终用户查询客户类别，vip客户背景颜色变为黄色</span></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_finalaccount_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line"><span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line"><span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_finalaccount_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="逾期催收"><a href="#逾期催收" class="headerlink" title="逾期催收"></a>逾期催收</h2><blockquote>
-<p>new_delaymanagement.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_account_id"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_account_id"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="服务单"><a href="#服务单" class="headerlink" title="服务单"></a>服务单</h2><blockquote>
-<p>new_srv_workorder.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = rtcrm(<span class="string">"#new_customerid"</span>).val()[<span class="number">0</span>].id.replace(<span class="string">"&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">   <span class="keyword">var</span> account = rtcrm.retrieve(<span class="string">"accounts("</span> + id + <span class="string">")"</span>, <span class="literal">true</span>);</span><br><span class="line">   <span class="keyword">var</span> new_accountproperty = account[<span class="string">"new_accountproperty"</span>];</span><br><span class="line">   <span class="keyword">if</span> (new_accountproperty == <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">window</span>.parent.document.getElementById(<span class="string">"new_customerid_lookupValue"</span>).style.backgroundColor = <span class="string">"yellow"</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>CRM样式变更</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>发货通知单二维码</title>
-    <url>/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/</url>
-    <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
-<p>成品资源出库时使用的发货通知单中二维码信息增加：<br>1、产品信息(物料名称) new_contractdetail_id<br>2、合同号 (合同单号) new_contract_id<br>3、最终客户 new_finalaccount_id<br>4、运输方式 new_shiptype –单行文本<br>5、产品送达地 new_shipplace  –单行文本<br>6、交货联系人 new_contact2 –单行文本</p>
-</blockquote>
-<h2 id="代码位置"><a href="#代码位置" class="headerlink" title="代码位置"></a>代码位置</h2><blockquote>
-<p>RekTec.Crm.Workflow.Sales.ShipmentController.CreateQRCode</p>
-</blockquote>
-<h2 id="OrganizationService-Retrieve"><a href="#OrganizationService-Retrieve" class="headerlink" title="OrganizationService.Retrieve"></a>OrganizationService.Retrieve</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OrganizationService.Retrieve(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(shipmentid), <span class="keyword">new</span> ColumnSet(<span class="keyword">new</span> string[] &#123; <span class="string">"new_name"</span> &#125;));</span><br><span class="line">Entity accountclassification = OrganizationService.Retrieve(<span class="string">"new_accountclassification"</span>, classificationId, <span class="keyword">new</span> ColumnSet(<span class="keyword">true</span>));</span><br><span class="line">columnSet: 传入字段时为字段，传入<span class="keyword">true</span>为所有字段，传入<span class="keyword">false</span>只查询主键</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改字段大小"><a href="#修改字段大小" class="headerlink" title="修改字段大小"></a>修改字段大小</h2><blockquote>
-<p>自定义项字段详情中可设置字段长度</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>销售</tag>
-        <tag>报表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成品资源报表</title>
-    <url>/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="从字符串中提取数字、字母、中文"><a href="#从字符串中提取数字、字母、中文" class="headerlink" title="从字符串中提取数字、字母、中文"></a>从字符串中提取数字、字母、中文</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*方法一: 一个一个找出来*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> [dbo].[Fun_GetNumPart] </span><br><span class="line">( @<span class="keyword">Str</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>) )</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line">    <span class="keyword">BEGIN</span></span><br><span class="line">        <span class="keyword">DECLARE</span> @<span class="keyword">Start</span> <span class="built_in">INT</span>;</span><br><span class="line">        <span class="keyword">DECLARE</span> @<span class="keyword">End</span> <span class="built_in">INT</span>; </span><br><span class="line">        <span class="keyword">DECLARE</span> @Part <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)</span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">Start</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>, @<span class="keyword">Str</span>);</span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">End</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>, @<span class="keyword">Start</span>+<span class="number">1</span>,<span class="keyword">LEN</span>(@<span class="keyword">Str</span>) - @<span class="keyword">Start</span>));</span><br><span class="line">        <span class="keyword">SET</span> @Part = <span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>,@<span class="keyword">Start</span>,<span class="number">1</span>) </span><br><span class="line">        <span class="keyword">WHILE</span>  @<span class="keyword">End</span> &gt;<span class="number">0</span> </span><br><span class="line">        <span class="keyword">BEGIN</span> </span><br><span class="line">                <span class="keyword">SET</span> @<span class="keyword">Start</span> = @<span class="keyword">start</span>+@<span class="keyword">End</span></span><br><span class="line">                <span class="keyword">SET</span> @Part = @Part+<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>,@<span class="keyword">Start</span>,<span class="number">1</span>)       </span><br><span class="line">                <span class="keyword">SET</span> @<span class="keyword">End</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>, @<span class="keyword">Start</span>+<span class="number">1</span>,<span class="keyword">LEN</span>(@<span class="keyword">Str</span>) - @<span class="keyword">Start</span>)); </span><br><span class="line">        <span class="keyword">END</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">RETURN</span>  @Part;</span><br><span class="line">    <span class="keyword">END</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*方法二：一个一个去掉*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> [dbo].[Fun_GetNumPart]  </span><br><span class="line">( @<span class="keyword">Str</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>) ) </span><br><span class="line"><span class="keyword">RETURNS</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)   </span><br><span class="line"><span class="keyword">AS</span>   </span><br><span class="line"><span class="keyword">BEGIN</span>   </span><br><span class="line">    <span class="keyword">WHILE</span> <span class="keyword">PATINDEX</span>(<span class="string">'%[^0-9]%'</span>,@<span class="keyword">Str</span>)&gt;<span class="number">0</span>   </span><br><span class="line">    <span class="keyword">BEGIN</span>   </span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">Str</span>=<span class="keyword">STUFF</span>(@<span class="keyword">Str</span>,<span class="keyword">PATINDEX</span>(<span class="string">'%[^0-9]%'</span>,@<span class="keyword">Str</span>),<span class="number">1</span>,<span class="string">''</span>) <span class="comment">--删掉非数字的字符</span></span><br><span class="line">    <span class="keyword">END</span>   </span><br><span class="line">    <span class="keyword">RETURN</span> @<span class="keyword">Str</span> </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--可以通过将函数中的 ‘%[0-9]%’ 替换成 ‘%[A-Z]%’、’%[吖-做]%’，，改造成找字母、找中文的函数</span></span><br></pre></td></tr></table></figure>
-<h2 id="Convert函数"><a href="#Convert函数" class="headerlink" title="Convert函数"></a>Convert函数</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">CONVERT(data_type(length),data_to_be_converted,style)</span><br><span class="line">eg:</span><br><span class="line">CONVERT(int,dbo.Fun_GetNumPart(right(new_vinidname,8))) AS sort_vin,</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>vsReport</tag>
-        <tag>成品资源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开窗函数</title>
-    <url>/2020/10/21/%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="开窗函数"><a href="#开窗函数" class="headerlink" title="开窗函数"></a>开窗函数</h1><blockquote>
-<p>与聚合函数一样，开窗函数也是对行集组进行聚合计算，但是它不像普通聚合函数那样每组只返回一个值，开窗函数可以为每组返回多个值，因为开窗函数所执行聚合计算的行集组是窗口。在 ISO SQL 规定了这样的函数为开窗函数，在 Oracle 中则被称为分析函数。</p>
-</blockquote>
-<h2 id="PARTITION-BY"><a href="#PARTITION-BY" class="headerlink" title="PARTITION BY"></a>PARTITION BY</h2><blockquote>
-<p>分组<br>开窗函数的OVER关键字后括号中的可以使用PARTITION BY 子句来定义行的分区来供进行聚合计算。与GROUP BY 子句不同，PARTITION BY 子句创建的分区是独立于结果集的，创建的分区只是供进行聚合计算的，而且不同的开窗函数所创建的分区也不互相影响。</p>
-</blockquote>
-<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><blockquote>
-<p>排序</p>
-</blockquote>
-<h2 id="聚合开窗函数"><a href="#聚合开窗函数" class="headerlink" title="聚合开窗函数"></a>聚合开窗函数</h2><blockquote>
-<p>聚合函数(列) OVER (选项)，这里的选项可以是PARTITION BY子句，但不可是ORDER BY子句</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">new_age,</span><br><span class="line"><span class="keyword">SUM</span>(new_age)<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> new_age) max_age</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
-<h2 id="排序开窗函数"><a href="#排序开窗函数" class="headerlink" title="排序开窗函数"></a>排序开窗函数</h2><blockquote>
-<p>排序函数(列) OVER(选项)，这里的选项可以是ORDER BY子句，也可以是　OVER（PARTITION BY子句　ORDER BY子句），但不可以是PARTITION BY子句</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">AccountNumber,</span><br><span class="line">row_number()<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> AccountNumber <span class="keyword">ORDER</span> <span class="keyword">BY</span> AccountNumber) <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>SQL Server</tag>
-        <tag>数据库</tag>
-        <tag>SQL语法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>报表翻页保留静态标题</title>
-    <url>/2020/11/12/%E6%8A%A5%E8%A1%A8%E7%BF%BB%E9%A1%B5%E4%BF%9D%E7%95%99%E9%9D%99%E6%80%81%E6%A0%87%E9%A2%98/</url>
-    <content><![CDATA[<ol>
-<li>搜索栏搜索属性或f4打开属性面板</li>
-<li>点击行组中的静态</li>
-<li>将RepeatOnNewPage置为true</li>
-</ol>
-<p><img src="1.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>vsReport</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成品车出库自动同步送车记录</title>
-    <url>/2020/12/06/%E6%88%90%E5%93%81%E8%BD%A6%E5%87%BA%E5%BA%93%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%80%81%E8%BD%A6%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="场景及说明"><a href="#场景及说明" class="headerlink" title="场景及说明"></a>场景及说明</h2><blockquote>
-<p>送车记录维护目前是手工新建送车记录，为了更好的及时做到送车记录回传需要变更为根据成品车出库自动同步送车记录，后续根据实际送车需要再去维护相应的送车记录。自动同步送车记录的逻辑与随车物品发放记录自动同步类似。<br>成品车出库制单状态的单据点击确认按钮时同步更新送车记录维护<br>hiddenapi中入参为成品车出库id   workflow VinShipOutCommand Confirm方法<br>根据发货通知单号带出相关字段</p>
-</blockquote>
-<h2 id="实体信息"><a href="#实体信息" class="headerlink" title="实体信息"></a>实体信息</h2><h3 id="成品车出库"><a href="#成品车出库" class="headerlink" title="成品车出库"></a>成品车出库</h3><blockquote>
-<p>new_vin_shipout</p>
-</blockquote>
-<ol>
-<li>new_vin_shipoutid 主键</li>
-</ol>
-<h3 id="送车记录"><a href="#送车记录" class="headerlink" title="送车记录"></a>送车记录</h3><blockquote>
-<p>new_vin_sendtruckmaintain</p>
-</blockquote>
-<ol>
-<li>new_vin_sendtruckmaintainid 主键</li>
-<li>new_sender 送车人</li>
-<li>new_address 送车地点</li>
-<li>new_shiptype 提货方式</li>
-<li>new_producttypeid 产品组</li>
-<li>new_shipnoticeid 提单号</li>
-<li>new_productid 物料描述</li>
-<li>new_vinmodelid 产品型号</li>
-<li>new_productcode 物料编码</li>
-<li>new_vinid 车辆vin码</li>
-<li>new_contractid 合同号</li>
-<li>new_new_saledepart 代表处</li>
-<li>new_accountid 购车单位</li>
-<li>new_senddate 送车日期</li>
-</ol>
-<h2 id="送车记录可用方法-VinSendTruckMainTainCommand"><a href="#送车记录可用方法-VinSendTruckMainTainCommand" class="headerlink" title="送车记录可用方法  VinSendTruckMainTainCommand"></a>送车记录可用方法  VinSendTruckMainTainCommand</h2><ol>
-<li>VinSendTruckMainTainInfo GetInfoByVin(string vinid) 根据vin码获取信息</li>
-<li>VinSendTruckMainTainInfo GetInfoByShipment(string shipmentid) 根据发货通知单号获取信息</li>
-</ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 同步创建送车记录维护</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用VinSendTruckMainTainCommand中GetInfoByVin获取送车记录维护字段信息</span></span><br><span class="line">VinSendTruckMainTainInfo vinSendTruckMainTainInfo = Command&lt;VinSendTruckMainTainCommand&gt;().GetInfoByVin(vinId);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建实体</span></span><br><span class="line"><span class="keyword">var</span> new_vin_sendtruckmaintain = <span class="keyword">new</span> Entity(<span class="string">"new_vin_sendtruckmaintain"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车人（发运人实体）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipperid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_sender"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_shipper"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipperid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车地点</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipplace))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_address"</span>] = vinSendTruckMainTainInfo.new_shipplace;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提货方式</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shiptype))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shiptype"</span>] = vinSendTruckMainTainInfo.new_shiptype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品组</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_producttypeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_producttypeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_productgroup"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_producttypeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提单号(发货通知单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipnoticeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shipnoticeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipnoticeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料描述(产品物料)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"product"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_productid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品型号（成品车型号）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinmodelid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinmodelid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_productmodel"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinmodelid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料编码</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productcode))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productcode"</span>] = vinSendTruckMainTainInfo.new_productcode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//车辆vin码（产品档案）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_srv_userprofile"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合同号(合同申请单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_contract))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_contractid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_contract"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_contract));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//代表处(业务部门)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_salebu))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_new_saledepart"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"businessunit"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_salebu));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//购车单位</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_enduser))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_accountid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"account"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_enduser));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车日期</span></span><br><span class="line"><span class="keyword">if</span> (vinSendTruckMainTainInfo.new_shipdate != <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_senddate"</span>] = vinSendTruckMainTainInfo.new_shipdate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">OrganizationService.Create(new_vin_sendtruckmaintain);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h3><blockquote>
-<p>发货通知单查询增加校验 new_documentstatus 1 未确认 2 已确认 3 已作废</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>CRM</tag>
-        <tag>成品资源</tag>
       </tags>
   </entry>
   <entry>
@@ -2005,6 +2019,117 @@
         <tag>CRM</tag>
         <tag>销售</tag>
         <tag>excel导入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>报表翻页保留静态标题</title>
+    <url>/2020/11/12/%E6%8A%A5%E8%A1%A8%E7%BF%BB%E9%A1%B5%E4%BF%9D%E7%95%99%E9%9D%99%E6%80%81%E6%A0%87%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li>搜索栏搜索属性或f4打开属性面板</li>
+<li>点击行组中的静态</li>
+<li>将RepeatOnNewPage置为true</li>
+</ol>
+<p><img src="1.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>vsReport</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开窗函数</title>
+    <url>/2020/10/21/%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="开窗函数"><a href="#开窗函数" class="headerlink" title="开窗函数"></a>开窗函数</h1><blockquote>
+<p>与聚合函数一样，开窗函数也是对行集组进行聚合计算，但是它不像普通聚合函数那样每组只返回一个值，开窗函数可以为每组返回多个值，因为开窗函数所执行聚合计算的行集组是窗口。在 ISO SQL 规定了这样的函数为开窗函数，在 Oracle 中则被称为分析函数。</p>
+</blockquote>
+<h2 id="PARTITION-BY"><a href="#PARTITION-BY" class="headerlink" title="PARTITION BY"></a>PARTITION BY</h2><blockquote>
+<p>分组<br>开窗函数的OVER关键字后括号中的可以使用PARTITION BY 子句来定义行的分区来供进行聚合计算。与GROUP BY 子句不同，PARTITION BY 子句创建的分区是独立于结果集的，创建的分区只是供进行聚合计算的，而且不同的开窗函数所创建的分区也不互相影响。</p>
+</blockquote>
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><blockquote>
+<p>排序</p>
+</blockquote>
+<h2 id="聚合开窗函数"><a href="#聚合开窗函数" class="headerlink" title="聚合开窗函数"></a>聚合开窗函数</h2><blockquote>
+<p>聚合函数(列) OVER (选项)，这里的选项可以是PARTITION BY子句，但不可是ORDER BY子句</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">new_age,</span><br><span class="line"><span class="keyword">SUM</span>(new_age)<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> new_age) max_age</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>
+<h2 id="排序开窗函数"><a href="#排序开窗函数" class="headerlink" title="排序开窗函数"></a>排序开窗函数</h2><blockquote>
+<p>排序函数(列) OVER(选项)，这里的选项可以是ORDER BY子句，也可以是　OVER（PARTITION BY子句　ORDER BY子句），但不可以是PARTITION BY子句</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">name</span>,</span><br><span class="line">AccountNumber,</span><br><span class="line">row_number()<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> AccountNumber <span class="keyword">ORDER</span> <span class="keyword">BY</span> AccountNumber) <span class="keyword">repeat</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Account</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>SQL Server</tag>
+        <tag>数据库</tag>
+        <tag>SQL语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>成品车出库自动同步送车记录</title>
+    <url>/2020/12/06/%E6%88%90%E5%93%81%E8%BD%A6%E5%87%BA%E5%BA%93%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%80%81%E8%BD%A6%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="场景及说明"><a href="#场景及说明" class="headerlink" title="场景及说明"></a>场景及说明</h2><blockquote>
+<p>送车记录维护目前是手工新建送车记录，为了更好的及时做到送车记录回传需要变更为根据成品车出库自动同步送车记录，后续根据实际送车需要再去维护相应的送车记录。自动同步送车记录的逻辑与随车物品发放记录自动同步类似。<br>成品车出库制单状态的单据点击确认按钮时同步更新送车记录维护<br>hiddenapi中入参为成品车出库id   workflow VinShipOutCommand Confirm方法<br>根据发货通知单号带出相关字段</p>
+</blockquote>
+<h2 id="实体信息"><a href="#实体信息" class="headerlink" title="实体信息"></a>实体信息</h2><h3 id="成品车出库"><a href="#成品车出库" class="headerlink" title="成品车出库"></a>成品车出库</h3><blockquote>
+<p>new_vin_shipout</p>
+</blockquote>
+<ol>
+<li>new_vin_shipoutid 主键</li>
+</ol>
+<h3 id="送车记录"><a href="#送车记录" class="headerlink" title="送车记录"></a>送车记录</h3><blockquote>
+<p>new_vin_sendtruckmaintain</p>
+</blockquote>
+<ol>
+<li>new_vin_sendtruckmaintainid 主键</li>
+<li>new_sender 送车人</li>
+<li>new_address 送车地点</li>
+<li>new_shiptype 提货方式</li>
+<li>new_producttypeid 产品组</li>
+<li>new_shipnoticeid 提单号</li>
+<li>new_productid 物料描述</li>
+<li>new_vinmodelid 产品型号</li>
+<li>new_productcode 物料编码</li>
+<li>new_vinid 车辆vin码</li>
+<li>new_contractid 合同号</li>
+<li>new_new_saledepart 代表处</li>
+<li>new_accountid 购车单位</li>
+<li>new_senddate 送车日期</li>
+</ol>
+<h2 id="送车记录可用方法-VinSendTruckMainTainCommand"><a href="#送车记录可用方法-VinSendTruckMainTainCommand" class="headerlink" title="送车记录可用方法  VinSendTruckMainTainCommand"></a>送车记录可用方法  VinSendTruckMainTainCommand</h2><ol>
+<li>VinSendTruckMainTainInfo GetInfoByVin(string vinid) 根据vin码获取信息</li>
+<li>VinSendTruckMainTainInfo GetInfoByShipment(string shipmentid) 根据发货通知单号获取信息</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 同步创建送车记录维护</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用VinSendTruckMainTainCommand中GetInfoByVin获取送车记录维护字段信息</span></span><br><span class="line">VinSendTruckMainTainInfo vinSendTruckMainTainInfo = Command&lt;VinSendTruckMainTainCommand&gt;().GetInfoByVin(vinId);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建实体</span></span><br><span class="line"><span class="keyword">var</span> new_vin_sendtruckmaintain = <span class="keyword">new</span> Entity(<span class="string">"new_vin_sendtruckmaintain"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车人（发运人实体）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipperid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_sender"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_shipper"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipperid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车地点</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipplace))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_address"</span>] = vinSendTruckMainTainInfo.new_shipplace;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提货方式</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shiptype))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shiptype"</span>] = vinSendTruckMainTainInfo.new_shiptype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品组</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_producttypeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_producttypeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_productgroup"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_producttypeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//提单号(发货通知单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_shipnoticeid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_shipnoticeid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_ord_shipment"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_shipnoticeid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料描述(产品物料)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"product"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_productid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//产品型号（成品车型号）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinmodelid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinmodelid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_vin_productmodel"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinmodelid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物料编码</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_productcode))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_productcode"</span>] = vinSendTruckMainTainInfo.new_productcode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//车辆vin码（产品档案）</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_vinid))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_vinid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_srv_userprofile"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_vinid));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合同号(合同申请单)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_contract))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_contractid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"new_contract"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_contract));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//代表处(业务部门)</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_salebu))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_new_saledepart"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"businessunit"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_salebu));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//购车单位</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(vinSendTruckMainTainInfo.new_enduser))</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_accountid"</span>] = <span class="keyword">new</span> EntityReference(<span class="string">"account"</span>, <span class="keyword">new</span> Guid(vinSendTruckMainTainInfo.new_enduser));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//送车日期</span></span><br><span class="line"><span class="keyword">if</span> (vinSendTruckMainTainInfo.new_shipdate != <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    new_vin_sendtruckmaintain[<span class="string">"new_senddate"</span>] = vinSendTruckMainTainInfo.new_shipdate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">OrganizationService.Create(new_vin_sendtruckmaintain);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h3><blockquote>
+<p>发货通知单查询增加校验 new_documentstatus 1 未确认 2 已确认 3 已作废</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>成品资源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>成品资源报表</title>
+    <url>/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="从字符串中提取数字、字母、中文"><a href="#从字符串中提取数字、字母、中文" class="headerlink" title="从字符串中提取数字、字母、中文"></a>从字符串中提取数字、字母、中文</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*方法一: 一个一个找出来*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> [dbo].[Fun_GetNumPart] </span><br><span class="line">( @<span class="keyword">Str</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>) )</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line">    <span class="keyword">BEGIN</span></span><br><span class="line">        <span class="keyword">DECLARE</span> @<span class="keyword">Start</span> <span class="built_in">INT</span>;</span><br><span class="line">        <span class="keyword">DECLARE</span> @<span class="keyword">End</span> <span class="built_in">INT</span>; </span><br><span class="line">        <span class="keyword">DECLARE</span> @Part <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)</span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">Start</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>, @<span class="keyword">Str</span>);</span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">End</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>, @<span class="keyword">Start</span>+<span class="number">1</span>,<span class="keyword">LEN</span>(@<span class="keyword">Str</span>) - @<span class="keyword">Start</span>));</span><br><span class="line">        <span class="keyword">SET</span> @Part = <span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>,@<span class="keyword">Start</span>,<span class="number">1</span>) </span><br><span class="line">        <span class="keyword">WHILE</span>  @<span class="keyword">End</span> &gt;<span class="number">0</span> </span><br><span class="line">        <span class="keyword">BEGIN</span> </span><br><span class="line">                <span class="keyword">SET</span> @<span class="keyword">Start</span> = @<span class="keyword">start</span>+@<span class="keyword">End</span></span><br><span class="line">                <span class="keyword">SET</span> @Part = @Part+<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>,@<span class="keyword">Start</span>,<span class="number">1</span>)       </span><br><span class="line">                <span class="keyword">SET</span> @<span class="keyword">End</span> = <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="keyword">SUBSTRING</span>(@<span class="keyword">Str</span>, @<span class="keyword">Start</span>+<span class="number">1</span>,<span class="keyword">LEN</span>(@<span class="keyword">Str</span>) - @<span class="keyword">Start</span>)); </span><br><span class="line">        <span class="keyword">END</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">RETURN</span>  @Part;</span><br><span class="line">    <span class="keyword">END</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*方法二：一个一个去掉*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> [dbo].[Fun_GetNumPart]  </span><br><span class="line">( @<span class="keyword">Str</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>) ) </span><br><span class="line"><span class="keyword">RETURNS</span> <span class="keyword">NVARCHAR</span>(<span class="keyword">MAX</span>)   </span><br><span class="line"><span class="keyword">AS</span>   </span><br><span class="line"><span class="keyword">BEGIN</span>   </span><br><span class="line">    <span class="keyword">WHILE</span> <span class="keyword">PATINDEX</span>(<span class="string">'%[^0-9]%'</span>,@<span class="keyword">Str</span>)&gt;<span class="number">0</span>   </span><br><span class="line">    <span class="keyword">BEGIN</span>   </span><br><span class="line">        <span class="keyword">SET</span> @<span class="keyword">Str</span>=<span class="keyword">STUFF</span>(@<span class="keyword">Str</span>,<span class="keyword">PATINDEX</span>(<span class="string">'%[^0-9]%'</span>,@<span class="keyword">Str</span>),<span class="number">1</span>,<span class="string">''</span>) <span class="comment">--删掉非数字的字符</span></span><br><span class="line">    <span class="keyword">END</span>   </span><br><span class="line">    <span class="keyword">RETURN</span> @<span class="keyword">Str</span> </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--可以通过将函数中的 ‘%[0-9]%’ 替换成 ‘%[A-Z]%’、’%[吖-做]%’，，改造成找字母、找中文的函数</span></span><br></pre></td></tr></table></figure>
+<h2 id="Convert函数"><a href="#Convert函数" class="headerlink" title="Convert函数"></a>Convert函数</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">CONVERT(data_type(length),data_to_be_converted,style)</span><br><span class="line">eg:</span><br><span class="line">CONVERT(int,dbo.Fun_GetNumPart(right(new_vinidname,8))) AS sort_vin,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>CRM</tag>
+        <tag>vsReport</tag>
+        <tag>成品资源</tag>
       </tags>
   </entry>
   <entry>
@@ -2377,6 +2502,53 @@ JOIN_TYPE join_table
       </tags>
   </entry>
   <entry>
+    <title>简单代码演示控制反转IOC和依赖注入DI</title>
+    <url>/2020/04/26/%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%ACIOC%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5DI/</url>
+    <content><![CDATA[<h1 id="ioc（Inversion-of-Control）"><a href="#ioc（Inversion-of-Control）" class="headerlink" title="ioc（Inversion of Control）"></a>ioc（Inversion of Control）</h1><blockquote>
+<p>控制反转，也可以称为依赖倒置，即当A要调用B时，A无需主动获取，会有人主动把B送过来供A使用，以减少在A的代码中存在B，导致模块间的高度耦合。</p>
+</blockquote>
+<h2 id="正常的代码控制流程"><a href="#正常的代码控制流程" class="headerlink" title="正常的代码控制流程"></a>正常的代码控制流程</h2><p>1.创建一个接口Car</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.定义两种车实现接口car</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Benz</span> <span class="keyword">implements</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"benz go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BMW</span> <span class="keyword">implements</span> <span class="title">Car</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"bmw go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.人要开车</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">new</span> Benz();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">DriveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种方式是我们常见的代码控制流程，人想要开车，需要自己实例化，且这个人只能开一种车。</li>
+<li>如何让他可以想开什么车就开什么车呢？<blockquote>
+<p>通过依赖注入</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="依赖注入的方式DI（Dependency-Injection）"><a href="#依赖注入的方式DI（Dependency-Injection）" class="headerlink" title="依赖注入的方式DI（Dependency Injection）"></a>依赖注入的方式DI（Dependency Injection）</h2><ul>
+<li>依赖注入是实现控制反转的方式之一。</li>
+<li>看一下修改后的person类  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在的Person类已经不自己实例化车的对象了，而是通过构造函数来获得车的对象，所以，这个类就可以开各种车了，只要这个车实现了Car接口就可以。看一下如何使用Person类</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Person person=<span class="keyword">new</span> Person(<span class="keyword">new</span> Benz());</span><br><span class="line">  person.driveCar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>现在的Person类可以开不止一种车，只要你通过构造函数传递进来。在这个例子中，Car对象就是Person类的依赖，当我们实例化Person类时，将一个Car的实例传递给Person类，就是依赖注入，我们的Person类从而实现了控制反转。<br>控制反转到底反转了什么？有种说法是这样的：所谓控制反转，反转的是获取对象依赖的过程。控制权反转后，获取依赖对象的过程由自身管理变为由IOC容器注入。</p>
+</blockquote>
+<h2 id="Spring实现依赖注入的方式"><a href="#Spring实现依赖注入的方式" class="headerlink" title="Spring实现依赖注入的方式"></a>Spring实现依赖注入的方式</h2><blockquote>
+<p>在上面的这行代码中Person p=new Person(new Benz());，我们通过手动的方式new了一个Benz()的对象，然后将其注入到Person类中。而Spring不这么干，因为Spring觉得，你这行代码实例化了一个具体的Benz类，如果你以后想要在这里实例化一个BMW类的话，岂不是要修改代码？那我干脆写到配置文件里好了，即便你将来要该注意，至少不需要修改代码，于是就有了下面的配置</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Benz"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Person"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"car"</span> <span class="attr">ref</span>=<span class="string">"car"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从配置文件中获取Person类的对象时，car对象会被自动装配进来，而person对象不需要关心到底是哪个具体的类被传递进来了。所以，Spring作为一个IOC框架主要做了两步：创建对象和组装对象之间的关系。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>瑞泰移动平台</title>
     <url>/2020/12/22/%E7%91%9E%E6%B3%B0%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/</url>
     <content><![CDATA[<h2 id="vue-xmobile"><a href="#vue-xmobile" class="headerlink" title="vue-xmobile"></a>vue-xmobile</h2><blockquote>
@@ -2453,53 +2625,6 @@ JOIN_TYPE join_table
       <tags>
         <tag>CRM</tag>
         <tag>自定义页面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>简单代码演示控制反转IOC和依赖注入DI</title>
-    <url>/2020/04/26/%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%ACIOC%E5%92%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5DI/</url>
-    <content><![CDATA[<h1 id="ioc（Inversion-of-Control）"><a href="#ioc（Inversion-of-Control）" class="headerlink" title="ioc（Inversion of Control）"></a>ioc（Inversion of Control）</h1><blockquote>
-<p>控制反转，也可以称为依赖倒置，即当A要调用B时，A无需主动获取，会有人主动把B送过来供A使用，以减少在A的代码中存在B，导致模块间的高度耦合。</p>
-</blockquote>
-<h2 id="正常的代码控制流程"><a href="#正常的代码控制流程" class="headerlink" title="正常的代码控制流程"></a>正常的代码控制流程</h2><p>1.创建一个接口Car</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.定义两种车实现接口car</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Benz</span> <span class="keyword">implements</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"benz go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BMW</span> <span class="keyword">implements</span> <span class="title">Car</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"bmw go......"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.人要开车</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">new</span> Benz();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">DriveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这种方式是我们常见的代码控制流程，人想要开车，需要自己实例化，且这个人只能开一种车。</li>
-<li>如何让他可以想开什么车就开什么车呢？<blockquote>
-<p>通过依赖注入</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="依赖注入的方式DI（Dependency-Injection）"><a href="#依赖注入的方式DI（Dependency-Injection）" class="headerlink" title="依赖注入的方式DI（Dependency Injection）"></a>依赖注入的方式DI（Dependency Injection）</h2><ul>
-<li>依赖注入是实现控制反转的方式之一。</li>
-<li>看一下修改后的person类  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  Car car=<span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.car=car;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">driveCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"begin drive"</span>);</span><br><span class="line">    car.go();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>现在的Person类已经不自己实例化车的对象了，而是通过构造函数来获得车的对象，所以，这个类就可以开各种车了，只要这个车实现了Car接口就可以。看一下如何使用Person类</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Person person=<span class="keyword">new</span> Person(<span class="keyword">new</span> Benz());</span><br><span class="line">  person.driveCar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>现在的Person类可以开不止一种车，只要你通过构造函数传递进来。在这个例子中，Car对象就是Person类的依赖，当我们实例化Person类时，将一个Car的实例传递给Person类，就是依赖注入，我们的Person类从而实现了控制反转。<br>控制反转到底反转了什么？有种说法是这样的：所谓控制反转，反转的是获取对象依赖的过程。控制权反转后，获取依赖对象的过程由自身管理变为由IOC容器注入。</p>
-</blockquote>
-<h2 id="Spring实现依赖注入的方式"><a href="#Spring实现依赖注入的方式" class="headerlink" title="Spring实现依赖注入的方式"></a>Spring实现依赖注入的方式</h2><blockquote>
-<p>在上面的这行代码中Person p=new Person(new Benz());，我们通过手动的方式new了一个Benz()的对象，然后将其注入到Person类中。而Spring不这么干，因为Spring觉得，你这行代码实例化了一个具体的Benz类，如果你以后想要在这里实例化一个BMW类的话，岂不是要修改代码？那我干脆写到配置文件里好了，即便你将来要该注意，至少不需要修改代码，于是就有了下面的配置</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Benz"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.XXX.Person"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"car"</span> <span class="attr">ref</span>=<span class="string">"car"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>从配置文件中获取Person类的对象时，car对象会被自动装配进来，而person对象不需要关心到底是哪个具体的类被传递进来了。所以，Spring作为一个IOC框架主要做了两步：创建对象和组装对象之间的关系。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
