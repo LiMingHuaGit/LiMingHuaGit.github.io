@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：自定义页面 - 岛</title>
+  <title>Tag: 自定义页面 - 岛</title>
   
 
   
@@ -846,7 +846,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:36 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:33 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -980,7 +980,7 @@
       
         <div>
             <a class='readmore' href='/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1038,7 +1038,7 @@ js获取url参数1234567891011//获取页面url参数getQueryVariable(variable)&
       
         <div>
             <a class='readmore' href='/2020/12/11/%E5%8F%91%E8%B4%A7%E5%8D%95%E9%A1%B5%E9%9D%A2/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1501,23 +1501,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?

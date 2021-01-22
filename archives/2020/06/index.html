@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2020/6 - 岛</title>
+  <title>Archive: 2020/6 - 岛</title>
   
 
   
@@ -845,7 +845,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:33 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:29 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -962,7 +962,7 @@
       
         <div>
             <a class='readmore' href='/2020/06/24/jdk1-8-lambda/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1013,7 +1013,7 @@ static class Base64.Decoder
       
         <div>
             <a class='readmore' href='/2020/06/07/jdk1-8-Base64/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1475,23 +1475,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?

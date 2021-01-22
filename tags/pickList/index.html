@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：pickList - 岛</title>
+  <title>Tag: pickList - 岛</title>
   
 
   
@@ -846,7 +846,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:36 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:33 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -968,7 +968,7 @@
       
         <div>
             <a class='readmore' href='/2021/01/21/%E6%9F%A5%E8%AF%A2picklist%E6%89%80%E6%9C%89%E5%80%BC/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1431,23 +1431,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?

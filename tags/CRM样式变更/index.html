@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：CRM样式变更 - 岛</title>
+  <title>Tag: CRM样式变更 - 岛</title>
   
 
   
@@ -846,7 +846,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:36 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:33 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -975,7 +975,7 @@ account.js
       
         <div>
             <a class='readmore' href='/2020/12/18/%E5%85%B3%E9%94%AE%E4%B8%9A%E5%8A%A1%E8%A1%A8%E5%8D%95%E4%BD%93%E7%8E%B0vip%E5%AE%A2%E6%88%B7/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1438,23 +1438,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?

@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：vsReport - 岛</title>
+  <title>Tag: vsReport - 岛</title>
   
 
   
@@ -846,7 +846,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:35 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:32 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -980,7 +980,7 @@ Portal端新增WEB窗体项目（aspx）
       
         <div>
             <a class='readmore' href='/2020/12/30/Portal%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1035,7 +1035,7 @@ Portal端新增WEB窗体项目（aspx）
       
         <div>
             <a class='readmore' href='/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1096,7 +1096,7 @@ Portal端新增WEB窗体项目（aspx）
       
         <div>
             <a class='readmore' href='/2020/11/12/%E6%8A%A5%E8%A1%A8%E7%BF%BB%E9%A1%B5%E4%BF%9D%E7%95%99%E9%9D%99%E6%80%81%E6%A0%87%E9%A2%98/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1559,23 +1559,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?

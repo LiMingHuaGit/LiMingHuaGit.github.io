@@ -847,7 +847,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:11:32 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 02:15:31 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-23 日</div>
           
         </div>
@@ -964,7 +964,7 @@
       
         <div>
             <a class='readmore' href='/2020/12/14/dll%E6%B3%A8%E5%86%8C%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1029,7 +1029,7 @@
       
         <div>
             <a class='readmore' href='/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1087,7 +1087,7 @@ js获取url参数1234567891011//获取页面url参数getQueryVariable(variable)&
       
         <div>
             <a class='readmore' href='/2020/12/11/%E5%8F%91%E8%B4%A7%E5%8D%95%E9%A1%B5%E9%9D%A2/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1157,7 +1157,7 @@ js获取url参数1234567891011//获取页面url参数getQueryVariable(variable)&
       
         <div>
             <a class='readmore' href='/2020/12/11/portal%E6%90%AD%E5%BB%BA%E7%9B%B8%E5%85%B3/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1211,7 +1211,7 @@ esp8266
       
         <div>
             <a class='readmore' href='/2020/12/09/otto%E6%9C%BA%E5%99%A8%E4%BA%BA/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1267,7 +1267,7 @@ esp8266
       
         <div>
             <a class='readmore' href='/2020/12/06/%E6%88%90%E5%93%81%E8%BD%A6%E5%87%BA%E5%BA%93%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E9%80%81%E8%BD%A6%E8%AE%B0%E5%BD%95/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1318,7 +1318,7 @@ js判断对象是否为空对象的几种方法将json对象转化为json字符�
       
         <div>
             <a class='readmore' href='/2020/12/04/Vue%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E4%B8%BA%E7%A9%BA/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1377,7 +1377,7 @@ js判断对象是否为空对象的几种方法将json对象转化为json字符�
       
         <div>
             <a class='readmore' href='/2020/11/28/%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E8%B7%9F%E8%B8%AA/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1436,7 +1436,7 @@ new_contract 合同申请单 new_contracti...
       
         <div>
             <a class='readmore' href='/2020/11/26/portal%E5%8F%91%E8%B4%A7%E5%8D%95%E6%9F%A5%E8%AF%A2%E8%A1%A8/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1499,7 +1499,7 @@ new_contract 合同申请单 new_contracti...
       
         <div>
             <a class='readmore' href='/2020/11/23/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E5%AF%BC%E5%85%A5%E6%8C%89%E9%92%AE/'>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -1520,7 +1520,7 @@ new_contract 合同申请单 new_contracti...
         
           <a class="prev" rel="prev" href="/page/3/">
             <section class="post prev white-box shadow floatable" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
             </section>
           </a>
         
@@ -1530,7 +1530,7 @@ new_contract 合同申请单 new_contracti...
         
           <a class="next" rel="next" href="/page/5/">
             <section class="post next white-box shadow floatable">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -1982,23 +1982,6 @@ var options = {
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
 
 function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
   
 }
 // mix-blend-mode support?
