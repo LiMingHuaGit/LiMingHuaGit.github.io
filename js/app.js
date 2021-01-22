@@ -476,7 +476,7 @@ if(window.location.hash){
 		ctx = canvas.getContext('2d');
 		//建立泡泡
 		bubbles = [];
-		var num = width * 0.04;//气泡数量
+		var num = width * 0.1;//气泡数量
 		for (var i = 0; i < num; i++) {
 			var c = new Bubble();
 			bubbles.push(c);
@@ -517,11 +517,11 @@ if(window.location.hash){
 		function init() {
 			_this.pos.x = Math.random() * width;
 			_this.pos.y = height + Math.random() * 100;
-			_this.alpha = 0.1 + Math.random() * 0.3;//气泡透明度
+			_this.alpha = 0.1 + Math.random() * 0.7;//气泡透明度
 			_this.alpha_change = 0.0002 + Math.random() * 0.0005;//气泡透明度变化速度
-			_this.scale = 0.2 + Math.random() * 0.5;//气泡大小
-			_this.scale_change = Math.random() * 0.002;//气泡大小变化速度
-			_this.speed = 0.2 + Math.random() * 0.4;//气泡上升速度
+			_this.scale = 0.2 + Math.random() * 0.3;//气泡大小
+			_this.scale_change = Math.random() * 0.00005;//气泡大小变化速度
+			_this.speed = 0.2 + Math.random() * 0.8;//气泡上升速度
 		}
 		//气泡
 		this.draw = function() {

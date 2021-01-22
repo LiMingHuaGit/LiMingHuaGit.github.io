@@ -510,7 +510,7 @@
       <div class='cover-wrapper bb dock' style="display: none;">
         <canvas id="header_canvas" style="position:absolute;bottom:0;z-index: 1;" width="900" height="350"></canvas>
         
-          <div class='cover-bg lazyload placeholder' data-bg="/images/cover0.jpg"></div>
+          <div class='cover-bg lazyload placeholder' data-bg="/images/22.jpg"></div>
         
         <div class='cover-body'>
   <div class='top'>
@@ -598,14 +598,14 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("none" == "none") { // 移除封面
+  if ("half" == "none") { // 移除封面
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("none" == "half") { // 半屏
+    if ("half" == "half") { // 半屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("none" == "full") { // 全屏
+    } else if ("half" == "full") { // 全屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
       document.getElementsByClassName('scroll-down')[0].style.display = "";
     }
@@ -843,8 +843,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Jan 22 2021 17:59:08 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-01-22 日</div>
+            <div id="last-update" style="display: none;">Sat Jan 23 2021 01:52:07 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-01-23 日</div>
           
         </div>
         
@@ -894,7 +894,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-01-22 日';
+            document.getElementById('last-update-show').innerHTML = '2021-01-23 日';
           }
         </script>
         
@@ -984,7 +984,10 @@
   
 
   
-  
+  <blockquote>
+<p>👉🏼此说说通过📱手机微信发出，记录一些碎片化的想法。📑</p>
+</blockquote>
+
   
   <style>
     @font-face {
