@@ -18,9 +18,11 @@
   
   <title>督办单自定义页面 - 李明华的博客</title>
   
-    <meta name="keywords" content="CRM,自定义页面">
+    <meta name="keywords" content="徐工重型,CRM,自定义页面">
   
 
+  
+    <meta name="description" content="这里有东西被加密了，需要输入密码查看。">
   
 
   <!-- feed -->
@@ -695,7 +697,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -735,7 +737,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(23)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(24)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -823,7 +825,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>49.2k 字</div>
+          <div>37.6k 字</div>
         </div>
       
 
@@ -845,7 +847,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:17:01 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:42:11 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-26 日</div>
           
         </div>
@@ -913,7 +915,7 @@
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" style="display:none" >
     
   <header>
     
@@ -1013,53 +1015,18 @@
   
 
   
-  <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ol>
-<li>取督办单下服务单号，根据服务单号查询对应的多条备件申请<blockquote>
-<p>一条服务单对应多条督办单  一条服务单对应多条备件申请</p>
-</blockquote>
-</li>
-<li>取督办单所关联的派工单号 new_dispatch_id（派工明细 new_srv_outsideline）下的其他督办单信息</li>
-</ol>
-<h2 id="备件申请单（new-srv-partsapply）"><a href="#备件申请单（new-srv-partsapply）" class="headerlink" title="备件申请单（new_srv_partsapply）"></a>备件申请单（new_srv_partsapply）</h2><ol start="0">
-<li>主键 new_srv_partsapplyid</li>
-<li>备件申请单 new_name</li>
-<li>服务单 new_srv_workerorder_id</li>
-<li>单据类型 new_ordertype</li>
-<li>备件名称 new_product_id</li>
-<li>备件编码 new_number</li>
-<li>产品型号 new_productmodel</li>
-<li>VIN码 new_srv_userprofile_id</li>
-<li>申请数量 new_sum</li>
-<li>发货仓库 new_stocksite_sendid</li>
-<li>仓库编码 new_stockcode</li>
-<li>旧件是否需返厂 new_isreturn</li>
-<li>发运时间 new_shipmentdate</li>
-<li>审核状态 new_approvalstatus</li>
-<li>处理状态 new_despatch</li>
-<li>创建时间 createdon</li>
-</ol>
-<h2 id="督办单（new-srv-supervise）"><a href="#督办单（new-srv-supervise）" class="headerlink" title="督办单（new_srv_supervise）"></a>督办单（new_srv_supervise）</h2><ol>
-<li>主键 new_srv_superviseid</li>
-<li>督办单号 new_name</li>
-<li>服务单 new_workorder_id</li>
-<li>派工时间 new_dispatchingtime</li>
-<li>周期 new_period</li>
-<li>整机vin码 new_srv_product_id</li>
-<li>产品型号 new_productmodel_id</li>
-<li>反馈内容 new_content</li>
-<li>服务网点 new_site_id</li>
-<li>服务人员 new_srv_worker_id</li>
-<li>未完工原因 new_delayreason</li>
-<li>督办是否属实 new_superviseyn</li>
-<li>督办备注 new_note</li>
-<li>督办类型 new_item</li>
-</ol>
-<h2 id="单号链接思路"><a href="#单号链接思路" class="headerlink" title="单号链接思路"></a>单号链接思路</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">v-on:click.stop.prevent</span>=<span class="string">&quot;showDetailWindow(item.new_srv_superviseid)&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">v-cloak</span>=<span class="string">&quot;&quot;</span>&gt;</span>&#123;&#123;item.new_name&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">showDetailWindow: function (entityid) &#123;</span><br><span class="line">    var url &#x3D; rtcrm.getClientUrl() + &quot;&#x2F;main.aspx?etn&#x3D;&quot; + &#39;new_srv_supervise&#39; + &quot;&amp;id&#x3D;&quot; + entityid</span><br><span class="line">        + &quot;&amp;extraqs&#x3D;&amp;histKey&#x3D;&quot; + (Math.random() * 100000000).toFixed(0)</span><br><span class="line">        + &quot;&amp;newWindow&#x3D;true&amp;pagetype&#x3D;entityrecord&quot;;</span><br><span class="line">    rtcrm.showFullWindow(url);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="获取entityid"><a href="#获取entityid" class="headerlink" title="获取entityid"></a>获取entityid</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var new_srv_superviseid &#x3D; window.parent.Xrm.Page.data.entity.getId().replace(&quot;&#123;&quot;,&quot;&quot;).replace(&quot;&#125;&quot;,&quot;&quot;);</span><br></pre></td></tr></table></figure>
-<h2 id="请求hiddenApi"><a href="#请求hiddenApi" class="headerlink" title="请求hiddenApi"></a>请求hiddenApi</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">              <span class="keyword">var</span> paramList = &#123;</span><br><span class="line">                  new_dispatch_id: <span class="string">&quot;E0238A5F-8B30-EB11-8AC1-005056AF287C&quot;</span>,</span><br><span class="line">new_srv_superviseid:<span class="string">&quot;4FE9371F-7A3F-EB11-8AC2-005056AF287C&quot;</span></span><br><span class="line">              &#125;;</span><br><span class="line">             rtcrm.invokeHiddenApi(<span class="string">&quot;new_service&quot;</span>, <span class="string">&quot;Supervise/GetNewSrvSuperviseData&quot;</span>, paramList);</span><br></pre></td></tr></table></figure>
-
-
+  <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="09c8a9226683afeb29f2fec60dad0203e789ebd25d94d4e9cdbb6e10f98cda52">fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b4ed315eb4d910083bf249e274f2382fc3cec11336b83744383840753d7b121a9caa03f4a091904c18db1443af13affad5c5e3be81c6859a0b57f4104b7096eb7fc47d9e5585d6bd41617601c349dc1972eb8ae15ca7b1e75b679c10a8f79a594bf53cd373dfa0474e997e9ad144e22a645026f88881ac8c13b7e000c689ba059b6dedd8491059904e91c5cca4ffe0735bf4e2c58d1b01b356e03a284e65325b598f184d66c1807fce7402a3abfbcabb4ac11c8702c4372c6cd249b5fc7f52c74b12c1b90a63f0a6df4c072f7afbdb617f5b750a27deb1c73ddd3f9cbff35681c6930b7e0ece95422b156a832e1eaa0f14523ad45dbde5e0b442260753f32e9c90ff80eb7b8b49fdf961ac82b129c384fa7aa6ca67ffb22b581d984512ecdc9ebbe3d544d2bab43bfcf6c500bab14d38e88303d12beb38a5560e589eedd460df0967d4a4a90962612b1bce9190588ad8a9150104151cd3891f4dd4a98ae09ea2cbdc7dc37f65c96d7997a5382cb77592428b9210bfecc4d8905429c329f749e15bafeb771ccf739e312303f2e59acf4aa0a67c290901e4f63c7e01bedf340167cab80bf0859afb4c71dece4dddfe8f2ac195bef8373c12ed78ed9041fd97228e3b0dd3cd98cdf61a651d5b78cbe6d4c689f7a09b7e3258064ed044fe61d23ee7834ed40e987319dd86a4918ceb087bcf7aa00a542016b60c64500c0edcea523f0e786a21ffd2cb1cb8b3c18337ca0456960b14bcaa1873a359b9b5993f100971691a919f15b855b57537818bd449b19bd319f251a04c97510ad88948aaca2b8397c803b92ec4d4ca8fa5b8a5767afc26795b1df73763a7e6831ff8848e17b9eab49e20e12929c21ec4f307f29aaf53ce5d1c644e0c3ca407b81830dc0b32fd82918b480748eea4c0c58adcb6f24f21c4d729b238d119103b1cf560f5addbde36be852c3030909c1371251b2b7877790676af0e74a7fdd74c616d4e6a01f0e48b8f0e50117a6e05e087b3967f8836649fcf4d29286db7298f943d8858bc145ebe9df7768defaee62fc323bfa450ac786188a1e6e01188be168b81ce770d3e7f0e3a08f8d7b4049c923ec4d7781ce3be1b648fc4b9ce68266707db6d3a9812b41b3b786f3e47e2905cca25eff43fde3d64dfade7dc2c1bf44d396e1f02773c35adad0f3418dfe14401730ec0ebbc2f9b511c25be2b9ff6868ca1fade32ab9186194c382d2df29a0d4cf5ef2b057f0a6aaa35f87f6dc739de657151bb8b807296208f133c6e64d563579ae41f83e4f4979ec1d04da81d7ca5f69f3346db50a171d9ef90110e2279bcbf1f7bb7c86542671a8250360ef256e414aeda1d0ce66ae5c626f12a84e666181fbf762bf8786293e8bd3a150cf57f412172743348139b4448f1bc2139e7918136b464acf7feaf0845e7f3a50594f203991fb38195b9dd2709174fdd16eb2b850916419e69dd29517ce3477f928ecc15c04ef55209d42d62a51d04977f981878b4dfbbc6ecd0012b21a2faf5f241cc0c1b34765db6d143808fed06d1409b09f040bccd83819c68f634d3bad7f86bd2dbb9dd2dbef51e564a8bbd1b5e493eca309460d50354fa64bd2194c545eadc1fab37c32f15f6209d99681b537f455d29b3e44c58c37c3e301db555f49401b060877baf1df1e83a4dd34d8d12c71bde8be28cdcef85348b0c0cacbcc0eceff772bb9668529939423bb69ee0a0c29cca7a5abf4ea8c1ec6533aff89e033cd9eef613b04e27797e8ff4f9197b527607aa2970f76d833dc031ceebebab374affe8be3447ba0075d6b026eb38b2066f624765ce2b8a2af7d305408c903962b45eb8201024a0ba2bae06bf6759ef69f5fbb6d1b21496edcdbaf55c79588d48da691c2efb5ae4154e424b167101fe84cfcd66885d9af9ae3f17e4dba9d01930695ff551e45aac077be1b7500a8e0a0be7b4969124356c52519e094a1991f55b6a190ab15696b8f2ea2301d4dd7443551b13a9d237f7296bba6b9532c2d82d901e45676c8241f3a1c9b4538b9553720e8a145df9bfe9766455b4e7cda92d342c6312ca0e454281a0c616b59a11ba0dadc1787454917f578360ee99cdf2c0bac01fcbd0e63d9bbefef9c461d776a22637b22d76fbd2be065eb996baf4547c90390b403790510ba7b11d66dff9677be6d9e5d6333c07dee0ba541728252b1ac899ac30aee7af5b20188d42fb069d09928aabb41954c82529b91033ecb9cc9aaa5ed763deafba3897a962c9312d17804baef63707913282135838ed857c972cb05dd1e65c8a7f4725a2534d12ba9d1fd93f1a8346754c983e245fd0721112a74695be9d4500d20260b755804da90b9ba84d535b23f5bd9bfec315c36b58746fb181089b9d79d46efcbb6796717a678b5ae38b41be81e1ac93d739327cbd9204224c061f64eb9b8b396f5c766d1a1a3eec6b2ed2d9d9e86b18f38b98d02b64d8409e1fa8ad1c8af626a1a1f9fd3d0330c64d49db550189157761d86c5f836587e53b5f7eed9bb019646543c5beb8f62dfad8c2aeaadbb5b5208ae96ebea333d2875a572857b34596caf0f6eb860c405226193484df0ddef930d511e9f275b3c078555c920fca355bcdae23439e7daed4781e374d6c91150ac3761710143e246ffe2ceae485e4fe284c2c5b364f9e2750c8cc06adf23621c722e0a2a61170f25ca713e705b4b5080287aead68292412903f7d74e29cec9ce797e7fcabf86d39362bc7cc18b1f34d2788cacfc4a3ebeb39283129d7124874d5f919f11a433711f4d80d24d347e014f94141da03c0841c58c272d52f87f2209fb63f62888d5c900bcf08d66b985f90535b3f89716bb7852c7edb3e023e0f5e725f2164d5724e570c6e82349632bbfd8231da562b899de402a3acb7b4841d098bb9cbd8b344dc1c7dfeb9733ed7cf80cf4df177500595bd2982e6747e76edf57b1f10a8c64975ee9cc421afe0c78066bcd18ef66c8d174f501b8a7f1d5ede4e8477bcce0d31a6cabcc26aaed9ea3c72246c2018128154f77798d908228c572d77023cfdf334157f43ab00dbf9254db84878b5192a2bff2c28e3cdb4bf29dbfe79f4016af822f0e7c77f19c28ec90d663790bc6c4903b8012196e6788a0cdeafcbbb73d9377a2b82d647f0545abe285160cce198d2f90d43f9acdb410c82f89ef8b9e7b9da819b02028eb53eab86fd5fa5d3eb9b79b17e4c25683d26ec2abafdc6639a7ab52b10b004e77a766bfecffc35b048c23adc96e6052abb5ced4c80c0f14c58adfadc2096e421e91aa407dbfd041697a1fffab427b0cc14ac7da4fd4abfffa4e27a50b80b9a4a6e8f01d54cf4f6c8906ccd720771d583fd98320ff7f76aa48df8a0ad10f7fbc5dc4c7f00d5ed3cffdfe73ae528ab1fdde1dd0f35ec7453af62457890f59fa88bf2536dca552b71e188cbcd4480a29a2128e76f988a90fefdd7f4646e20608294f89054954287a0ef53dfc6a07451c6a78a1b00c4995c58fdeeb5725cd2764c02300d320bcdaaae777d7f0c0feab6eb8c88283af6fbeb26c8b39b890d6e6524d60bc806bbf80b252b751960db67aba35b330eaaf3c72265f885f71f89713d4b75cdff460b4d3418bf57ce0365197c5ffe93e2a0d35f2b12036fb0bd96deba637e1414a91cd79551e9a8a460ac226c0a6de6e7f4b16be0fd96ad30d5b8f1174c0a6bbc070985aed80e0459e87e76bc163403aa9c3d1c1b6c7fe0fb6af65c84abe367ebc65b61efc3e4060147aaefee360b29020bacaedd0ff4605d7c566bcb7c79cce52e530d449b80f11c69a84ac05ca8d5d32d62b9cf527b5d50426453cb9e3cd50cdde616fa20b6e7f016eb0addd7b74dccd98a5ffb762453aa9e760ff325479c24c1d3d2630b35eb6d6b98f9f0f691f78c4a88774a4ec2d2f3a19800bb03bf140937f09252126999b5bbeb8e5725eb20075d4adc780ff330be62cfa3e4a5935eeda2e0639d393f33b68c57f601ff1638162d309cd2333153f0a9af54582688437fd21c6b70d871dc8b4f8eea1dd24aef66be70307eda441ce7e1a9d6167826bfa64ebd64f7c7d4edfb4417c9149c2dceaba857e17fcfd9df082796c0f630b0777112c5031edebbdbf89ae3b53e5c47e886f27966e88655f1da4ac69c2ba53993750683f0f685181f86d74419586cf273a3a83e0357302b50184d534cd7928ad1a6fb1db0ee9355839c109a274a2a4ff5db374f10c91dbd32b9403a62e38cc226ea1f317e8c553724b4dba13a10230419675f0d5d3b6ef45f9048937b777637a528271513dbeff7a0ce7e3b03f8c232acf7fa1af1e77d88b3be4574d1f82f94c38d09f8d5ec7fcf9d336f5065351824eb27ff4bce44598af26001a88e67c0cf2cd6ac447735c7c2e83c4e2192b0377c3c93b69b8f5d299d263d6a75e78d14029867abd7c86d688605430298a3b07d5580a7704a37dfa7d88cc5a7933812c61c344b075d340998f66fcd535f1be68b4e1127c648d76bfda3c8e1ad96639dfdd7116aee4ab73d1ff44df3d78ecd6c76c8fcccb1547dd8369f486c06d04af674f764728b10598d7957f8d0220a66209ad6e103734ec267a32dcd6bafd58f130caf37319e5bce6252364e9e72d72740f1aff0ca86394ae02df7e9c24fb62ec442fc698aa2300f17d9b13f889c51f0d46dc8cb65ead45db4b009cf4f977aef71c880ff01d752b0489c51c4630830a9466b8635219bb89c51b72a0aa25c306de74a8a5ec3458053a67f32d25319aa20479d097a0a19b13e285567ed893c4bd6cfd55eb2652b0179b1023a7caa27146da412155e28bdb7f7fc2ff728fdc14737c976128e3ec8278fc091a9444ad4bc7daf369ad52dcc7afa2ce5ea1daa1c0734800b77d7551ac786edb85157d6de98953b423d028ad0c1003d3eebef8f6d3eb694eb6e01ab6301e6dba3a1e854862ab74822d7cb646a7128b5dcb7a5a6d788c08e26f5bab099f800c17bbe48851d9f73cee19c50f700ed32f50c03857b470ea35c96176ad51e83358b50e8fbe0b2fb83d6e03c67af9966391b0c1e573f28e959458476c12a6aed547685a67b2f620d2bc421dccc888756f2ea810472d1593ee2e9cda7cd6230d364c820685389f7e39a6b1fdc1aa45dff517bc116998486fcee209d3e75a0c264395db7f0f7a05c02ecc5c3a55b1b77e01fbebec7c97cd758ca1636a2104b938a2f9c9159d26c65a469d1e2cb4319af55021cb3f99bf78366df612b59ecc23d82ac0f7b81ed6c4e79dc3cf553814f7ef46b2f8e023092fab9988e616fe91c5e67f16c9cf5b7758e33324b284639d6f94fa0b84f66f64ec9fe59d99aa453f8582115f235bd36ddd0bde8fe928ab702b56ddd78df56bc0baaa448056e1db0d5336fa223be780244fc9c51bb8eb9b5d22c581c232eeacc75e32602b6a68743fa50176033e22eb1c6cc2454aeba380b8919b648655bfcf7786525f51102aa8cf090fecf03010762f30c6cf65010d2a1ab1e32a516e7fb087a39ca22443084984cd602183f330012c39a6881be2929cbcdb30a4e8cd8c586e3b105e1dd24eb821d02fc54842489b706a7128c0760c08df588e548fb98c9310281c63fec74194de15d6486169e2f09808e8f685b4298bcfa6480ea8d6f962f4e732877fbddcf796a135197ca85c2d70a8c0908ef9e0da010afff8bd7450f72645613689c1b3dd8ad9d1c4904af574611feb1210a20914122334561cde46d8f4deb411699c7b421d9edf80723f0a4457ef21433a324053f5492569d041bc0e93bff1902d140f46fe7957de484303e149b663874edd492a06e746bb1427b462207f73204e3de3ebc2d0d2e35877cfaf504c4ee710116f77d28524c2bbc947389553b5dd3c30bd007f8808920bd0cb36fc3037004250e00c2a0cd5a106d0fa2aec35a8ee63b5b10d26cd9600cd2fb078d29592617ed52fa682db677b1591deea80711601c77412bc388b11829084768db4e802af7a4ba21b597f7d71a494f18d4794b5a2e381117738c3c9db738958cda6285c95f2d53785c5ff9c7dedf729a9528e83b742e4e573d97dbc575c63a1e4dd3afc0e351c481597430e7a38993643761763fa9545ffdbd231d60dd5722982b323da63440f5d557c4c9b36060eb0140c8b47dad5d138cef08baaba9c21357e2a0fbae63b10b1a7ee4b736e361adb779265c0ef13189cf13d379f70ef085eaae8422ab42ce84c2dfb0b2b0f0f932a1c0882b473dab521d1b04054538f9415ff7d1847ccdf4a68240068896ae4e797a7be94067588de296297a057b30f6a9f133716b53e64e487723f67feee85b51152b25aabaef88b4a24008f2ad6b5765bda8f04ae0f71458532f64622669ee7e130b0cbc3e19465ea9d791209425d5cbc5357edfe276dc17d6d562c955f0ebf0bb11928f97d77b3be1e07dcae4d0d6bd1f0690ddff308eaeaa117de77ce2de8e9f26078b96e7bc2ddc6cbd79dc77ae078c5736571e09312df1bba41bc673df397cbf2928c3db3f6a43c29dcd914d42458d2b67c77fd765e51081ba625918dec3282b384ee85b0d9b6e3cd1d2eb6089502e4f376b0a66a9e0484684640067c3729838103b095f67c15310f1a45830b3aadf7d239a65856a3af2b56b233bc14d9ab738b2425baa97f41e8e872f51099441c291072e2258f17ea07c540b7f9c78f97a868ea5eccdac8415f742de01442a77afca9747848d429ab4e7c2ef075fa3df17e9cf3d9b8bee71389c7fd902ccd441c252be417a267c3c04ffc4569a7d3c775707f2d777ffd0da908de04e86ce31fdbc29eabd2d0ee5d1f0b164be2188eb9dcb311bb9123ae110a108d51fed9937631d08156f43e13559d4c1c0b54540ffa3e5ece8270f8bf738812e043f61554b5f68c3567b0205533a5bc836cc8d85212f4ae14b7302fb1f03e8cde7f569bf3e54ab87b7236c8a50d2d8d2984bad52891a793da2c5346ab1e61f50c7eb2db32f5f5832a21efb44698ce5bec9298cc847668e63977a80cd57ea8eacc9db0521d928922fe8406d6c3b1d6255283c42d331691371e5e58e3580464f26c4f77779bd7b05c3d5249a9cc3acdca4289898470778535d7b2b53e2437262cfe01d0c632a427dea81b91e4f94457a84e8a073b8c43dd742ad512b9f86d3b8a030e2d54f27dbbddc8f93a927d43ef1fce2e7a594d1734613a40ddd3d2a4c2b187bc2753242ebbdb98bd8dede77dec3ef7b6fe55221c16a7416bc2d4c20b6bcedf6f603d6616f729d8a1b5b16c816f84f60a520653b762e2586fc4d6ec074c664eaf6bb94283f5bb1966dc4fbf0e5f313066cb29db70300aa1f03821c44176d47075318a7c2794ea0d6ee8a1f4adda0378d4b6c8849a0e96428e978ccad15e236d80a9befd8f1c56168a2911e33ea28efc0713ff67a2309b046484b1a7001091b295bf7204b6eb1ce824a1a0926ada7e97bb36aa827c20553a3d25d014bd0b9f39e5a99545a888f3bd66aab726b23adcd0b52da1e9c3a3ade48013458798a4bc122d7b77b45491c192b182c5f7719e352a4d78ec0092902c5ab3bba9f85af4159b0f269070dfc53baf7eeeff96034a77bb95f34c28591b4e1a7c9249b41354c7212ab290eacdb6875eead0b92db42be3789c2cab08aa03d22dacde0859d09bd18eae1f509adf921a7351bea424563d5f2186d45973869109a7ea72e1f381b3fcc9b41c48c7b61feb6e5f46d7bc8d9c3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   
   
   
@@ -1108,10 +1075,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-22T14:23:15+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T21:36:53+08:00">
   <a class='notlink'>
     <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 22, 2021</p>
+    <p>更新于：Jan 26, 2021</p>
   </a>
 </div>
 
@@ -1120,7 +1087,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>自定义页面</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BE%90%E5%B7%A5%E9%87%8D%E5%9E%8B/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>徐工重型</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>自定义页面</p></a></div>
 
 
         
@@ -1133,7 +1100,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1145,7 +1112,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1157,7 +1124,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/12/12/%E7%9D%A3%E5%8A%9E%E5%8D%95%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=督办单自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1198,10 +1165,8 @@
     
     <a class='next' href='/2020/12/11/%E5%8F%91%E8%B4%A7%E5%8D%95%E9%A1%B5%E9%9D%A2/'>
       <p class='title'>发货单页面<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-      <p class='content'>页面
-移动端vue框架  vant文档
-
-js获取url参数1234567891011//获取页面url参数getQueryVariable(variable)&#123;       var ...</p>
+      <p class='content'>
+  fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b4e353f4d775ecf7b42fd9808b59718e...</p>
     </a>
     
   </div>

@@ -18,9 +18,11 @@
   
   <title>销售信息自定义页面 - 李明华的博客</title>
   
-    <meta name="keywords" content="CRM,销售">
+    <meta name="keywords" content="徐工重型,CRM,销售">
   
 
+  
+    <meta name="description" content="这里有东西被加密了，需要输入密码查看。">
   
 
   <!-- feed -->
@@ -695,7 +697,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -735,7 +737,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(23)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(24)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -823,7 +825,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>49.2k 字</div>
+          <div>37.6k 字</div>
         </div>
       
 
@@ -845,7 +847,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:17:02 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:42:12 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-26 日</div>
           
         </div>
@@ -913,7 +915,7 @@
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" style="display:none" >
     
   <header>
     
@@ -1013,28 +1015,18 @@
   
 
   
-  <h2 id="1-脉络整理"><a href="#1-脉络整理" class="headerlink" title="1. 脉络整理"></a>1. 脉络整理</h2><pre><code>- opportunity 销售信息
-    - 取 new_account_id 字段
-- new_delaymanagement 逾期催收管理
-    - 取 new_account_id 字段
-    - new_name 单号
-    - new_overdate 逾期时间
-    - new_delaytimes 逾期期数
-    - new_overamount 逾期金额
-    - new_overduetype 逾期分类
-- new_srv_disputes 客户服务纠纷单
-    - 取 new_account_id 字段
-    - new_name 单号
-    - new_requirements 用户要求
-    - new_dealtype 处理类型
-    - new_consensus 达成共识</code></pre>
-<h2 id="2-hiddenApi"><a href="#2-hiddenApi" class="headerlink" title="2. hiddenApi"></a>2. hiddenApi</h2><pre><code>- 空工作流，plugin触发，plugin根据请求寻找对应controller
-- broker ——&gt; Dapper</code></pre>
-<h2 id="3-脚本"><a href="#3-脚本" class="headerlink" title="3. 脚本"></a>3. 脚本</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//徐庶 销售信息</span></span><br><span class="line">rtcrm(<span class="string">&quot;#new_account_id&quot;</span>).val()[<span class="number">0</span>].id.replace(<span class="string">&quot;&#123;&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;&#125;&quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> paramList = &#123;<span class="attr">accountId</span>:<span class="string">&quot;F8B6B7CB-D3D6-EA11-8ABD-005056AF9937&quot;</span>&#125;;</span><br><span class="line">rtcrm.invokeHiddenApi(<span class="string">&quot;new_Sales&quot;</span>, <span class="string">&quot;Opportunity/GetDelaymanagementDetailList&quot;</span>, paramList)</span><br><span class="line">rtcrm.invokeHiddenApi(<span class="string">&quot;new_Sales&quot;</span>, <span class="string">&quot;Opportunity/GetDisputesDetailModelData&quot;</span>, paramList)</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找到表单上一个对象</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">&quot;new_account_id&quot;</span>);</span><br><span class="line"><span class="comment">//获取属性</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">&quot;new_account_id&quot;</span>).getAttribute();</span><br><span class="line"><span class="comment">//获取值</span></span><br><span class="line">Xrm.Page.ui.controls.get(<span class="string">&quot;new_account_id&quot;</span>).getAttribute().getValue();</span><br><span class="line"><span class="comment">//直接获取字段</span></span><br><span class="line">Xrm.Page.getAttribute(<span class="string">&quot;new_account_id&quot;</span>).getValue()</span><br></pre></td></tr></table></figure>
-<p><img src="1.jpg" class="lazyload" data-srcset="1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br><img src="2.jpg" class="lazyload" data-srcset="2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
-<h2 id="4-sql语法"><a href="#4-sql语法" class="headerlink" title="4. sql语法"></a>4. sql语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Convert</span>(<span class="type">decimal</span>(<span class="number">18</span>,<span class="number">2</span>),new_overamount) new_overamount, <span class="comment">--保留小数位2位</span></span><br><span class="line"></span><br><span class="line">测试数据：</span><br><span class="line">销售信息 NOS202008050001 </span><br><span class="line">服务纠纷单 CSN202008130002</span><br><span class="line">逾期催收管理 BET202009290029</span><br><span class="line">new_account_id F8B6B7CB<span class="operator">-</span>D3D6<span class="operator">-</span>EA11<span class="number">-8</span>ABD<span class="number">-005056</span>AF9937 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+  <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="fb832362ffaa67a75b25bf9f40006a3b6a2e402e73cfde58a007998f57bf87b8">fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b49af037772f3e46f18423aa4ae0e90b891e96b741602d3e084c59c0c1c0130e9bdb553d69e7d9d1d6ca3b38a0fa496f858c78f7472b3e85bd4668709bd527b4e7c1aa440ef7beaabfcc5446c43700edbd5ca7970b3167cf4e33c976c7f04c89b14076d9f04ad1d97a99df1317a445d0417a488404b8c6d8a972d0fdcd74db648cdfc256f5a0ee57459b22b5a2a8c41d61b5405f310673839eba0cd0ee60b0552e986724d5d3131431b5b7dd4e89e6bda0d6879c18ab36b640a6c7d2994d457d7c2376823f62229ac81f1567226e4d6f0ec2246e6016be9c4dbaa159b4b8244abd65711a1df7f80f0e8938aaedc18fd72f93bd78403d59e39747f90e7a6f7a3b3984c7b4886e9b78dae17366bb9f1730b42917d00859bc8011afc0193f9181dd5668ba08952b37f0c307e804f137a2f1251c3851081d66d300062c3c07b67eda0ca20ee8a096358636966ac19deed4469c1a9fc85737043b80f23db42faf53121844165b82c8e3abcd194c498625478e67d7bac4fb36bb180cb671ce1c0c17157dda749755b48aa15e41c7cbdffb60d9baa0a138db85343249464da3d798bffee45ee0462506dee80d5eaada432bdc29c6719606d0ec4e5f6760a622312df8ee143985668b475967b434cfa00f822c404aa1961f82eb5b46152083cd05442c4a53725ed641793bdf890d95ddb28a59d7a5760e6115d7a4e9e24abd9a99c058f211cbb92343c11eb673348e069be8760172b17172a5c65a217fb04e04aa0abcb207f5299d77fbd9d1e363d1cdddf26d206ad2337435da5a0c1456779127f40ad6a68e922d7ac145ed848946688b41d9df8d3f683e32446e98b4c383cf9e174d869fa0fb03accd3a3020dbaaefa8d4c084a7bd96f74f6567b2550a66dfba66c96050ca71a7b2d9c97588f78906cf8a8a6cf8e58378e32a577a69df9beb95339af2c25b9f0097d34829de27ebcdf253d29c6cd26397ea890e6844d3722a3b2746dc5e879aa087c51b453825704886e57c1aba5a9a21b6d890bc626be902543f0d712fd10e763b7375e4c4c7c6d0498505cd0d2f71067ff340ecc34870ec3fcf21ffc5ca6e3e74bfca8b31b1bddb408988a804808b8464f76049dfa06cc24e26d99f36266dfe826bd1c3b2170f0148aa3716450d7571010bd92f8a984d406b9f9c78ae5db5a918516afe007954ef810224472ce76e82bf6a2e4af5605ad154d092f500640fef9eaded1a830b5d859a3b2419ef27299c8dddcb14fdb45b5ef2671187a3d94f257d1237c37b69441ec81b874fbd3dbea5f72231e704e58baff60144768a887c1959fde85f4c44ddabb0d4dca063e4db287ceed41adab6c65212a9c45cc92bc311d838c236b4665b41cd7964ae6f4258fb480b649ea54bd937c73f7b90fca127772bb05bb5b2878f9bba7bd048301905b8ee072fd8adcb695d4dced72003e9a269069a46205567bdbdc94ef3d756ed4753bd1f54b9837c123f4111e8838d2a42dce25e7437b7b4de8a6c98f0a6239ce01c87c03317d7404b81e3e089bba699ed392a920b8b0c5cb30da72c295f596dde715121e91c2aeeed9e918d33913111c9fc50ded110e5a0c9bc9b7f10142f7efd1ab4eac851da1c4b218ab51860d06b7bf44db586db3395e749714a9996115de20f9f9fee68f6e79a353b256528a98e1f33c901eacfb742a67ff9d7ac3f9bf62fa3b76b73a344f4f1e8b8d0000b2351ed20b9a964cfd4a31184bbc23e8f0c2b92709b84ff548c4b662af5fa464102c75fad07d83641492c9eea529b85725f85c93fe40fb2602f650b97edaee244e522d69a9e16e4895d072acef6805d71967cca6938946e8cbd46bc006d87c779b26adbdc6c26851a61abd34d290a55e0c95220076df8fdeab6e1de20ca07c685d885b9005da9836e4f0d8b0cd14aebce15f6e2328a46fbd119af182fa4af37cb0b7ceb9beedb32ad7abbeca8edc78f92ca938c5dd02edbb722f262ec5d42c7c4cf441a3adbefce3180ddf9a98023ef9b64f16143cca68a29a83c827deae53663318ca1121511acb373e3058e63a45d1df22d3e7f0bc0e8776a999f6e31be5febb4c994cb203561f8a2b8326622a6bbaab421ab7411312b198a0cfd8adcb85bfa3b5aa2a103a6d7a3ca453dd1957b7accb03ac81cdbf9b2c4d5f77cc1ecc5a094cbe13876dc78f110981150b50c93e724649b8109e452c05eb1f0c0a5e3f4ad7338f04b187215e512f50226eda476f7bde2c8897651be9e65a2567b6fa24ce3682c7bf372268ba3439fd55623d3f6ac78d2d587e9181b2d0d16bd42b5e102536418ec396f03a1b82f2bb2da625824512d48840f7a5f2d50c09fca4a674f2dc917ade75e46d40537e11e6f81e544912370dc0ca2f286155f92b6dba87a174bd69c6cd94eca4a82ea4022c1a2f89df89304edf1d2665c85da9ff4be7fc1ebfd4099a9ac5b648cc6a31c8d45cd459ab0c36535910a6ca97c98a05fb5d0b3fd3cd77c08c26dc9968c4ce7abaee46d634c39371dedad266e78e15918417f35918d40b83a7ae4cca8d3e1f8f7e7b2cdac4e8ba1b8c5cd2fd27a3b4e847899d8c7df082ada8de010cd1a9676d3646d7411717dd0dae5542364c02630ce30637d9eabbecef2a98664bb7f521af82aabf14cb08fbbc396200140eb02ac965a2cc8d4b8bf419a7c7ccac5da8ea5ce3ae7701f87c583f24014411eadd80ba9af313d43a38901f986b1766512f6eda0a51d51fc2faf5c3524c1e9c695acbc2002ed08974a0f91d838796aca0669af13fdaaf8ad0809d48397f99a37ea478e818ef448db55b8396a7010d61fc6b4a1f6487f4fa060f3c9a2d470468d1704d8366c70d170f10b93f5ac064ab155ae1a0421a26f2e5714c71e69cb802542bd3fc7bff5f1a5558d4368613b028de764313bb8a9ed3839bd7ea1bc29f8026617d26645cfc79abb9835aa1c99aafd6d53c08797d9519595d023369fa190b0c9acb9091dc03e7122c87c34aed99342978c14884e5acdd0e6ddbbb0bea219c8cca8708812a749843a0cf4712e46941bb4adc27e7aab1faf5a98d2f65bfab0f07a80e51701967126d95651f3724c2042a8fb7101df7cb04d51d5362f7b4b7b3711ea77376d0a44afa9d6ae7c0ffb4c9298f87c203ace91d4cc2d8ddb569b120d044782d8fd9c74415c9a20484f751a012a5f85a088a92781f99d0f48e2c247fc4101eddc310f0c17baff78d0b08be0326866f9de1e764dd1c9b128aae7fe9e2ffabf0e8723fe3874ee4120bfa71ce19a8958c06decc4f780b91fb4ab1a6b688f06d9229279655b521701fbd324ed43cbec683ad46ab2d3b543e645bacf618954b4a789a994d6c3fa413df5524133e69aebe81d94abfb428e22089391c3a579cdab69b02afe2eef0388391c87ac31e63aebd019d7655fd9dd38888062b90f478934ff230d8cb803ee2590abdfe8aba314b69fc244d04279a216f62c65df8cbfffd998c0e42a7c7a6b86d4958d39f3ed8bccfd2eab206ae9a475cdba99c9e92ad775ed34cad16ac40d94d3eabb155a1ddc0c8a0fb55ba2af4d922e3fca34f3c3be14ae72ddf44c7fc6f1d50fa8e5fdbdc34a86f4dc91a9289041d75035b54ea0c6723e7bffa6cb2511cf0874307d02117fa8174feccaad43f3567ad1b7344f24c54cc99afdd50c092ff12254939c8d126f90134a3ed6d1614cc9e56776ab0acf78bd7b19740a2da7e099a24e4dae130b20e39b1d590b84e60ff85150bdd855f600a97c8e3fdef5bef462687b57b3781d321ea5c89e6f7b300a5fa162b7cf094391d144b23fcad84936ca10049f7c85ce8181491cebf16208efcb532b082db589f70e71613ef5bf7d105e504459637d608942ec4c0c0fba136319df7a85742723d1ce357fae910881c79a68df499e6795d5263bdfbf38fb71b7802408a5f5b82c6c370b85c427d8398ed9d30d152d48d857036f43cde7334121184d64030b935a9ace18b74d5ad4f55925c9db1a4eacb98f29f7eb05e2e82efb591d75da38b1a219136f23448da5b0c94ad047c9485045a36f2e80f871a6351a78e1a188d976aefd5d52bdd2f9b247cf12dc154e7a5371396b827d651f38795707407ab1b416bfb85139cd390c5ce2cf8403039120c274ad23cd3a8200a51a0bc5ca8a4ef648272f0d36a303be6d5e9c32b47294ab1c343e175c5dbd3b9ab6f15fab55c32f2e06755b85e1ae171a9d8590d72d6283fe3bc0e6d43bbe318da41ca0b6bdc16127f4f7ef1d5032be89a6b269f0c726397525c773e4ab29cc93371bc19cdf5954e540be77456e02c08a9b329a7cca884c5fadfc300c1b3c1d9e3a0414f4bb8ea1848448e2947434a927491955d78bf58af3bd5f701270b258f4d49e5d83a74874ed2f36d6691a0e703cf0f82dd9afcf5a9702d4035eb8b691743a2896243d24df90ec684ca31c8e445426e4dc4cd6f3e15b56b2e714446255ca9bfd7fa8aef658179281a64359e0b94348a09cd224c980bf9e6e3e6878d745cef738cc7bd32de0cc022077b1bf70f2bb003fba56fcf7c15f211597c61cb9ec854301d7b80448f9bec64fc1505decd13573f4d0bd366b0d7f1fbcf880ca6f6dea89c8071ceb000f7d2702d13d96d5a2cb957dde38e7bc004a17e8a0861677ac5811acb16812f391f62ab1ce77bcb1f38adfc37b6fecca321b49425c2039c9b323e19438914fa5d73471485c5c0ada6d47f4085de1c7d1b8a6941874c2c57a7af7503c697f7917cd63951c25e9471978a46e5fc922cfe290dc4fd400d6cfc57eb11a6db6e4f7a746147bb56f738eeb18bf6077a21f52130332744b3905589e575fba3ea1f39ec26345b36098a057664c24da0466cfd6ad4cdf688f53025d25b50686e7f5bff447af484cb89ed57ce1c8d8a742538742b03ddda56956d2bcf603f21ca23a12bd0b83f8b69a5a7cb7ad3720e3c547a7cfdce752ea69cf48e362ee80dea9b50d1db3179712bf1433834d403dad8365018df4e8709bc2981ca28a444a1ee71478c2bc6a596fe4c8d24a06bcf977f42c38de6d4434d8fbff2a5dbebce4ca9ea469509b193efd1726df7ffe059fab99b70e659fc52bd0988f31dc140c08c3435b0d50aaccccb3008d123bb5dbd837c07ea41ac93afdacfd987bfb4f0106baf8ff41e5520b577a149942be5945fd3036578f2dc4a2040f255974b0081b40b2a00a4d1e942fbb6b580407a66abccffbfd4cb9b796ee45e5ac979c148d29c28eeb78de5dcf5fc380ad3d8bded23374730edfe4c834d8a9ab2ac73625cd7cc5fe139a623c2d2c88513904602516fe48ae5fef77d67db6410715a01b634c134fc1a9a43cc2ac6ea5996f7576bc8c495f91d55ac6b2c1e950e33d3f0840c7c17991f7ac9dacc66b3e3dfda1cec50691ced4e0440a318d841fee8bf796ead2e6a0e601865ec0495447e21cf75e67160b8301cace1a15cf9cb79ec3f6d842a91cae2b11a2709eafb54b052d19bd1a7fc6ac4ba22596cbfd2b52f1b3ee986e29b0fbf0fa58394944e5a12e80c5b306afe905c65c96d52ffd010af2e89fb4fd5a4a56b1aa1bc131c0a2edc9fa7546087609712d625858a96437f32d28ce9b36ebcdaf5ca78f1da1290e11513accc949f462b8382d355f0752273ee1137b2475e6c4d7fe4943f05fa1354b0402e824ee5814846c37f9a53092bb7d36850e092f244b4859ef156c83807550efe42e52380058924c9af9a7b171e3f0dee11c906669b57946328268ae7af30d51bcf61bc451c73fc0769ca1e61c89f0aec05593fd1722da5756817c02e7762b79631b2011319c930de9a5c1f3ce69cd67246d51324e662cc6088cf783897e14b7271a3ae8942431d6c0f2cd4af61ef99bdce4f44ade1bdba3ea1ddd2c30f51c3523cceef8b070a5aaec5e62942fa74cfa3e3143cac52c0617530bee7c682e40dd08d3de108f2578f7e3dba212ab46a26eda884e70cfa058ecbaccc8bbb29a9b62cecb61681e15cd36ee4183c989f8ae41aea7c6798238154d5f18528e345d2ff1b2bc0e92500e81fb97a3d6a882762bd7b6cf8fae4fa3afb7416e8a71eb89ffed8826e5534a16ecb17a3f3cb019007c7ba29c0bb9dd40686ca434682c7b8df02318093868428033cc221cf662b0da89d93ad2ea33819f799920efea7226bc287ca837a668475f8c4f4d3128988e00304cfd70a2951db082617c63516bc14e6a621184aa10b8eb6917ffcf38e17df30723494616e0e675ecd3d53d6ee4356f0eb61e860993ec61f3d2afa55ae118adc5b1dc8f27129c6cc5bad5d0d4c376bf37960c5688dca8bc318cf330c723a4287cea4aa85930aee22532711fe435076861b8e1f4e5349d849769d2420f631dcf03950bfa7a5212a32755ed5c36d42761e38317147091be5b1d8c9ed38ec65d7f9381ff245da54175ba8631d584afbc34539a6e1c28e6dc53abbf6561a29805a8e060778060ef7b8b0a5c7ea49c441ae6797662e6ae8f54f79ac907206c2d0d05dc8b7a37cd32dd135032836e1829614099ad34246a00226b316fce4e7de6885395a31c2982900031686417e0b48fb32b9c61cdabe48658b1177b6d522d164aa79bb19a3a51d9227bc147b080651acad414f35b1cb5e12d4c638698c90dcf9f00b0b9e7faa65b6fd264295999e72182</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   
   
   
@@ -1083,10 +1075,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-22T14:22:42+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T21:37:39+08:00">
   <a class='notlink'>
     <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 22, 2021</p>
+    <p>更新于：Jan 26, 2021</p>
   </a>
 </div>
 
@@ -1095,7 +1087,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%94%80%E5%94%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>销售</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BE%90%E5%B7%A5%E9%87%8D%E5%9E%8B/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>徐工重型</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%94%80%E5%94%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>销售</p></a></div>
 
 
         
@@ -1108,7 +1100,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1120,7 +1112,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1132,7 +1124,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/11/09/%E9%94%80%E5%94%AE%E4%BF%A1%E6%81%AF%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2/&title=销售信息自定义页面 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1177,13 +1169,7 @@
     <a class='next' href='/2020/11/05/%E9%94%80%E5%94%AE%E5%86%85%E9%83%A8%E8%81%94%E7%BB%9C%E5%8D%95/'>
       <p class='title'>销售内部联络单<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
       <p class='content'>
-内部联络单号 
-设置 &gt; 自动编号 &gt; new_sal_contactform
-
-
-根据销售信息单自动带出 √
-销售信息    new_opportunity_id（内联单)
-客户...</p>
+  fe8ef1ecebcef2a435afafe09880d555b8a7161d15605f394485ae824100e7a1e0cba906f16a7e0c49fc626ae6fcab...</p>
     </a>
     
   </div>

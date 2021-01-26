@@ -18,9 +18,11 @@
   
   <title>发货通知单二维码 - 李明华的博客</title>
   
-    <meta name="keywords" content="CRM,销售,报表">
+    <meta name="keywords" content="徐工重型,CRM,销售,报表">
   
 
+  
+    <meta name="description" content="这里有东西被加密了，需要输入密码查看。">
   
 
   <!-- feed -->
@@ -695,7 +697,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -735,7 +737,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(23)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(24)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -823,7 +825,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>49.2k 字</div>
+          <div>37.6k 字</div>
         </div>
       
 
@@ -845,7 +847,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:17:02 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Tue Jan 26 2021 21:42:12 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-01-26 日</div>
           
         </div>
@@ -913,7 +915,7 @@
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" style="display:none" >
     
   <header>
     
@@ -1013,17 +1015,18 @@
   
 
   
-  <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
-<p>成品资源出库时使用的发货通知单中二维码信息增加：<br>1、产品信息(物料名称) new_contractdetail_id<br>2、合同号 (合同单号) new_contract_id<br>3、最终客户 new_finalaccount_id<br>4、运输方式 new_shiptype –单行文本<br>5、产品送达地 new_shipplace  –单行文本<br>6、交货联系人 new_contact2 –单行文本</p>
-</blockquote>
-<h2 id="代码位置"><a href="#代码位置" class="headerlink" title="代码位置"></a>代码位置</h2><blockquote>
-<p>RekTec.Crm.Workflow.Sales.ShipmentController.CreateQRCode</p>
-</blockquote>
-<h2 id="OrganizationService-Retrieve"><a href="#OrganizationService-Retrieve" class="headerlink" title="OrganizationService.Retrieve"></a>OrganizationService.Retrieve</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OrganizationService.Retrieve(<span class="string">&quot;new_ord_shipment&quot;</span>, <span class="keyword">new</span> Guid(shipmentid), <span class="keyword">new</span> ColumnSet(<span class="keyword">new</span> string[] &#123; <span class="string">&quot;new_name&quot;</span> &#125;));</span><br><span class="line">Entity accountclassification = OrganizationService.Retrieve(<span class="string">&quot;new_accountclassification&quot;</span>, classificationId, <span class="keyword">new</span> ColumnSet(<span class="keyword">true</span>));</span><br><span class="line">columnSet: 传入字段时为字段，传入<span class="keyword">true</span>为所有字段，传入<span class="keyword">false</span>只查询主键</span><br></pre></td></tr></table></figure>
-<h2 id="修改字段大小"><a href="#修改字段大小" class="headerlink" title="修改字段大小"></a>修改字段大小</h2><blockquote>
-<p>自定义项字段详情中可设置字段长度</p>
-</blockquote>
-
+  <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="fae27941146856272a86936b6a9b1adc4bf3c53fcfb453a389c9bc3944a7e080">fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b4ed315eb4d910083bf249e274f2382fc3cec11336b83744383840753d7b121a9caa03f4a091904c18db1443af13affad5c5e3be81c6859a0b57f4104b7096eb7f505a6ae066bad6a67212e05e59204b3c59c44ffab7d3adf3f918bf759a4373be879da04790ca154f4c90ed8de549b87823961dfa9d9eee9143e9d9662a0c63b3f6be94bc3095fa37238ca4f32b1f3b2ced61aa936e8e22cc3e61f2f22005b3a20d53222bd81a13547008f02be40aab6f9d4d58724f787ea3676e3262684159ebdc187830ac3c804cf5eb909d3bdc117a5061f835c481fc79f8a04f2e8197ce24ab6562108f3dcdf32c20453a17139f85520a20244ac2e4d582f281a1238ff4fc456d3b598e3589208343a9e03de5cc0aafdc70da3da2fb593f81f188dae1101e17db250b76758d1f72c2f571252c65bb7148df89ee8e4f4b8b9be8a865f61fdce8fa699248b25e4474bfc64b4433fd30ca86704d67b4b4a933865558a070f9c3537bac16f4edf25900c9dbe4bfa770f7e5306f84fcfbba75e4769e4d4214feffd48e0aa0fb6d4ffada6857a55aef910a3ffedd59681b0fe84f574af1ba1ea974ec4abe506123deb6f07d88658709de11f2402c3ce376780c7e565fc407e41f3ef0d999b8f8882e4e5d1892dda48a5d2ad3b35428bab9397f5a76a3f9a055dfaa74fd7e24cd14ffab3e71fe20b96364712c8ba87c3a6dbef6a9b0a0110e3363a8f3372c869073ff8723473ef1bc73442a39fd3d78a593f3db7c68682a3dc3658b9060c76f13c1d137a9fed1600b5de3d5e850ee6e82fa9cb9fda67d27d8f7eddd7a42bcafa3ade68d3cef0f73e4a9ea18ce3f48fcb32f715b3f8f5b4258eec88dfac4656f121fd1d76000430357c4f3d00346000e8d3428e7e2046e786918b4e512ef4160d43f1bd063a736ef393a1a594a12cb1d0d4dc11eb907afaab39c84c6eaf1e3ad106463a5a8fde87315019fb0cc1173d5f0a182aebda5ec6aa768fb7fc31db2e1a7209e52861cd451cc75826d54aaef1faf5d392ceb40ea76f40a5e4b9301f8b457e6468054e898bf78d86f1a7305a9cc522b41f6846cb44804ee6e9ca679663dfe4eeaefe357b5e9b87d0d7ce0aaadeecbfad731b22497808f09511a4c95970eb44b59cb96bb3e6d0b3811740b0c32a1e7324dc5b206a8ee95d3fce33bc212bb2f1bef8d0d4303cd9fb83f461ca28515d24c7184f9058fc2a45fe13e1da120a71f4663739d91ddf767cb334f6d0b6ee6cb8884f32407c745a145123d06e5031612a1338e67384f9dcf3a693201b66844c97fb731f789d251d7cd96b3367637332abae7d4e8c786b9287e74edf0156da81536c3bf2027898c42677608ba5f4eba00ae4415ad11729e37d5cdabd831aeb29267095de24fdd3b47a7caecc4b006242acb2eaf64cb4843f5d17aa6fa7c9e833effc3796b4b84f6be8e933d0151ac0bb3f0fe1a932e55621aa914ec638e40def4dc717b8b17dfc6b12b838bbc6f672cd2cd5f4338f7bd917e31a1494c7b789d8b39c25002f3672670ed32d926e21cc320e71446453620ea0ad88414fd3f263f803d1061dc050f7d93aeffd5e969eddb5d7ba6eea570b3f89a24a32d9792566027062cce5036513c42aa52d702e838ecb3356418e73e645c3376c50c4a5789132a9574152d88cb30dd6eb2727c3a9b7d495d5def72ec60660becbec202fad95700727c386ca93d63d7012bde91592fa8ec1a5f0d61066abbfdce4d32d6fe901c150802dfdb939df69bbdf9fed4d6082dc863e31052f302e7843c958b116c23de94600b06dd8afcf63d7b15af0106dc21dcccb133cc853b98840d4eb7a59c37f99c26f9789d59e093029d50e6f12817b04c28c17ae9aea83f9994c3884c81b905b282f837d6f0c76858b057447cd42f66db37afec6a40e7b1e83329963dbcc8431cea5d5fae0cdec85380f534edb8d47d18bb7fc0ff926db9edd68ca57552533b9e22a9ad2c54a7ae6005d50510b59f24ab713a901a30039a824e6b30ba4f0af5dfba0e6155c8dd1da4904d3cbaabd4ba5fffbe3dbd583fd632615e31a366cdba7c78f8606f028ee8f2e31f8209d5c27dbf1aef778dcbcfb7917dbb5dc5533035a2ba751f68596ab40a91371a0271c292d74a785c5bd0de4a48f411f52b37c95325166298719c08fbc63731adb84282189f143ca7927a69173be8170a1814b6bcd9320f9ccac9548171b5f096e4b2cb99460bfd949f3bfbb7ed776e9518550afaf1db1057093205bba389b26a79aca4a41eade941c7b712143fdb1914373d379609faa14bf1fc8eea997d9a93afeb3db9ba7739d01e001be5a83b63e1ca2493a9444cb1a3672507f416b702530c28296a0e0be2e3028c3c767b94af1dd518f56a81998c00a82b4af2223217cff40147ac12957fbf374765c8f18bc8c639c1db73704a3eb7e13e693e4b276d3ecee1f8e52fc1a61564620b53dedd9785f7e9a06e7d28b664345c5412d0221ef1ebe314239214ef207898a7b29ed7cfd8734ec9e8e42cdc6c8dc6df5a9f469cda16f9cab94ba469b7ce4a8723ecc9af280d32e738818b9967844df022ec95a6fad02dc0ad0e25d97792aa1a27a072dbc0779605c91dc55d1d8b73acfea31781fd3b84ec3832ae0a70f40dc6e6af77c28a0d0fc98b34512e159b0d5c111aa8f5ff19f4f4f44798ba215d29588643a405052f4890d2f314f346713f65267191c1e1866026ea2781a37f7df93ab03283dcbab49e9be860e437503d8f00bd5d10557c552d83f06b7f3feb97d10cb3ecc03c00fc18752c1adbcd64f23fb888d44a6284ee532b5f4dde6e92cb97a5155549255ec2f5f5d520d2042f610a4ffdd49006cd5c80e62d79392790f87c5e9284ecf3a82240f88d2f97f751633c47cc5b1f2617</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   
   
   
@@ -1072,10 +1075,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-22T14:23:06+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T21:37:02+08:00">
   <a class='notlink'>
     <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 22, 2021</p>
+    <p>更新于：Jan 26, 2021</p>
   </a>
 </div>
 
@@ -1084,7 +1087,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%94%80%E5%94%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>销售</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8A%A5%E8%A1%A8/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>报表</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BE%90%E5%B7%A5%E9%87%8D%E5%9E%8B/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>徐工重型</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%94%80%E5%94%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>销售</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8A%A5%E8%A1%A8/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>报表</p></a></div>
 
 
         
@@ -1097,7 +1100,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1109,7 +1112,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1121,7 +1124,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/11/17/%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5%E5%8D%95%E4%BA%8C%E7%BB%B4%E7%A0%81/&title=发货通知单二维码 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
           
           >
           
@@ -1153,7 +1156,8 @@
     
     <a class='prev' href='/2020/11/18/%E6%88%90%E5%93%81%E8%B5%84%E6%BA%90%E6%8A%A5%E8%A1%A8/'>
       <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>成品资源报表</p>
-      <p class='content'>从字符串中提取数字、字母、中文123456789101112131415161718192021222324252627282930313233343536/*方法一: 一个一个找出来*/CRE...</p>
+      <p class='content'>
+  fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b4537be39e9ebc89afc8ee09480806e0...</p>
     </a>
     
     
