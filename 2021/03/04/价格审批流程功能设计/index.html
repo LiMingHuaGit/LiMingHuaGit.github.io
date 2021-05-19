@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="index,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2020 - 李明华的博客</title>
+  <title>价格审批流程功能设计 - 李明华的博客</title>
+  
+    <meta name="keywords" content="徐工重型,CRM,销售">
   
 
+  
+    <meta name="description" content="这里有东西被加密了，需要输入密码查看。">
   
 
   <!-- feed -->
@@ -541,7 +543,7 @@
 
   
   
-      <div class='cover-wrapper  dock' style="display: none;">
+      <div class='cover-wrapper post dock' style="display: none;">
         <canvas id="header_canvas" style="position:absolute;bottom:0;z-index: 1;" width="900" height="350"></canvas>
         
           <div class='cover-bg lazyload placeholder' data-bg="/images/22.jpg"></div>
@@ -622,8 +624,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">价格审批流程功能设计</div>
   <div id="pjax-enable-cover">true</div>
   <div id="pjax-comment-path"></div>
   <div id="pjax-comment-placeholder"></div>
@@ -715,7 +717,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
 
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">85</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -727,7 +729,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -767,7 +769,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(27)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(30)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -777,7 +779,7 @@
           <li><a class="flat-box"
             title="/categories/%E6%8A%80%E6%9C%AF/" href="/categories/%E6%8A%80%E6%9C%AF/"
             id="categoriesE68A80E69CAF"
-            ><div class='name'>技术</div><div class='badge'>(22)</div></a></li>
+            ><div class='name'>技术</div><div class='badge'>(27)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E7%94%9F%E6%B4%BB/" href="/categories/%E7%94%9F%E6%B4%BB/"
@@ -833,7 +835,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>77 篇</div>
+          <div>85 篇</div>
         </div>
       
 
@@ -855,7 +857,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>41.7k 字</div>
+          <div>43.3k 字</div>
         </div>
       
 
@@ -877,8 +879,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Feb 10 2021 09:16:58 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-02-10 日</div>
+            <div id="last-update" style="display: none;">Wed May 19 2021 17:09:46 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-05-19 日</div>
           
         </div>
         
@@ -928,7 +930,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-02-10 日';
+            document.getElementById('last-update-show').innerHTML = '2021-05-19 日';
           }
         </script>
         
@@ -939,85 +941,288 @@
 
   
 
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" style="display:none" >
+    
+  <header>
+    
+      <i class="fal fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="toc-text">业务流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1"><span class="toc-text">模块设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-text">功能开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#crm"><span class="toc-text">crm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5"><span class="toc-text">批量导入</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
 
 </aside>
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
+  <article
+  class="article post white-box reveal md shadow floatable article-type-post"
+  id="post" itemscope itemprop="blogPost">
+  
+
+
+  
     
       
+        <div class='headimg lazyload' data-bg='/images/xcmg.png'></div>
+      
+    
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        价格审批流程功能设计
+      </h1>
+      <div class='new-meta-box'>
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/04/17/hello-world/">
-        Hello World
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/images/wallhaven-959zd1.jpg">
+    <p>李明华</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fal fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fal fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 4, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-      
+      <div id="lc-pv" data-title="价格审批流程功能设计" data-path="/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/">
+        <i class="fal fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+
+  
+  <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2687b66a661eb62e9ea17d8d296128dfd34987ac33cc1f767168cae972ee2776">fe8ef1ecebcef2a435afafe09880d555d907009426142505a2e80700904f53b4f43f84425715652eec4bb5efc6ae0dd495994fe934f9422ec1249192749aac165468a462948a7db845195ec52ba56a63eccc4097f2262a57a846af38b73f3f794d9d145647ccf3486d8944dfb5fa36202f1a4113b1ce16ff0ed8f55f818d328d822fa6dee53e9b6df3282f1fac4ef75c38c52b7a50716b8e1c5b3203fd147884376ee00b086e522b3c5e968e8146e9553030ac248ff11591125c620441b4835c9d1bb73e866c431658b2e352c92f777f1ff1ecce23d1196a4fdd93609dced48e5c6a1b8afbb171b65ce208c656eac0145af03f7455c4e41ed0bb175fb74951c6ceaf1bc8ffef6fc787606ea9d19455c58a47c591205454884a6696587381a7d083d152ab61a043c6dc3fb9f09e9599994c405facee6315319b3f8a8f9eefe7d0f7d044f32f0ec53e4e1275ee88d1e2e3c11995a22c6dfba77a3b18e40ccc8b79685983f1f11dc4758e8e7ceff009f6fb87460166bc76f3c08b67d3f9779da48926b0a3680b8918945767b26dd304c72e00c2d4b858c54e9f0221574a1f368e08be7683d4474cc14db4dc8a8d3a4177d9f1f2656943fa04ef11f81d044bd4b8cb840c3e37a87e1228bda366bdddf5045f00ca0f0ad229ed16ab8442f29f0eec6bd783d91d5411ba205a9a17d7ca3f69d933a58a64437d470aa181e6fc27a3f4e32b25b0add2adc69ab12d7eeadea4e361d9f62c6654c36836cd09cd4228761ecd1673ed078dbb5146509cf21460ad1880a2ffadfbb67eedeeb22e9669338f0c0cac273918474b2454994a49bb834ec5a78f8c7f3b2a5c738531167c3fd096142cfee0ee3d0760755cbc0ccbd52a19afe249ac4cd313652e15acca8104c12e3475ad448ca81aa54a9f816520773ae4774f0f28b8a30b664c01522b15fc079ef4e51b8ddf391d634f3732d8fe44804a4d2d3659d7969745953bd3e308eb4cd78c8aa6cfb6802eb9c6441d32b61e8740793a83305e9c669309ff8d039a0531b2fafebbf8138b16baba80b01ac9a2f90634d9db1e8d87d245ddfa86530c2cd5847c47bb2d929e17229ffa155bea4b177b8b56bf07b532359f8dcb3f8b4e5e002a69a7f0cffc65654b7bf056cf0da864ed2b691ebae1ea72f23d06102c11a6e7e190f795d817d3ca9be14483b4425a9ec19a867d8134a3282523a934499d49b002a43fb71df306719b821838f873cae6c12054f39ccdb7171dee4108173bbf4700312e5963f38c113559fe6f12023d5aa40ebdd190bab04f4d321f37c745f04d50f5e7bedf285853ddcdc5e6685867a4b5235b89365cca3109708e9195b26939bf3a9d2192a1f9324fb4779948456bb2f485bd9332e15326df872159ab9f74e9b712ff77ad4f83c6e1c0a4f5d82b94c1d2d60f9049e5d9e857dad974839ecebdc21ef7e5a3738a772c0636780d8f6861ed85a82df3357b24768a9c35468026dc75ec4358210448ae8c9d98347eb46cec90d04a3058161c6227d4b1fa7501903feb07345ef5e916208e54f011b50d806a2156246b2e1474affc51f3ff1dabe7fd6519b7dec4616fd28ada1d85036aacb5fcdbe8d0795a9914b42868254cbdd0022ff62392ed099ab7876cb4165a605c92e89a6e433c8ce420af77ca02da19602ea1fe2e6dbf6dbe6838b7275e4d29460d40d87441e7b311561f265e0e8d57c5d8ff29c1f8ee2a6d20ea85a9155cb66e1ebc89e805202ea02b3cb9f24afb34f2bfa8fbead20d57d6d041f321f39a5c256b8a1b06f6bf29e40a7b9a1606f8b36ce1f6926032ff786d3915c4ab6acb2eec2b1038908500df30b83cc6e97762cfd3394fec0e0a7071cc22bfefc334742b725d877b46954a8a410ff32daf03589ff99441a230d79906fff931aa000230b57906f1d196c91e7a233774391ef59daf5ce6e57a074987e586c3b04788f83b303e89cac7c82adc59b352c9e9a7949f51f2495b07591a84e856f3587819d6ccab687075000414b87e6f1a487b6e04ce5b37793b91306d34dbd8b203092945fc907969ebe3c624ac054b3ac16639f28da5919fb2e7b6f530ea704ee285982852b3dfa7ca4124f2fc940d67cc557236e32d8c63f892fd53101588248b2247a5a38bc06a33615be9b2657222a3dbaf009696950ab5925cde1ecb2e12b44d3a32007512a6240e1cf9b42963e73d22b3a84d7f72f3bad8fa6e04fe1ad33fc74602ae6dca3d4d556b166b84e9669daff332d56585ea1b1fa6dce1724307a83351c58bb8f3f9a7191cc0df25c573ef74395d6fbc810a0d263c95dc7fc6c5149d84c736fbe59ca88e76e0e17f936e40592acb6e6bff33e01dca072a04e5d5e762d5663134796963450b395f5ffdbe4bf14cbe7b29b21d2d6f99fa5375821fe116416bddd894e50d82ea0df5dfa9bbf2a454b1f1922164fd995f09735a2dd4ec392ee6ffa10ca19e30e8dbe72aaaefe9000af1777fb56bc6b705ec4b694f6df9fcb4d41dad93f9da4998d310a4535eb4fef42513526fe72bf849f560c16fd1c21c172b46ee584e1aef227ccf39cb4dd85857dce4382d7979cd0e014f19d866fc94b1425702dd659c6344ecdb6328833f2c7ceac1282cd367069f96c2f1878a0d96a7d4fec93ee614fc6ccdcff33be4e32b0b89937e95dae90b2409d2834bb31fcbb032e0e825294ac9bf5eb3f2d93eb49978d933422b13fb5781be865c926b728ac2f3321f67ac9b8d25540b36cb5a9f893065d434629ce453d4e96dee68d0a93fbeeac29f826a50eb722799ee13d910e2146bdc66e26b4fe5539eeae4e0c92935c632d632f2eb072ffaa4afe9b19be72d8242ab4d1603367792cec3043290343e4ef46965d744d562d66dc90e7217b9da7a6d474955fb340edb795464fc32beb4059bf8a576c59f966f3a8373d75e612c84d73e260abc47b139b1a8db40f9cf6c2703bc760e2b474622108a3708bc2c5522d5d08c8fc15ed6a4999cd2d9f595f8793a34bcd1930d582c5fb643351b1a8141238db522b9e5c8dea7d51d0308f8428335cc494101b5d4430fbe94c9cd67d0c828753d91d1b37696d9ea5df52dc2bfcab3d6969079dc6c9aa788709715834dff6db5f9b215a1e52a6e2af017a1c513133631ae5e74aff0b5f80a0bb1443c580e1774b52c5fb8d151870e3992e74e8044b972a2403c2897cbd28abb2cf10ef487b218da631d7c6d6dc3334f2fdd4138a76a3507e4c99fbaff60fcc5769d8a77b7e9168cc5941e04cfcd3f315d3f752c037f895428f0b5caab3c490be95eb93c633ef60e8e9804b653149e9fcacf757e8bd34fed453c737580bb3463a405aa628829e33e8b64ca4e4e1fb4a3a6c8ab681ff63201ac99dce218d29aa97a3ed14a1e14a7f6d7ae098bf234347f130f12b38e320df8245ae600d8deec59f4bf761008da8969aa224cac9989e9cd8fa52f8da396b2ca5eddbf5db46b07c69f3afadc1e140b5b06f25c57691579cdf2f49eb0759c92a57ffbba0d1838be16999731884a7ab43db042ae84ca0279e81b1a1280c89ede1937f62843233efb364937e7ef394892dfd2eb5f223abf3e2ae3c89098e63b4fc9e386067d6fb184cbd3639102fcd4b2ef92b2c71e45d1657cf364e334bad5f5cc2df27a905779fa8229b3476a6fce0183c1646569772b01445bbb83a4552792c84045210e6c004df4d18f587807cbe0afca4cdd0bbb63615d55958c07b69cfc73faace97e988ae4b625455e720d9502e9b97267c16f3b92b6e3b58dd4e373a529d13df5e492ae8b50bd06e941bf58e355d6a6f352201a05122bae91e46ae92e466b24089e78c97bc00683f36850327f0bcbe4d8b3aceefa86089e1451b97badfadfd5a48d90f244d4e521b88ea1e3eb2ab0d5cba646512d31d75946c03463095e9c44fa84b58755127c929a563600f04df5119c93c735ddaf2a3e74f3ee0679cf6e9690391781d270fd4af27b9ab1efbb7799bcfdbbf53583924e696e32700de3ef028a49935eed9a1770155a209b7b28e5d8e0995777175070765327cdb8171494e495f5271689fb8d605626f7764df350f2b7270b2dba3f5630f4245e909230f0b53fca04beb4af1e63920ebf91f43342cb97be2633e6dd5da5922d74d3811da59bbcf3ad3ed3bc0c02ca410bbfefd97466314f6e506bb32f46ed3ddeee7fda70dfc9eec534a85ac43a67f3ba67245a2c14b701092fe0fb5428f2dd01f9383b386c9c68522d3787edfa12f158dd2c8052abb2c580f0637264a1a4fa50f9d6478441bd2af467445c0427274321165a16fc3867ca996354fe23d48d76aac0f23942cfe43daa2a1afee9efad48ad9c397a56820f38ebaaa3fe780eb39c23db0e5d58f2dde1eb33fdf9daa56cdbcbae8766fef6ca7c559ffd42270a5624d3926fe5d5532548bade3b4ea47e2a598bb1fa8075679cb77c0ee52b9eb000eb2a1e5bb865dfebd18576d8aca3c0054af3ae7a0128e7d8f0af909f0d87780f1b097d6aaa07678f740d77f8aa358b6a600d23f6d9816680b3a06e61722e6309ee2ef6e74f8d59bda6c820e85a0d017ebde787408fa8b8040397b11eb4d478dd90562144bdc0b4f965312437b1e3a1912f7964e3c84521fcc5929995969c7e29b312608ab4b0f65869e8b3943b03203f1bdebcec81a7a3959d0d83f0f14aedfc3783cf16e15cc0da46d1e10a5f0d7abc77503be529e89b9c5d1906f395c9488624f878bbe383bbae88a9ed128d8440ef930eb49ddf30911acbe1bfe49f6e079037fb5c056f976655ccdde3f1b9b8cee958dc9c20a1cd924d4f0e9e9aa7d7f991211e15ad3acfa4542a4b05bdcbc4aa2b98e01c85fa594ce77bdb7dca7b2a45175c4a7a289acab7650c9c3a3913e759751fb5fc8d219abb6a6ff0fe1d6449e8b17b1214e47ab620bbb142</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+  
+  
+  
+  <div class='footer'>
+    
+    
+    
+    <div class='copyright'>
+      <blockquote>
+        
+        
+        <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+        
+        
+        
+        <p>本文永久链接是：<a href=https://liminghua.gitee.io/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/>https://liminghua.gitee.io/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/</a></p>
+        
+        
+        
+        <p>点击扫描下方二维码,支持作者!</p>
+
+        
+        
+      </blockquote>
+    </div>
+    
+    
+    <div class='donate'>
+      <div class='imgs'>
+        
+        <img src='/images/wepay.jpg'>
+        
+        <img src='/images/alipay.jpg'>
+        
+      </div>
+    </div>
     
   </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        <time>2020-04-17</time>
-        
-      </div>
+  
+  
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
       
-        <div>
-            <a class='readmore' href='/2020/04/17/hello-world/'>
-            阅读全文
-          </a>
-        </div>
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-12T20:00:56+08:00">
+  <a class='notlink'>
+    <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 12, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BE%90%E5%B7%A5%E9%87%8D%E5%9E%8B/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>徐工重型</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CRM/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>CRM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%94%80%E5%94%AE/" rel="nofollow"><i class="fal fa-hashtag fa-fw" aria-hidden="true"></i><p>销售</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/&title=价格审批流程功能设计 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/&title=价格审批流程功能设计 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2021/03/04/%E4%BB%B7%E6%A0%BC%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/&title=价格审批流程功能设计 - 李明华的博客&summary=这里有东西被加密了，需要输入密码查看。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
       
     </div>
+  </div>
+
+
+  
   
 
+  
+  <div class="prev-next">
+    
+    <a class='prev' href='/2021/03/10/1047-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E7%9B%B8%E9%82%BB%E9%87%8D%E5%A4%8D%E9%A1%B9/'>
+      <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>1047.删除字符串中的所有相邻重复项</p>
+      <p class='content'>Q给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。
+在 S 上反复执行重复项删除操作，直到无法继续删除。
+在完成所有重复项删除操作后返回最终的字符串。答案保...</p>
+    </a>
+    
+    
+    <a class='next' href='/2021/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93comment/'>
+      <p class='title'>数据库comment<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+      <p class='content'>
+comment:注释
+
+mysql12345678910111213create table test1(field_name int comment &#x27;字段的注释&#x27;)co...</p>
+    </a>
+    
+  </div>
+  
+</article>
+
+
+
+
+  <article class="post white-box reveal shadow floatable" id="comments">
+    <p ct><i class='fal fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2020/page/4/">
-            <section class="post prev white-box shadow floatable" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          5 / 5
-        </p>
-        
-      </div>
-    
-  
+  </article>
 
 
-	
+
+
+
 </div>
-
-
       </div>
       
   

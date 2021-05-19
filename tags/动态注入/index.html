@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="index,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Hello World - 李明华的博客</title>
+  <title>Tag: 动态注入 - 李明华的博客</title>
   
 
   
@@ -539,7 +541,7 @@
 
   
   
-      <div class='cover-wrapper post dock' style="display: none;">
+      <div class='cover-wrapper  dock' style="display: none;">
         <canvas id="header_canvas" style="position:absolute;bottom:0;z-index: 1;" width="900" height="350"></canvas>
         
           <div class='cover-bg lazyload placeholder' data-bg="/images/22.jpg"></div>
@@ -620,8 +622,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">true</div>
-  <div id="pjax-pageTitle">Hello World</div>
+  <div id="pjax-ispage">false</div>
+  <div id="pjax-pageTitle"></div>
   <div id="pjax-enable-cover">true</div>
   <div id="pjax-comment-path"></div>
   <div id="pjax-comment-placeholder"></div>
@@ -649,6 +651,7 @@
 
         
         
+
 
 <aside class='l_side'>
   <div style="margin-bottom: 16px;border-radius: 8px;" class='shadow floatable widget_author desktop'>
@@ -713,7 +716,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
 
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">85</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -725,7 +728,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -765,7 +768,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(27)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(30)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -775,7 +778,7 @@
           <li><a class="flat-box"
             title="/categories/%E6%8A%80%E6%9C%AF/" href="/categories/%E6%8A%80%E6%9C%AF/"
             id="categoriesE68A80E69CAF"
-            ><div class='name'>技术</div><div class='badge'>(22)</div></a></li>
+            ><div class='name'>技术</div><div class='badge'>(27)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E7%94%9F%E6%B4%BB/" href="/categories/%E7%94%9F%E6%B4%BB/"
@@ -831,7 +834,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>77 篇</div>
+          <div>85 篇</div>
         </div>
       
 
@@ -853,7 +856,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>41.7k 字</div>
+          <div>43.3k 字</div>
         </div>
       
 
@@ -875,8 +878,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Feb 10 2021 09:16:56 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-02-10 日</div>
+            <div id="last-update" style="display: none;">Wed May 19 2021 17:10:00 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-05-19 日</div>
           
         </div>
         
@@ -926,7 +929,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-02-10 日';
+            document.getElementById('last-update-show').innerHTML = '2021-05-19 日';
           }
         </script>
         
@@ -937,268 +940,94 @@
 
   
 
-  
-    
-    
-
-
-
-  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fal fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-    </div>
-  </section>
-
-
-  
-
 
 </aside>
 
 <div class='l_main'>
-  <article
-  class="article post white-box reveal md shadow floatable article-type-post"
-  id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        Hello World
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="/images/wallhaven-959zd1.jpg">
-    <p>李明华</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fal fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 17, 2020</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="Hello World" data-path="/2020/04/17/hello-world/">
-        <i class="fal fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable">
+  
+  
+  
+    <div class='headimg-div'>
+      <a class='headimg-a' href="/2021/02/17/spring%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
+        
+          
+            <div class='headimg lazyload' data-bg='/images/spring-logo.svg'></div>
+          
+        
+      </a>
+    </div>
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/02/17/spring%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
+        spring动态注入
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        参考网址
+https://blog.csdn.net/qq_33661044/article/details/79767596
+https://blog.csdn.net/lichuangcsdn/article/details/89694363
+https://github.com/L316476844/springbootexample
+https://blog.csdn.net/yur...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2021-02-17</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
         
       </div>
-    
-  </div>
-
-
-  
-
-  
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-  
-  
-  
-  <div class='footer'>
-    
-    
-    
-    <div class='copyright'>
-      <blockquote>
-        
-        
-        <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-        
-        
-        
-        <p>本文永久链接是：<a href=https://liminghua.gitee.io/2020/04/17/hello-world/>https://liminghua.gitee.io/2020/04/17/hello-world/</a></p>
-        
-        
-        
-        <p>点击扫描下方二维码,支持作者!</p>
-
-        
-        
-      </blockquote>
-    </div>
-    
-    
-    <div class='donate'>
-      <div class='imgs'>
-        
-        <img src='/images/wepay.jpg'>
-        
-        <img src='/images/alipay.jpg'>
-        
-      </div>
-    </div>
-    
-  </div>
-  
-  
-  
-
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-22T11:55:03+08:00">
-  <a class='notlink'>
-    <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 22, 2021</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://liminghua.gitee.io/2020/04/17/hello-world/&title=Hello World - 李明华的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://liminghua.gitee.io/2020/04/17/hello-world/&title=Hello World - 李明华的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://liminghua.gitee.io/2020/04/17/hello-world/&title=Hello World - 李明华的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
+        <div>
+            <a class='readmore' href='/2021/02/17/spring%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/'>
+            Read More
+          </a>
+        </div>
       
     </div>
-  </div>
-
-
-  
   
 
-  
-  <div class="prev-next">
-    
-    <a class='prev' href='/2020/04/17/aboutMe/'>
-      <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>About Me</p>
-      <p class='content'>
-A Coder, live in XuZhou, China .  
-
-
-姓名：李明华
-现居：江苏徐州
-GitHub：LiMingHuaGit
-QQ：2290320152
-微信：someone...</p>
-    </a>
-    
-    
-  </div>
-  
-</article>
-
-
-
-
-  <article class="post white-box reveal shadow floatable" id="comments">
-    <p ct><i class='fal fa-comments'></i> 评论</p>
-    
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-  </article>
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
 
 
-
-
-
+    
+  
 </div>
+
+
       </div>
       
   
