@@ -717,7 +717,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
 
-                <span class="site-state-item-count">85</span>
+                <span class="site-state-item-count">86</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -769,7 +769,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E4%BD%9C/" href="/categories/%E5%B7%A5%E4%BD%9C/"
             id="categoriesE5B7A5E4BD9C"
-            ><div class='name'>工作</div><div class='badge'>(30)</div></a></li>
+            ><div class='name'>工作</div><div class='badge'>(31)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
@@ -835,7 +835,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>85 篇</div>
+          <div>86 篇</div>
         </div>
       
 
@@ -857,7 +857,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>43.3k 字</div>
+          <div>43.4k 字</div>
         </div>
       
 
@@ -879,8 +879,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed May 19 2021 22:00:41 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-05-19 日</div>
+            <div id="last-update" style="display: none;">Tue May 25 2021 18:46:47 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-05-25 日</div>
           
         </div>
         
@@ -930,7 +930,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-05-19 日';
+            document.getElementById('last-update-show').innerHTML = '2021-05-25 日';
           }
         </script>
         
@@ -949,6 +949,67 @@
   <section class="post-list">
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2020/10/29/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/">
+        聚合函数
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        聚合函数
+聚合函数是对列中的一系列数据进行处理，返回单个统计值
+
+SUM()
+获取单个列的合计值
+
+MAX()
+计算列的最大值
+
+123456SELECT Name,new_ageFROM AccountWHERE new_age = (SELECT MAX(new_age) FROM Account)
+MIN()
+计算列的最小值
+
+AVG()
+计算某个列的平均值,忽略NULL值
+
+COUN...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2020-10-29</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+        
+      </div>
+      
+        <div>
+            <a class='readmore' href='/2020/10/29/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1417,51 +1478,6 @@ AbstractCollection
       
         <div>
             <a class='readmore' href='/2020/08/29/jdk1-8-Optional/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/07/14/jdk1-8-%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/">
-        jdk1.8_默认方法
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        默认方法1234567891011121314151617181920212223public interface List&lt;E&gt; extends Collection&lt;E&gt; &#123;    ...    default void replaceAll(UnaryOperator&lt;E&gt; operator) &#123;        Objects.r...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        <time>2020-07-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-        
-      </div>
-      
-        <div>
-            <a class='readmore' href='/2020/07/14/jdk1-8-%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/'>
             Read More
           </a>
         </div>
