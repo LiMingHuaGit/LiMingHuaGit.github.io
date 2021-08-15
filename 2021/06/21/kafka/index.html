@@ -715,7 +715,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
 
-                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-count">103</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -727,7 +727,7 @@
             </div>
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -777,7 +777,7 @@
           <li><a class="flat-box"
             title="/categories/%E6%8A%80%E6%9C%AF/" href="/categories/%E6%8A%80%E6%9C%AF/"
             id="categoriesE68A80E69CAF"
-            ><div class='name'>技术</div><div class='badge'>(33)</div></a></li>
+            ><div class='name'>技术</div><div class='badge'>(35)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E7%94%9F%E6%B4%BB/" href="/categories/%E7%94%9F%E6%B4%BB/"
@@ -833,7 +833,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>101 篇</div>
+          <div>103 篇</div>
         </div>
       
 
@@ -855,7 +855,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>50.1k 字</div>
+          <div>51.5k 字</div>
         </div>
       
 
@@ -877,8 +877,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon Jun 28 2021 19:54:47 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-06-28 日</div>
+            <div id="last-update" style="display: none;">Sun Aug 15 2021 14:05:32 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-08-15 日</div>
           
         </div>
         
@@ -928,7 +928,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-06-28 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-15 日';
           }
         </script>
         
@@ -1066,7 +1066,7 @@
 
 
 <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p>kafka<br>路径 /usr/local/kafka_2.12-2.4.1<br>willing<br>路径 /home/willing/willing</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">kafka</span><br><span class="line">1）查看当前服务器中的所有topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --list</span><br><span class="line">2）创建topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --create --replication-factor 1 --partitions 1 --topic OCPC.UPLOAD.SH2</span><br><span class="line">选项说明：</span><br><span class="line">--topic 定义topic名</span><br><span class="line">--replication-factor  定义副本数</span><br><span class="line">--partitions  定义分区数</span><br><span class="line">3）删除topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --delete --topic first</span><br><span class="line">4）发送消息</span><br><span class="line">bin&#x2F;kafka-console-producer.sh --broker-list 172.17.16.10:9092 --topic first --consumer.config .&#x2F;config&#x2F;consumer.properties</span><br><span class="line">5）消费消息</span><br><span class="line">bin&#x2F;kafka-console-consumer.sh  --bootstrap-server 172.17.16.10:9092 --topic REPORT.API.SH2  --from-beginning --consumer.config .&#x2F;config&#x2F;consumer.properties</span><br><span class="line">--from-beginning：会把主题中现有的所有的数据都读取出来。</span><br><span class="line">不指定。接着上次读</span><br><span class="line">6）查看某个Topic的详情</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --describe --topic first</span><br><span class="line">7）修改分区数</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --alter --topic first --partitions 6</span><br><span class="line">8）启动kafka</span><br><span class="line">bin&#x2F;kafka-server-start-saal.sh -daemon config&#x2F;server-sasl.properties</span><br><span class="line">9)查看消费者组</span><br><span class="line">export KAFKA_OPTS&#x3D;&quot;-Djava.security.auth.login.config&#x3D;&#x2F;usr&#x2F;local&#x2F;kafka_2.12-2.4.1&#x2F;config&#x2F;kafka_client_jaas.conf&quot;</span><br><span class="line">.&#x2F;kafka-consumer-groups.sh --bootstrap-server 172.17.16.10:9092 --command-config ..&#x2F;config&#x2F;consumer.properties --describe --group &#39;test-consumer-group2&#39;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bin&#x2F;kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic maxwell</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">kafka</span><br><span class="line">1）查看当前服务器中的所有topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --list</span><br><span class="line">2）创建topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --create --replication-factor 1 --partitions 3 --topic CLUE.FORWARD.SH2</span><br><span class="line">选项说明：</span><br><span class="line">--topic 定义topic名</span><br><span class="line">--replication-factor  定义副本数</span><br><span class="line">--partitions  定义分区数</span><br><span class="line">3）删除topic</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --delete --topic first</span><br><span class="line">4）发送消息</span><br><span class="line">bin&#x2F;kafka-console-producer.sh --broker-list 172.17.16.10:9092 --topic first --consumer.config .&#x2F;config&#x2F;consumer.properties</span><br><span class="line">5）消费消息</span><br><span class="line">bin&#x2F;kafka-console-consumer.sh  --bootstrap-server 172.17.16.10:9092 --topic REPORT.API.SH2  --from-beginning --consumer.config .&#x2F;config&#x2F;consumer.properties</span><br><span class="line">--from-beginning：会把主题中现有的所有的数据都读取出来。</span><br><span class="line">不指定。接着上次读</span><br><span class="line">6）查看某个Topic的详情</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --describe --topic first</span><br><span class="line">7）修改分区数</span><br><span class="line">bin&#x2F;kafka-topics.sh --zookeeper localhost:2181&#x2F; --alter --topic first --partitions 6</span><br><span class="line">8）启动kafka</span><br><span class="line">bin&#x2F;kafka-server-start-saal.sh -daemon config&#x2F;server-sasl.properties</span><br><span class="line">9)查看消费者组</span><br><span class="line">export KAFKA_OPTS&#x3D;&quot;-Djava.security.auth.login.config&#x3D;&#x2F;usr&#x2F;local&#x2F;kafka_2.12-2.4.1&#x2F;config&#x2F;kafka_client_jaas.conf&quot;</span><br><span class="line">.&#x2F;kafka-consumer-groups.sh --bootstrap-server 172.17.16.10:9092 --command-config ..&#x2F;config&#x2F;consumer.properties --describe --group &#39;test-consumer-group2&#39;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bin&#x2F;kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic maxwell</span><br></pre></td></tr></table></figure>
   
   
   
@@ -1115,10 +1115,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-24T10:51:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T15:38:22+08:00">
   <a class='notlink'>
     <i class="fal fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 24, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
